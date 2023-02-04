@@ -9,8 +9,8 @@
 
 <body>
 
-    <h1>Practice App</h1>
-    <img src="/practice/images/cavapoo.jpg">
+    <h1>Practice App...</h1>
+    <img src="images/cavapoo.jpg">
 
 </body>
 
