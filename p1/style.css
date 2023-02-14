@@ -1,0 +1,27 @@
+#entry {
+    color: dimgrey;
+    font-family: monospace;
+}
+
+#form {
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #95e4d2;
+    border-radius: 20px;
+
+
+}
+
+#instructions {
+    background-color: #d3e4e0;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 20px;
+}
+
+#results {
+    background-color: #3adeb8;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 20px;
+}

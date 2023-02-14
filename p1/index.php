@@ -2,17 +2,15 @@
 
 session_start();
 
-$ogWord = '';
+$originalWord = '';
 
 if(isset($_SESSION['results'])) {
     $results = $_SESSION['results'];
     
-    $ogWord = $results['ogWord'];
-    $arrayWord = $results['arrayWord'];
+    $originalWord = $results['originalWord'];
+    $alphaWord = $results['alphaWord'];
     $isPalindrome = $results['isPalindrome'];
     $vowelCount = $results['vowelCount'];
-    var_dump($results);
-
 } 
     
 
