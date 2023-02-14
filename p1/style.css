@@ -1,3 +1,7 @@
+.container {
+    max-width: 570px;
+}
+
 #entry {
     color: dimgrey;
     font-family: monospace;
@@ -8,8 +12,6 @@
     margin: 15px 0;
     background-color: #95e4d2;
     border-radius: 20px;
-
-
 }
 
 #instructions {
