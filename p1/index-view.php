@@ -25,6 +25,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row" id="instructions">
                     <div class="col-12">
                         <div class="text-start">
@@ -37,7 +38,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="row" id="form">
                     <div class="col-12">
@@ -60,8 +60,6 @@
                 <div class="row" id="results">
                     <div class="col-12">
                         <div class="text-start">
-
-
                             <h2> Results for: <span id="entry"><?php echo $originalWord ?></span></h2>
                             <div>
                                 <h3>Is it a palindrome?</h3>
@@ -79,13 +77,11 @@
                             <div>
                                 <?php echo $vowelCount ?>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <?php } ?>
             </div>
-        </div>
         </div>
     </main>
 </body>

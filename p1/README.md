@@ -3,7 +3,8 @@
 + URL: <http://e15p1.andlearn.me>
 
 ## Outside resources
-n/a
++ https://www.php.net/manual/en/
++ https://getbootstrap.com/
 
 ## Notes for instructor
 n/a
