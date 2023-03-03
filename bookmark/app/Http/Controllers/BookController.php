@@ -13,7 +13,11 @@ class BookController extends Controller
     }
 
     public function show($title) {
-        return 'Results for the book: '.$title;
+
+        # TODO: Query the database for the book where title = $title
+        return view('books/show', [
+            'title' => $title
+        ]);
     }
 
     public function filter($category, $subcategory) {
