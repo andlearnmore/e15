@@ -9,7 +9,7 @@ class BookController extends Controller
     public function index() {
     # In the future, we could query a database for all the books
     # But for now we'll just return this hypothetical placeholder
-    return 'Here are all the books...';
+    return view('books/index');
     }
 
     public function show($title) {

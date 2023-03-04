@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('title')
-    {{ $title }}
+    Index
 @endsection
 
 @section('head')
@@ -13,9 +13,9 @@ this .css file does not exist yet, but we can create it
 @endsection
 
 @section('content')
-    <h1>{{ $title }}</h1>
+    <h1>Index</h1>
 
     <p>
-        Details about this book will go here...
+        Here are all of the books
     </p>
 @endsection
