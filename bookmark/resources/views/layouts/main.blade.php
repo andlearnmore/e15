@@ -20,6 +20,12 @@
         @yield('content')
     </section>
 
+    <section>
+        It's day {{ date('z') }} of {{ date('Y') }}. How many books have you read this year?
+    </section>
+
+    <br>
+
     <footer>
         &copy; Bookmark, Inc.
     </footer>
