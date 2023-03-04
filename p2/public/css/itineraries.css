@@ -1,0 +1,18 @@
+#form {
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #95e4d2;
+    border-radius: 20px;
+}
+
+#logo {
+    /* 
+    Actual logo width is 725; 
+    we’re displaying half-size so it looks sharp on high-resolution displays 
+    */
+    width: 362px;
+}
+
+h1 {
+    font-family: "Helvetica", sans-serif;
+}

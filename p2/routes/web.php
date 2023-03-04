@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItineraryController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'welcome']);
+Route::get('/contact', [PageController::class, 'contact']);
+
+Route::get('/itinerary', [ItineraryController::class, 'index']);
+Route::get('/itinerary/show', [ItineraryController::class, 'show']);
