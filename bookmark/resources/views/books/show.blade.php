@@ -1,21 +1,21 @@
 @extends('layouts/main')
 
-@section('title')
-    {{ $title }}
-@endsection
-
 @section('head')
-    {{--
-Page specific CSS includes should be defined here; 
-this .css file does not exist yet, but we can create it 
---}}
     <link href='/css/books/show.css' rel='stylesheet'>
 @endsection
 
 @section('content')
-    <h1>{{ $title }}</h1>
+    @if (!$book)
+        Book not found <a href='/books'>Check out the other books in our library...</a>
+    @else
+        <img class='cover' src='{{ $book['cover_url'] }}' alt='Cover photo for {{ $book['title'] }}'>
 
-    <p>
-        Details about this book will go here...
-    </p>
+        <h1>{{ $book['title'] }}</h1>
+
+        <a href='{{ $book['purchase_url'] }}'>Purchase...</a>
+        <p class='description'>
+            {{ $book['description'] }}
+            <a href='{{ $book['info_url'] }}'>Learn more...</a>
+        </p>
+    @endif
 @endsection

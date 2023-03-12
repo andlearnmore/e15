@@ -1,0 +1,92 @@
+{
+    "the-great-gatsby": {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_year": 1925,
+        "cover_url": "https://hes-bookmark.s3.amazonaws.com/the-great-gatsby.jpg",
+        "info_url": "https://en.wikipedia.org/wiki/The_Great_Gatsby",
+        "purchase_url": "http://www.barnesandnoble.com/w/the-great-gatsby-francis-scott-fitzgerald/1116668135?ean=9780743273565",
+        "tags": [
+            "novel",
+            "fiction",
+            "classic",
+            "wealth"
+        ],
+        "description": "The Great Gatsby is a 1925 novel written by American author F. Scott Fitzgerald that follows a cast of characters living in the fictional towns of West Egg and East Egg on prosperous Long Island in the summer of 1922. The story primarily concerns the young and mysterious millionaire Jay Gatsby and his quixotic passion and obsession with the beautiful former debutante Daisy Buchanan. Considered to be Fitzgerald’s magnum opus, The Great Gatsby explores themes of decadence, idealism, resistance to change, social upheaval and excess, creating a portrait of the Roaring Twenties that has been described as a cautionary tale regarding the American Dream."
+    },
+    "the-bell-jar": {
+        "title": "The Bell Jar",
+        "author": "Sylvia Plath",
+        "published_year": 1963,
+        "cover_url": "https://hes-bookmark.s3.amazonaws.com/the-bell-jar.jpg",
+        "info_url": "https://en.wikipedia.org/wiki/The_Bell_Jar",
+        "purchase_url": "http://www.barnesandnoble.com/w/bell-jar-sylvia-plath/1100550703?ean=9780061148514",
+        "tags": [
+            "novel",
+            "fiction",
+            "classic",
+            "women"
+        ],
+        "description": "The Bell Jar is the only novel written by the American writer and poet Sylvia Plath. Originally published under the pseudonym “Victoria Lucas” in 1963, the novel is semi-autobiographical, with the names of places and people changed. The book is often regarded as a roman à clef because the protagonist’s descent into mental illness parallels Plath’s own experiences with what may have been clinical depression or bipolar II disorder. Plath died by suicide a month after its first UK publication. The novel was published under Plath’s name for the first time in 1967 and was not published in the United States until 1971, in accordance with the wishes of both Plath’s husband, Ted Hughes, and her mother. The novel has been translated into nearly a dozen languages."
+    },
+    "i-know-why-the-caged-bird-sings": {
+        "title": "I Know Why the Caged Bird Sings",
+        "author": "Maya Angelou",
+        "published_year": 1969,
+        "cover_url": "https://hes-bookmark.s3.amazonaws.com/i-know-why-the-caged-bird-sings.jpg",
+        "info_url": "https://en.wikipedia.org/wiki/I_Know_Why_the_Caged_Bird_Sings",
+        "purchase_url": "http://www.barnesandnoble.com/w/i-know-why-the-caged-bird-sings-maya-angelou/1100392955?ean=9780345514400",
+        "tags": [
+            "autobiography",
+            "nonfiction",
+            "classic",
+            "women"
+        ],
+        "description": "I Know Why the Caged Bird Sings is a 1969 autobiography describing the early years of American writer and poet Maya Angelou. The first in a seven-volume series, it is a coming-of-age story that illustrates how strength of character and a love of literature can help overcome racism and trauma. The book begins when three-year-old Maya and her older brother are sent to Stamps, Arkansas, to live with their grandmother and ends when Maya becomes a mother at the age of 16. In the course of Caged Bird, Maya transforms from a victim of racism with an inferiority complex into a self-possessed, dignified young woman capable of responding to prejudice."
+    },
+    "becoming": {
+        "title": "Becoming",
+        "author": "Michelle Obama",
+        "published_year": 2018,
+        "cover_url": "/images/Becoming.jpeg",
+        "info_url": "https://www.goodreads.com/book/show/38746485-becoming?from_search=true&from_srp=true&qid=skPceKNnGH&rank=1",
+        "purchase_url": "https://www.barnesandnoble.com/w/becoming-michelle-obama/1128038172",
+        "tags": [
+            "nonfiction",
+            "memoir",
+            "women",
+            "autobiography"
+        ],
+        "description": "In her memoir, a work of deep reflection and mesmerizing storytelling, Michelle Obama invites readers into her world, chronicling the experiences that have shaped her—from her childhood on the South Side of Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world’s most famous address. With unerring honesty and lively wit, she describes her triumphs and her disappointments, both public and private, telling her full story as she has lived it—in her own words and on her own terms. Warm, wise, and revelatory, Becoming is the deeply personal reckoning of a woman of soul and substance who has steadily defied expectations—and whose story inspires us to do the same."
+    },
+    "1619-project": {
+        "title": "The 1619 Project: A New Origin Story",
+        "author": "Nikole Hannah-Jones",
+        "published_year": 2019,
+        "cover_url": "/images/1619.jpeg",
+        "info_url": "https://www.goodreads.com/book/show/57717410-the-1619-project?ref=nav_sb_ss_1_10",
+        "purchase_url": "https://www.amazon.com/gp/product/B08XYPW4G7/ref=x_gr_bb_kindle?caller=Goodreads&tag=x_gr_bb_kindle-20",
+        "tags": [
+            "nonfiction",
+            "history",
+            "race",
+            "politics"
+        ],
+        "description": "The 1619 Project: A New Origin Story builds on The New York Times Magazine’s award-winning “1619 Project,” which reframed our understanding of American history by placing slavery and its continuing legacy at the center of our national narrative. This book substantially expands on the original 1619 Project, weaving together eighteen essays that explore the legacy of slavery in present-day America with thirty-six poems and works of fiction that illuminate key moments of oppression, struggle, and resistance. The essays show how the inheritance of 1619 reaches into every part of contemporary American society, from politics, music, diet, traffic, and citizenship to capitalism, religion, and our democracy itself. This legacy can be seen in the way we tell stories, the way we teach our children, and the way we remember. Together, the elements of the book reveal a new origin story for the United States, one that helps explain not only the persistence of anti-Black racism and inequality in American life today, but also the roots of what makes the country unique."
+    },
+    "how-the-word-is-passed": {
+        "title": "How the Word Is Passed",
+        "author": "Clint Smith",
+        "published_year": 2021,
+        "cover_url": "/images/Word-Passed.jpeg",
+        "info_url": "https://www.goodreads.com/book/show/55643287-how-the-word-is-passed",
+        "purchase_url": "https://www.amazon.com/gp/product/B08KQ4W18H/ref=x_gr_bb_kindle?caller=Goodreads&tag=x_gr_bb_kindle-20",
+        "tags": [
+            "nonfiction",
+            "history",
+            "race",
+            "politics"
+        ],
+        "description": "In a deeply researched and transporting exploration of the legacy of slavery and its imprint on centuries of American history, How the Word Is Passed illustrates how some of our country's most essential stories are hidden in plain view-whether in places we might drive by on our way to work, holidays such as Juneteenth, or entire neighborhoods—like downtown Manhattan—on which the brutal history of the trade in enslaved men, women and children has been deeply imprinted."
+    }
+}
