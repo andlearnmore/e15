@@ -22,4 +22,5 @@
             @endforeach
         </div>
     @endif
+    <?php dump($books); ?>
 @endsection

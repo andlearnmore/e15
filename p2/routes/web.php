@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItineraryController;
+use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -18,5 +18,5 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
-Route::get('/itinerary', [ItineraryController::class, 'index']);
-Route::get('/itinerary/show', [ItineraryController::class, 'show']);
+Route::get('/planner', [LocationsController::class, 'index']);
+Route::get('/planner/show', [LocationsController::class, 'show']);
