@@ -35,6 +35,7 @@ class PlannerController extends Controller
         return view('planner/index', ['locations' => $locations]);
     }
 
+
     // GET /create
     // Create the itinerary and redirect to /show.
 
@@ -88,7 +89,30 @@ class PlannerController extends Controller
 
         // TODO (IDEAL): Process here to get locations that are close together in sequence next to each other.
         // TODO (MVP): Process here to create $plans with $startTime and $endTime for each location
-        // START: Find location with earliest open and make that first location. $startTime = dayStart or $loc_open, whichever is later.
+        // START: find lowest open_time among $formPlaces array
+        // foreach ($formPlaces as $formPlace);
+        // dd($earliest);
+
+        // max_with_key($array, $key)
+
+        # https://stackoverflow.com/questions/4497810/min-and-max-in-multidimensional-array
+        # Set the first location in $itineraryLocations as the earliest open time ($min).
+            if (!is_array($itineraryLocations) || count($itineraryLocations) == 0){
+                return false;
+            } else {
+                $min = $itineraryLocations[0]['open_time'];
+            }
+        # Loop through $itineraryLocations; if there's an earlier time, reset $min to that time.
+            foreach ($itineraryLocations as $itineraryLocation) {
+                if ($itineraryLocation['open_time'] < $min) {
+                    $min = $itineraryLocation['open_time'];
+                }
+            }
+            
+        # Find first location in $itineraryLocations that has 'open_time' = $min
+            
+        # $startTime = dayStart or $loc_open, whichever is later.
+            //  
         // Step 0: $endTime = $startTime + loc_visit_length
         // $whereAmI = loc_metro
         // Add $startTime to array and array to $plans
