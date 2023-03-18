@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
 
 class BookController extends Controller
 {
@@ -26,55 +28,67 @@ class BookController extends Controller
         $books = Arr::sort($books, function($value) {
             return $value['title'];
         });
-
-
     return view('books/index', ['books' => $books]);
     }
 
-/**
-* GET /search
-* Search books based on title or author.
-*/
-public function search(Request $request) {
+    /**
+    * GET /books/create
+    * Display the form to add a new book
+    */
+    public function create(Request $request) 
     {
-        # ======== Temporary code to explore $request ==========
+        return view('books/create');
+    }
 
-        # Get all the properties and methods available in the $request object
-        // dump($request); # Object of type Illuminate\Http\Request
+    /**
+    * POST /books
+    * Process the form for adding a new book
+    */
+    public function store(Request $request) 
+    {
+        # Code will eventually go here to add the book to the database, 
+        # but for now we'll just dump the form data to the page for proof of concept
+        dump($request->all());
+    }
 
-        # Get the form data (array) from the $request object
-        // dump($request->all()); # Equivalent of dump($_GET)
-
-        # Get the form data from individual fields
-        // dump($request->input('searchTerms'));
-        // dump($request->input('searchType'));
-    
-        # Form data from individual fields can also be accessed via dynamic properties
-        // dump($request->searchTerms);
-
-        # Boolean to see if the request contains data for a particular field
-        // dump($request->has('searchTerms'));
-        
-        # You can get more information about a request than just the data of the form, for example...
-        // dump($request->path()); # "search"
-        // dump($request->is('search')); # true
-        //dump($request->is('books')); # false
-        //dump($request->fullUrl()); # e.g. http://bookmark.loc search?searchTerms=Harry%20Potter&searchType=title
-        //dump($request->method()); # GET
-        //dump($request->isMethod('post')); # False
-
-        # ======== End exploration of $request ==========
-}
-    return 'Process the search form...';
-}
-   /**
-    * GET /books/{slug}
+    /**
+    * GET /search
+    * Search books based on title or author.
     */
 
+    public function search(Request $request)
+    {
+        # Get the form input values (default to null if no values exist)
+        $searchTerms = $request->input('searchTerms', null);
+        $searchType = $request->input('searchType', null);
+    
+        # Load our json book data and convert it to an array
+        $bookData = file_get_contents(database_path('books.json'));
+        $books = json_decode($bookData, true);
+        
+        # Do search
+        $searchResults = [];
+        foreach ($books as $slug => $book) {
+            if (strtolower($book[$searchType]) == strtolower($searchTerms)) {
+                $searchResults[$slug] = $book;
+            }
+        }
+    
+        # Redirect back to the form with data/results stored in the session
+        # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
+        return redirect('/')->with([
+            'searchTerms' => $searchTerms,
+            'searchType' => $searchType,
+            'searchResults' => $searchResults
+        ]);
+    }
+    
+    /**
+        * GET /books/{slug}
+        */
 
     public function show($slug)
-        {
-
+    {
         # Load book data
         # TODO: This code is redundant with loading the books in the index method
 

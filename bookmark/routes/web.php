@@ -20,7 +20,10 @@ use App\Http\Controllers\ListController;
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
+# Make sure the create route comes before the `/books/{slug}` route so it takes precedence
+Route::get('/books/create', [BookController::class, 'create']);
 Route::get('/books', [BookController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
 Route::get('/search', [BookController::class, 'search']);
 
 Route::get('/books/{slug}', [BookController::class, 'show']);
