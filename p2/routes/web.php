@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LocationsController;
+use App\Http\Controllers\PlannerController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -18,5 +18,6 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
-Route::get('/planner', [LocationsController::class, 'index']);
-Route::get('/planner/show', [LocationsController::class, 'show']);
+Route::get('/planner', [PlannerController::class, 'index']);
+Route::get('/create', [PlannerController::class, 'create']);
+Route::get('/planner/show', [PlannerController::class, 'show']);
