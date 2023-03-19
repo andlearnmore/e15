@@ -41,7 +41,7 @@
                                 <h5>Do you prefer to get an early start on the day or close the place down?</h5>
                                 <input type='radio' id='early' name='timeSelection' value='early'>
                                 <label for='early'>Early Bird</label>
-                                <input type='radio' id='late' name='timeSelection' value=late'>
+                                <input type='radio' id='late' name='timeSelection' value='late'>
                                 <label for='late'>Night Owl</label>
                             </div>
                         </div>
