@@ -76,6 +76,9 @@ class PlannerController extends Controller
             };
         }
         dump($itineraryLocations);
+        array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'open_time'));
+
+        dd($itineraryLocations);
 
         ##### CHECK THAT THERE'S ENOUGH TIME TO DO EVERYTHING USER WANTS TO DO.
         # Calculate the number of hours of visit time anticipated.
@@ -105,34 +108,49 @@ class PlannerController extends Controller
         ##### SET UP FIRST LOCATION AND TIME.
         # https://stackoverflow.com/questions/4497810/min-and-max-in-multidimensional-array
         # Determine which of the $itineraryLocations has the earliest open time ($min).
-        # Start by setting the first location's open time to $min.
-        $min = (int)$itineraryLocations[0]['open_time'];
-        # Loop through $itineraryLocations; if there's an earlier time, reset $min to that time.
-        foreach ($itineraryLocations as $itineraryLocation) {
-            $min = ((int)$itineraryLocation['open_time'] < $min) ? $itineraryLocation['open_time'] : $min;
-        }
-        dump('Earliest open is ' .$min);
-            
-        # Find first location in $itineraryLocations that has 'open_time' = $min
-        $currentLocationKey = array_search($min, array_column($itineraryLocations, 'open_time'));
+        // DON'T NEED ANYMORE BECAUSE I'M SORTING BY OPEN TIME!!!
+        // # Start by setting the first location's open time to $min.
+        // $min = (int)$itineraryLocations[0]['open_time'];
+        // # Loop through $itineraryLocations; if there's an earlier time, reset $min to that time.
+        // foreach ($itineraryLocations as $itineraryLocation) {
+        //     $min = ((int)$itineraryLocation['open_time'] < $min) ? $itineraryLocation['open_time'] : $min;
+        // }
+        // dump('Earliest open is ' .$min);
+        
+        // # Find first location in $itineraryLocations that has 'open_time' = $min
+        // $currentLocationKey = array_search($min, array_column($itineraryLocations, 'open_time'));
+
+        # Determine initial arrive time.
+        $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
+        dump('Arrive time is ' .$arrive).
+        # START LOOPING THROUGH $ITINERARYLOCATIONS, BEGINNING WITH THE ONE WITH CURRENTLOCATIONKEY.
+
+        # Sort $itineraryLocations by open_time.
+
+
+
+
+
+
+
+
 
         # Add $arrive and $depart to currentLocationKey array element
-        $currLocOpen = (int)$itineraryLocations[$currentLocationKey]['open_time'];
-        $arrive = ($dayStart > $currLocOpen) ? $dayStart : $currLocOpen;
-        $depart = $arrive + (int)$itineraryLocations[$currentLocationKey]['loc_visit_length'];
-        $itineraryLocations[$currentLocationKey]['arrive'] = $arrive;
-        $itineraryLocations[$currentLocationKey]['depart'] = $depart;
 
-        // $currentMetro = loc_metro
+        // $depart = $arrive + (int)$itineraryLocations[$currentLocationKey]['loc_visit_length'];
+        // $itineraryLocations[$currentLocationKey]['arrive'] = $arrive;
+        // $itineraryLocations[$currentLocationKey]['depart'] = $depart;
 
-        # Add $currentLocation to $plans
-        array_push($plans, $itineraryLocations[$currentLocationKey]);
-        unset($itineraryLocations[$currentLocationKey]);    # Removes the used location from $itneraryLocations so we can 
-                                                            # count down until $iineraryLocations is empty.
-        dump($itineraryLocations);
-        dump($plans);
+        // // $currentMetro = loc_metro
 
-        // $arrive = $depart;
+        // # Add $currentLocation to $plans and remove used location from $itineraryLocations so we can 
+        // # count down until $itineraryLocations is empty.
+        // array_push($plans, $itineraryLocations[$currentLocationKey]);
+        // unset($itineraryLocations[$currentLocationKey]);                                                            
+        // dump($itineraryLocations);
+        // dump($plans);
+
+        // set $arrive = $depart;
         // if $arrive >= 12, lunchTime = true;
         // TODO: (0.5) If $lunchTime = true && $lunchComplete = false, add hour for lunch to $plan and set $lunchComplete = true 
         // TODO: (1) Is there another location? No: DONE. Yes: (1.5) With same loc_metro? No: go to next in array. Yes: go to that one
