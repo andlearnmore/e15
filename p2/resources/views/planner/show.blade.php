@@ -15,11 +15,12 @@
             <th>Opens</th>
             <th>Closes</th>
         </tr>
-        @foreach ($itineraryLocations as $plan)
+        @foreach ($plans as $plan)
             {{-- TODO: $itineraryLocations will become '$plans' --}}
+            {{-- TODO: Need to have conditional to look for day 1 and day 2, etc. --}}
             <tr>
-                {{-- <td>time</td> --}}
-                {{-- TODO: in Controller, make $plans with a $startTime and $endTime --}}
+                <td>{{ $plan['arrive'] }}:00 - {{ $plan['depart'] }}:00 </td>
+                {{-- <td>{{ $plan['depart'] }}</td> --}}
                 <td>{{ $plan['loc_name'] }}</td>
                 <td>{{ $plan['address'] }}</td>
                 <td>{{ $plan['loc_metro'] }}</td>
