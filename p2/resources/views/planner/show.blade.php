@@ -5,31 +5,36 @@
 @endsection
 
 @section('content')
-    <h1>{{ $itineraryName }}</h1>
+    <h1>
+        {{ $itineraryName }}</h1>
     <table>
         <tr>
             <th>Time</th>
             <th>Location Name</th>
-            <th>Address</th>
-            <th>U- or S-Bahn Stop</th>
-            <th>Opens</th>
-            <th>Closes</th>
+            <th>Details</th>
         </tr>
         @foreach ($plans as $plan)
-            {{-- TODO: $itineraryLocations will become '$plans' --}}
-            {{-- TODO: Need to have conditional to look for day 1 and day 2, etc. --}}
             <tr>
-                <td>{{ $plan['arrive'] }}:00 - {{ $plan['depart'] }}:00 </td>
-                {{-- <td>{{ $plan['depart'] }}</td> --}}
+                <td>{{ $plan['arrive'] }}
+                    @if ($plan['depart'] != '')
+                        :00 -
+                    @endif{{ $plan['depart'] }}
+                    @if ($plan['depart'] != '')
+                        :00
+                    @endif
+                </td>
                 <td>{{ $plan['loc_name'] }}</td>
-                <td>{{ $plan['address'] }}</td>
-                <td>{{ $plan['loc_metro'] }}</td>
-                <td>{{ $plan['loc_open'] }}</td>
-                <td>{{ $plan['loc_closed'] }}</td>
-
+                <td>{{ $plan['address'] }}
+                    <br>
+                    @if ($plan['depart'] != '')
+                        U- or S-Bahn Stop: {{ $plan['loc_metro'] }}
+                        <br>Hours: {{ $plan['loc_open'] }} - {{ $plan['loc_closed'] }}
+                    @endif
+                </td>
             </tr>
         @endforeach
     </table>
+    <br>
     <h2> Unscheduled Locations </h2>
     @foreach ($unscheduledLocations as $unscheduledLocation)
         <ul>
