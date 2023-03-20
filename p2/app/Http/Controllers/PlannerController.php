@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Symfony\Component\Mime\Header\UnstructuredHeader;
 
 class PlannerController extends Controller
 {
@@ -38,7 +39,7 @@ class PlannerController extends Controller
 
     // GET /create
     // Create the itinerary and redirect to /show.
-
+    
     public function create(Request $request) {
 
 ##### COLLECT FORM DATA AND SET UP VARIABLES
@@ -61,9 +62,6 @@ class PlannerController extends Controller
 
         # Set up variables and arrays
         $hours = 8; # One day will have $hours hours of activity.
-        $lunchTime = false; # Tracker for is it lunch time yet?
-        $lunchComplete = false; # Tracker for whether lunch has been eaten
-        $currentMetro = null; # Keep track of current metro stop
         $plans = []; # Array to keep track of the plans to print to /show view
         $itineraryLocations = []; # Array to keep track of data for each place submitted in $formPlaces
         $unscheduledLocations = []; # Array to keep track of locations that still need scheduling
@@ -74,8 +72,14 @@ class PlannerController extends Controller
                 array_push($itineraryLocations, $location);
             };
         }
+        # Sort $itineraryLocations array by close time and then open time to optimize array order.
+        # This way, the locations that open the earliest will be at the beginning of the array,
+        # and of those that open at the same time, the ones that close first will be first.
+        array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'close_time'));
         array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'open_time'));
-
+        // dump('INITIAL itineraryLocations:');
+        // dump($itineraryLocations);
+        
 ##### CHECK THAT THERE'S ENOUGH TIME TO DO EVERYTHING USER WANTS TO DO.
         # Calculate the number of hours of visit time anticipated.
         $timeNeeded = 0;
@@ -96,17 +100,30 @@ class PlannerController extends Controller
         } else {
             $dayStart = 9;
         }
-        dump('Day start is ' .$dayStart);
+        // dump('Day start is ' .$dayStart);
 
-        for ($day = 1; $day <= $tripLength; $day++) {
 
-            # Determine initial arrive time.
+        # Determine initial arrive time.
+        // $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
+
+        ##### LOOP THROUGH $ITINERARYLOCATIONS AND SCHEDULE OR DON'T.
+        for ($day = 1; $day <= $tripLength; $day ++) {
+            $nextDay = [
+                'arrive' => 'Day ' .$day,
+                'depart' => '',
+                'loc_name' => '',
+                'address' => '',
+                'loc_metro' => '',
+                'loc_open' => '',
+                'loc_closed' => ''
+            ];
+            array_push($plans, $nextDay);
+            $numberLocations = count($itineraryLocations);
             $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
-            dump('Arrive time is ' .$arrive);
+    
+            for ($i = 0; $i < $numberLocations; $i++) {
+                $depart = $arrive + $itineraryLocations[$i]['loc_visit_length'];
 
-            ##### LOOP THROUGH $ITINERARYLOCATIONS AND SCHEDULE OR DON'T.
-
-            for ($i = 0; $i < count($itineraryLocations); $i++) {
                 if ($arrive < $itineraryLocations[$i]['open_time']) { # Location isn't open yet. Insert a break time into schedule.
                     $break = [
                         'arrive' => $arrive,
@@ -126,40 +143,25 @@ class PlannerController extends Controller
                         $itineraryLocations[$i]['arrive'] = $arrive;
                         $itineraryLocations[$i]['depart'] = $depart;
                         array_push($plans, $itineraryLocations[$i]);
+                        unset($itineraryLocations[$i]);
                         $arrive = $depart;
                     } else { # We can't go because we'd leave after it closed
                         array_push($unscheduledLocations, $itineraryLocations[$i]);
+                        // dump('Unscheduled:');
+                        // dump($unscheduledLocations);
+                        unset($itineraryLocations[$i]);
+
                     }
                 }
-            }
-            $itineraryLocations = $unscheduledLocations;
-        };
+            }             
+            if ($day < $tripLength) {
+                $itineraryLocations = array_splice($unscheduledLocations, 0);
+                // dump('unscheduled to itinerary:');
+                // dump($itineraryLocations);    
+            } 
+        }
 
-
-// TODO: $itineraryLocations is not empty, start again at the next day
-
-        // $currentMetro = loc_metro
-
-        # Add $currentLocation to $plans and remove used location from $itineraryLocations so we can 
-        # count down until $itineraryLocations is empty.
-        // array_push($plans, $itineraryLocations[$currentLocationKey]);
-        // unset($itineraryLocations[$currentLocationKey]);                                                            
-        // dump($itineraryLocations);
-        // dump($plans);
-
-        // set $arrive = $depart;
-        // if $arrive >= 12, lunchTime = true;
-        // TODO: (0.5) If $lunchTime = true && $lunchComplete = false, add hour for lunch to $plan and set $lunchComplete = true 
-        // TODO: (1) Is there another location? No: DONE. Yes: (1.5) With same loc_metro? No: go to next in array. Yes: go to that one
-        // TODO: (2) Is the location open? Is the loc_open < $arrive? No: go back to step 1. Yes: go to step 3.
-        // TODO: (3) Is there enough time to visit it? Is $arrive < $closeTime? No: go back to step 1. Yes: go to step 0.
-
-        // dump($request->input());
-        dump('Final Itinerary Locations array:');                                                      
-
-        // dump($itineraryLocations);
-        // dump('Final Plans array:');                                                      
-
+        // dump('Plans:');
         // dd($plans);
         return redirect('planner/show')->with([
             'dayStart' => $dayStart,
