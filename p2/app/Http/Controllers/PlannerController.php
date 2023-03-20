@@ -41,10 +41,10 @@ class PlannerController extends Controller
 
     public function create(Request $request) {
 
-        ##### COLLECT FORM DATA AND SET UP VARIABLES
+##### COLLECT FORM DATA AND SET UP VARIABLES
 
         # Collect form info
-        $tripLength = $request->input('tripLength');
+        $tripLength = (int)$request->input('tripLength');
         $itineraryName = $request->input('itineraryName');
         $timeSelection = $request->input('timeSelection');
         $formPlaces = $request->input('formPlaces'); # This just gets the slug of each location
@@ -55,11 +55,9 @@ class PlannerController extends Controller
 
             };
 
-
         # Get data from .json file
         $locationData = file_get_contents(database_path('locations.json'));
         $locations = json_decode($locationData, true);
-
 
         # Set up variables and arrays
         $hours = 8; # One day will have $hours hours of activity.
@@ -68,6 +66,7 @@ class PlannerController extends Controller
         $currentMetro = null; # Keep track of current metro stop
         $plans = []; # Array to keep track of the plans to print to /show view
         $itineraryLocations = []; # Array to keep track of data for each place submitted in $formPlaces
+        $unscheduledLocations = []; # Array to keep track of locations that still need scheduling
 
         # Add data for locations being visited into an array called $itineraryLocations.
         foreach ($locations as $location) {
@@ -75,11 +74,9 @@ class PlannerController extends Controller
                 array_push($itineraryLocations, $location);
             };
         }
-        dump($itineraryLocations);
         array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'open_time'));
-        dump($itineraryLocations);
 
-        ##### CHECK THAT THERE'S ENOUGH TIME TO DO EVERYTHING USER WANTS TO DO.
+##### CHECK THAT THERE'S ENOUGH TIME TO DO EVERYTHING USER WANTS TO DO.
         # Calculate the number of hours of visit time anticipated.
         $timeNeeded = 0;
         foreach ($itineraryLocations as $itineraryLocation) {
@@ -101,65 +98,44 @@ class PlannerController extends Controller
         }
         dump('Day start is ' .$dayStart);
 
+        for ($day = 1; $day <= $tripLength; $day++) {
 
-        // TODO (IDEAL): Process here to get locations that are close together in sequence next to each other.
+            # Determine initial arrive time.
+            $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
+            dump('Arrive time is ' .$arrive);
 
-        ##### SET UP FIRST LOCATION AND TIME.
+            ##### LOOP THROUGH $ITINERARYLOCATIONS AND SCHEDULE OR DON'T.
 
-        # Determine initial arrive time.
-        $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
-        dump('Arrive time is ' .$arrive);
-
-        # START LOOPING THROUGH $ITINERARYLOCATIONS, BEGINNING WITH THE ONE WITH CURRENTLOCATIONKEY.
-
-        foreach ($itineraryLocations as $itineraryLocation) { # Don't use foreach loop because we can't get back to locations we've had to skip.
-            # Add $arrive and $depart to current array element
-            $depart = $arrive + $itineraryLocation['loc_visit_length'];
-            // TODO: if $arrive < open_time, create a break. 
-            // TODO: Add break to $plans with arrive = arrive, depart = open_time, loc_name = BREAK.
-            if ($arrive < $itineraryLocation['open_time']) {
-                $depart = $itineraryLocation['open_time'];
-                $loc_name = 'Break until the next location opens.';
-                $break = [
-                    'arrive' => $arrive,
-                    'depart' => $depart,
-                    'loc_name' => $loc_name,
-                    'address' => '',
-                    'loc_metro' => '',
-                    'loc_open' => '',
-                    'loc_closed' => ''
-                ];
-                array_push($plans, $break);
-                $arrive = $depart;
-            } else { 
-                # ($arrive >= $itineraryLocation['open_time'])
-                $depart = $arrive + $itineraryLocation['loc_visit_length'];
-                if ($depart <= $itineraryLocation['close_time']) {
-                    $itineraryLocation['arrive'] = $arrive;
-                    $itineraryLocation['depart'] = $depart;
-                    array_push($plans, $itineraryLocation);
+            for ($i = 0; $i < count($itineraryLocations); $i++) {
+                if ($arrive < $itineraryLocations[$i]['open_time']) { # Location isn't open yet. Insert a break time into schedule.
+                    $break = [
+                        'arrive' => $arrive,
+                        'depart' => $itineraryLocations[$i]['open_time'],
+                        'loc_name' => 'Break until the next location opens.',
+                        'address' => '',
+                        'loc_metro' => '',
+                        'loc_open' => '',
+                        'loc_closed' => ''
+                    ];
+                    array_push($plans, $break);
                     $arrive = $depart;
-                } else {
-                    $depart = $itineraryLocation['close_time'];
-                    $itineraryLocation['arrive'] = $arrive;
-                    $itineraryLocation['depart'] = $depart;
-                    array_push($plans, $itineraryLocation);
-                    // TODO: create new day
+                    $i = $i-1; # This lets us retry with the current location after the break.
+                } else { # We are trying to arrive after the location is open.
+                    $depart = $arrive + $itineraryLocations[$i]['loc_visit_length'];
+                    if ($depart <= $itineraryLocations[$i]['close_time']) { # We have enough time to visit before the place closes.
+                        $itineraryLocations[$i]['arrive'] = $arrive;
+                        $itineraryLocations[$i]['depart'] = $depart;
+                        array_push($plans, $itineraryLocations[$i]);
+                        $arrive = $depart;
+                    } else { # We can't go because we'd leave after it closed
+                        array_push($unscheduledLocations, $itineraryLocations[$i]);
+                    }
                 }
             }
-        }
+            $itineraryLocations = $unscheduledLocations;
+        };
 
-// TODO: else if $arrive > open_time && $depart > close_time (then $depart = $close_time)
 
-            // $itineraryLocation['arrive'] = $arrive;
-            // $itineraryLocation['depart'] = $depart;
-            // array_push($plans, $itineraryLocation);
-            // unset($itineraryLocation);  # MIGHT BE UNNECESSARY.  
-            // dump('Itinerary Locations array:');                                                      
-            // dump($itineraryLocations);
-            // dump('Plans array:');                                                      
-            // dump($plans);
-            // $arrive = $depart;
 // TODO: $itineraryLocations is not empty, start again at the next day
 
         // $currentMetro = loc_metro
@@ -184,23 +160,26 @@ class PlannerController extends Controller
         // dump($itineraryLocations);
         // dump('Final Plans array:');                                                      
 
-        dd($plans);
+        // dd($plans);
         return redirect('planner/show')->with([
-            'tripLength' => $tripLength,
             'dayStart' => $dayStart,
             'itineraryName' => $itineraryName,
+            'itineraryLocations' => $itineraryLocations,
             'plans' => $plans,
-            'itineraryLocations' => $itineraryLocations
+            'tripLength' => $tripLength,
+            'unscheduledLocations' => $unscheduledLocations
         ]);
     }
     
     public function show(){
         return view('planner/show', [
-            'tripLength' => session('tripLength', null),
             'dayStart' => session('dayStart', null),
             'itineraryName' => session('itineraryName', null),
             'itineraryLocations' => session('itineraryLocations', null),
-            'plans' => session('plans', null)
+            'plans' => session('plans', null),            
+            'tripLength' => session('tripLength', null),
+            'unscheduledLocations' => session('unscheduledLocations', null)
+
         ]);
     }
 

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>The itinerary will display here.</h1>
+    <h1>{{ $itineraryName }}</h1>
     <table>
         <tr>
             <th>Time</th>
@@ -30,4 +30,10 @@
             </tr>
         @endforeach
     </table>
+    <h2> Unscheduled Locations </h2>
+    @foreach ($unscheduledLocations as $unscheduledLocation)
+        <ul>
+            <li>{{ $unscheduledLocation['loc_name'] }}</li>
+        </ul>
+    @endforeach
 @endsection
