@@ -1,7 +1,11 @@
 @extends('layouts/main')
 
 @section('title')
-    My Itinerary
+    @if (!is_array($plans) || count($plans) == 0)
+        {{ 'Visit Berlin' }}
+    @else
+        {{ $itineraryName }}
+    @endif
 @endsection
 
 @section('content')
@@ -10,9 +14,9 @@
     @if (!is_array($plans) || count($plans) == 0)
         <p>Tell us about your trip and we'll create an itinerary for you!
         <p>
-            <a href='/planner'>Tell us about your trip!</a>
+            <a class="btn btn-primary" href="/planner" role="button">Tell us about your trip!</a>
         @else
-        <table>
+        <table class='table table-striped'>
             <tr>
                 <th>Time</th>
                 <th>Location Name</th>
@@ -32,8 +36,8 @@
                     <td>{{ $plan['address'] }}
                         <br>
                         @if ($plan['depart'] != '')
-                            U- or S-Bahn Stop: {{ $plan['loc_metro'] }}
-                            <br>Hours: {{ $plan['loc_open'] }} - {{ $plan['loc_closed'] }}
+                            <b>U- or S-Bahn Stop:</b> {{ $plan['loc_metro'] }}
+                            <br><b>Hours: </b>{{ $plan['loc_open'] }} - {{ $plan['loc_closed'] }}
                         @endif
                     </td>
                 </tr>
@@ -51,4 +55,7 @@
             </ul>
         @endforeach
     @endif
+
+    <a class="btn btn-primary" href="/planner" role="button">Plan a new trip</a>
+
 @endsection

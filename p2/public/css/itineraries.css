@@ -1,3 +1,44 @@
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+/* * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+} */
+
+
+*/ body {
+    /* Default font-size */
+    font-size: 1.6rem;
+
+    padding: 0;
+    margin: 0;
+
+    /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+section#main {
+    /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+    flex: 1;
+
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#logo {
+    width: 362px;
+}
+
 .form {
     padding: 15px;
     margin: 15px 0;
@@ -5,14 +46,25 @@
     border-radius: 20px;
 }
 
-#logo {
-    /* 
-    Actual logo width is 725; 
-    we’re displaying half-size so it looks sharp on high-resolution displays 
-    */
-    width: 362px;
+
+footer {
+    text-align: center;
+    /* background-color: #eee; */
+    padding: 20px;
 }
 
 h1 {
     font-family: "Helvetica", sans-serif;
+}
+
+/*----------------------------------------------------
+Forms
+-----------------------------------------------------*/
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 1rem;
+    letter-spacing: .75px;
 }

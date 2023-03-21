@@ -1,0 +1,41 @@
+#locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#locSubmit {
+    text-align: center;
+}
+
+
+a:hover.location {
+    padding: 10px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    border: 1px solid #eeeeee;
+    margin: 5px;
+    min-width: 25%;
+    max-width: 200px;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+.card {
+    margin: 15px;
+}
+
+.form-check .form-check-input {
+    float: none;
+    margin-left: 0em;
+}
+
+card-body {
+    flex: 1 1 auto;
+    padding: 1em 2rem;
+}

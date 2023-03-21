@@ -47,6 +47,10 @@ class PlannerController extends Controller
 
 ##### COLLECT FORM DATA AND SET UP VARIABLES
 
+        # Get data from .json file
+        $locationData = file_get_contents(database_path('locations.json'));
+        $locations = json_decode($locationData, true);
+
         # Validate input
 
         $request->validate([
@@ -71,10 +75,11 @@ class PlannerController extends Controller
         $itineraryName = $request->input('itineraryName');
         $timeSelection = $request->input('timeSelection');
         $formPlaces = $request->input('formPlaces'); # This just gets the slug of each location
+        // dump($tripLength);
+        // dump($itineraryName);
+        // dump($timeSelection);
+        // dd($formPlaces);
 
-        # Get data from .json file
-        $locationData = file_get_contents(database_path('locations.json'));
-        $locations = json_decode($locationData, true);
 
         # Set up variables and arrays
         $hours = 8; # One day will have $hours hours of activity.
