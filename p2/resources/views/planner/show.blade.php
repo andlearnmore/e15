@@ -9,13 +9,18 @@
 @endsection
 
 @section('content')
-    <h1>
-        {{ $itineraryName }}</h1>
+    <h1>{{ $itineraryName }}</h1>
     @if (!is_array($plans) || count($plans) == 0)
-        <p>Tell us about your trip and we'll create an itinerary for you!
-        <p>
+        <div class='text-center'>
+            <p>Tell us about your trip and we'll create an itinerary for you!</p>
             <a class="btn btn-primary" href="/planner" role="button">Tell us about your trip!</a>
-        @else
+        </div>
+    @else
+        <p> You selected {{ $dayStart == '9' ? 'Early Bird ' : 'Night Owl ' }}
+            so we started your itinerary at {{ $dayStart == '9' ? '9:00' : '12:00' }}.
+        </p>
+        <p> Below is an itinerary for your {{ $tripLength }}-day trip to Berlin.</p>
+
         <table class='table table-striped'>
             <tr>
                 <th>Time</th>
@@ -32,12 +37,15 @@
                             :00
                         @endif
                     </td>
-                    <td>{{ $plan['loc_name'] }}</td>
+                    <td><b>{{ $plan['loc_name'] }}</b></td>
                     <td>{{ $plan['address'] }}
                         <br>
                         @if ($plan['depart'] != '')
-                            <b>U- or S-Bahn Stop:</b> {{ $plan['loc_metro'] }}
-                            <br><b>Hours: </b>{{ $plan['loc_open'] }} - {{ $plan['loc_closed'] }}
+                            @if ($plan['loc_name'] != 'Break until the next location opens.')
+                                <b>U- or S-Bahn Stop:</b> {{ $plan['loc_metro'] }}
+                                <br><b>Hours: </b>{{ $plan['loc_open'] }} - {{ $plan['loc_closed'] }}
+                                <br><a href='{{ $plan['url'] }}' target='_blank'>{{ $plan['url'] }}</a>
+                            @endif
                         @endif
                     </td>
                 </tr>
@@ -54,8 +62,10 @@
                 <li>{{ $unscheduledLocation['loc_name'] }}</li>
             </ul>
         @endforeach
+        <div class='text-center'>
+            <a class="btn btn-primary" href="/planner" role="button">Plan a new trip</a>
+        </div>
     @endif
 
-    <a class="btn btn-primary" href="/planner" role="button">Plan a new trip</a>
 
 @endsection

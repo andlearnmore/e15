@@ -5,8 +5,6 @@
 
 ## TODO
 + get old() to work with checkboxes!!!
-+ edit/shorten descriptions
-+ css: especially show and locations tables
 + dry code?
 + clean up code
 
@@ -19,19 +17,9 @@
 Image sources:
 --------------
 + [Berlin background](https://unsplash.com/photos/i8IPxSMJWtA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
-
-
++ Location descriptive text is copied or modified from the associated websites.
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
++ I struggled to make the checkboxes persist.
++ I intentionally set up the form to not be on the initial index page because I envision expanding this to other locations
 
-
-## Planning:
------------
-+ Set up list of locations
-    + LocationName
-    + LocOpen
-    + LocClose
-    + LocRegion
-    + LocMetro
-    + LocVisitLength

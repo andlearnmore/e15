@@ -35,10 +35,10 @@
             <section>
                 <div class="row">
                     <div class="col-12">
-                        {{-- <div class="text-center"> --}}
-                        @yield('content')
+                        <div class="text-center">
+                            @yield('content')
+                        </div>
                     </div>
-                    {{-- </div> --}}
                 </div>
             </section>
         </div>

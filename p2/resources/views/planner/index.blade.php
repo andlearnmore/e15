@@ -21,6 +21,12 @@
 
         <form method='GET' action='/create'>
             <div id="form" class='form'>
+                {{-- @if (isset($tooMuch))
+                    @if ($tooMuch == true)
+                        <div class='alert alert-danger' role='alert'>You're trying to squeeze a lot in! Please select a
+                            longer trip or fewer locations to visit.</div>
+                    @endif
+                @endif --}}
                 {{-- Trip Length --}}
                 <div class="row">
                     <div class='col-3'></div>
@@ -68,7 +74,6 @@
                 {{-- Itinerary Name --}}
                 <div class="row">
                     <div class='col-3'></div>
-
                     <div class="col-6">
                         <div class="mb-3">
                             <label for="itineraryName" class="form-label">

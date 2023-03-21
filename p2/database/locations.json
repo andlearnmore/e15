@@ -14,7 +14,7 @@
         "reservation_reqd": "TRUE",
         "fee": "FALSE",
         "url": "https://www.visitberlin.de/en/reichstag-in-berlin",
-        "description": "The Reichstag is an internationally recognisable symbol of democracy and the current home of the German parliament. Every year, thousands of guests visit the Reichstag - and with good reason: It is not often that you can enjoy such an amazing panorama while, just beneath your feet, the political decisions of tomorrow are being made. Both as an architectural wonder and a historical testimony, the Reichstag has an important role to play in Berlin."
+        "description": "The Reichstag is an internationally recognisable symbol of democracy and the current home of the German parliament. Both as an architectural wonder and a historical testimony, the Reichstag has an important role to play in Berlin."
     },
     {
         "slug": "brandenburger-tor",
@@ -31,7 +31,7 @@
         "reservation_reqd": "FALSE",
         "fee": "FALSE",
         "url": "https://www.visitberlin.de/en/brandenburg-gate",
-        "description": "The Brandenburg Gate is one of the most iconic sights in today’s vibrant Berlin. More than just Berlin’s only surviving historical city gate, this site came to symbolise Berlin’s Cold War division into East and West – and, since the fall of the Wall, a reunified Germany. Architecturally, the sandstone Brandenburg Gate also represents one of the earliest and most attractive examples of a neo-classical building in Germany."
+        "description": "The Brandenburg Gate is one of the most iconic sights in today’s vibrant Berlin. More than just Berlin’s only surviving historical city gate, this site came to symbolise Berlin’s Cold War division into East and West – and, since the fall of the Wall, a reunified Germany."
     },
     {
         "slug": "holocaust-memorial",
@@ -133,7 +133,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.smb.museum/museen-einrichtungen/altes-museum/home/",
-        "description": "The Altes Museum is once again entirely dedicated to classical antiquity, after a restructuring of exhibits that was completed in 2011. Its main floor provides an impressive panorama of the art of ancient Greece from the 10th to 1st century BC. The chronologically divided exhibition contains stone sculptures, vases, craft objects and jewellery in a richly diverse display structured around certain core themes."
+        "description": "The Altes Museum is once again entirely dedicated to classical antiquity. Its main floor provides an impressive panorama of the art of ancient Greece from the 10th to 1st century BC."
     },
     {
         "slug": "alte-nationalgalerie",
@@ -167,7 +167,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.smb.museum/en/museums-institutions/bode-museum/home/",
-        "description": "The magnificently designed Bode-Museum is home to two collections: the Sculpture Collection and Museum of Byzantine Art and the Münzkabinett (coin museum). In addition, the museum also contains paintings from the Gemäldegalerie, which are presented alongside the European sculpture to form a dialogue between the two art forms."
+        "description": "The magnificently designed Bode Museum is home to two collections: the Sculpture Collection and Museum of Byzantine Art and the Münzkabinett (coin museum)."
     },
     {
         "slug": "neues-museum",
@@ -184,7 +184,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.smb.museum/museen-einrichtungen/neues-museum/home/",
-        "description": "The museum reopened its doors to the public in 2009 and combines geographically and thematically related exhibits pooled together from three separate collections at the Staatliche Museen zu Berlin: the collection of Egyptian art from the Ägyptisches Museum und Papyrussammlung, of prehistoric objects from the Museum für Vor- und Frühgeschichte, and of classical antiquities from the Antikensammlung. This joint exhibition featuring exhibits of unparalleled breadth and diversity allows visitors to trace the development of prehistoric and protohistoric cultures, spanning from the Middle East to the Atlantic, from north Africa to Scandinavia."
+        "description": "This joint exhibition featuring exhibits of unparalleled breadth and diversity allows visitors to trace the development of prehistoric and protohistoric cultures, spanning from the Middle East to the Atlantic, from north Africa to Scandinavia."
     },
     {
         "slug": "pergamon-museum",
@@ -201,7 +201,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.smb.museum/en/museums-institutions/pergamonmuseum/home/",
-        "description": "The museum now houses three of the Staatliche Museen zu Berlin’s collections: the Antikensammlung, Vorderasiatisches Museum, and the Museum für Islamische Kunst. The impressive reconstructions of massive archaeological structures – the Pergamon Altar, Market Gate of Miletus, the Ishtar Gate and Processional Way from Babylon, and the Mshatta Facade – have made the Pergamonmuseum famous throughout the world, with the result that it is the most visited museum at the Staatliche Museen and in Germany as a whole."
+        "description": "The impressive reconstructions of massive archaeological structures – the Pergamon Altar, Market Gate of Miletus, the Ishtar Gate and Processional Way from Babylon, and the Mshatta Facade – have made the Pergamonmuseum famous throughout the world."
     },
     {
         "slug": "sherwood-forest-playground",
@@ -218,7 +218,7 @@
         "reservation_reqd": "FALSE",
         "fee": "FALSE",
         "url": "https://www.visitberlin.de/en/sherwood-forest-playground",
-        "description": "Kids will love the creatively designed Sherwood Forest Playground on the Savignyplatz. The climbing castle incorporated into the forest landscape will excite young heroes with suspension bridges, tree platforms and slides. There are also several towers and battlements to explore. You can cross the playground on the hanging cables. Swings lift children up high and, for sporty types, there are several table tennis tables."
+        "description": "Kids will love the creatively designed Sherwood Forest Playground on the Savignyplatz. The climbing castle incorporated into the forest landscape will excite young heroes with suspension bridges, tree platforms and slides. There are also several towers and battlements to explore. "
     },
     {
         "slug": "computerspiele-museum",
@@ -235,12 +235,12 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.computerspielemuseum.de/1210_Home.htm",
-        "description": "Our permanent exhibition “Computerspiele. Evolution eines Mediums” (\"Computer Games. Evolution of a Medium\") opened on January 21st, 2011. Containing over 300 exhibits, including rare originals, playable classics, and more, will turn you into “Homo Ludens Digitalis\" so that you can create your own image of the gamers that made this medium of entertainment possible. Make your visit a historical journey of games and their creators with things to do and see for everyone of all ages!"
+        "description": "Containing over 300 exhibits, including rare originals, playable classics, and more, this museum will turn you into “Homo Ludens Digitalis\". Make your visit a historical journey of games and their creators with things to do and see for everyone of all ages!"
     },
     {
         "slug": "deutsches-technikmuseum",
         "loc_id": "1014",
-        "loc_name": "Deutsches Technikmuseum & Science Center Spectrum",
+        "loc_name": "Deutsches Technikmuseum",
         "loc_open": "9:00",
         "open_time": 9,
         "loc_closed": "17:30",
@@ -252,7 +252,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://technikmuseum.berlin/en/",
-        "description": "The Deutsches Technikmuseum (German Museum of Technology) is a museum for explorers! Come for an entertaining educational journey through the history of technology: Visit our fascinating exhibitions on aviation, shipping, railways, the automobile, film technology, computer history, the role of the chemical and pharmaceutical industries in our lives, and much more. Review the multi-facetted spectrum of technology – from ancient times to cutting-edge – and explore the many ways it has shaped our history and culture. Daily demonstrations, hands-on activities and guided tours make the Deutsches Technikmuseum a place of interactive learning and experience. Our extensive museum park is an oasis of green at the heart of the city."
+        "description": "Visit our fascinating exhibitions on aviation, shipping, railways, the automobile, film technology, computer history, the role of the chemical and pharmaceutical industries in our lives, and much more. Review the multi-facetted spectrum of technology – from ancient times to cutting-edge – and explore the many ways it has shaped our history and culture."
     },
     {
         "slug": "labyrinth-childrens-museum",
@@ -269,7 +269,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://www.labyrinth-kindermuseum.de/en",
-        "description": "The Labyrinth Children's Museum is a project of the Fabrik Osloer Straße and with more than 1.5 million visitors (children and adults) since its foundation in 1997. It is a regular and a popular inherent part of Berlin's cultural and educational landscape. With its permanent partner, the Senatsverwaltung responsible for education, youth and family and in cooperation with numerous institutes, companies, artists and scientists, which develop an abundance of ideas for interactive exhibitions, projects, workshops, and events."
+        "description": "The Labyrinth Children's Museum is a project of the Fabrik Osloer Straße and with more than 1.5 million visitors (children and adults) since its foundation in 1997. It is a regular and a popular inherent part of Berlin's cultural and educational landscape."
     },
     {
         "slug": "mach-mit",
@@ -320,7 +320,7 @@
         "reservation_reqd": "FALSE",
         "fee": "TRUE",
         "url": "https://alice-museum-fuer-kinder.fez-berlin.de/en/about-us/alice-museum-for-children",
-        "description": "Our museum is a little bit like Alice from \"Alice in Wonderland\". What do we mean by that? Shes fearless and curious to discover new things. She'll look behind the mirror and not be afraid of what lies beyond. She's desperate to discover exciting new worlds which is precisely what the Alice Museum for Children allows you to do yourself."
+        "description": "Our museum is a little bit like Alice from \"Alice in Wonderland\". What do we mean by that? She's desperate to discover exciting new worlds--which is precisely what the Alice Museum for Children allows you to do yourself."
     },
     {
         "slug": "little-big-city",
