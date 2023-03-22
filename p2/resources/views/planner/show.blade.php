@@ -55,13 +55,27 @@
         <br>
         @if ($unscheduledLocations)
             <h2> Unscheduled Locations </h2>
+            <p>If you tried to squeeze too many activities into too few days, we couldn't schedule everything in. </p>
+            <p>Occasionally, we are unable to include an activity in your itinerary because of the opening and closing
+                times.</p>
         @endif
+        <div class='row'>
+            <div class='col-3'></div>
+            <div class='col-6'>
+                <table class='table table-striped'>
 
-        @foreach ($unscheduledLocations as $unscheduledLocation)
-            <ul>
-                <li>{{ $unscheduledLocation['loc_name'] }}</li>
-            </ul>
-        @endforeach
+                    @foreach ($unscheduledLocations as $unscheduledLocation)
+                        <tr>
+                            <td>{{ $unscheduledLocation['loc_name'] }}</td>
+                        </tr>
+                    @endforeach
+
+                </table>
+            </div>
+            <div class='col-3'></div>
+        </div>
+
+
         <div class='text-center'>
             <a class="btn btn-primary" href="/planner" role="button">Plan a new trip</a>
         </div>

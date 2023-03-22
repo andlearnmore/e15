@@ -41,7 +41,6 @@ class PlannerController extends Controller
         Create the itinerary and redirect to /show. */
     
     public function create(Request $request) {
-        # VALIDATE, COLLECT FORM DATA, AND SET UP VARIABLES
 
         # Validate input
         $request->validate([
@@ -72,7 +71,6 @@ class PlannerController extends Controller
         $formPlaces = $request->input('formPlaces'); # This just gets the slug of each location
 
         # Set up variables and arrays
-        $hours = 8;                 # One day will have $hours hours of activity.
         $plans = [];                # Array to keep track of the plans to print to /show view
         $itineraryLocations = [];   # Array to keep track of data for each place submitted in $formPlaces
         $unscheduledLocations = []; # Array to keep track of locations that still need scheduling
@@ -89,7 +87,6 @@ class PlannerController extends Controller
         array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'close_time'));
         array_multisort($itineraryLocations, SORT_ASC, SORT_NUMERIC, array_column($itineraryLocations, 'open_time'));
 
-
         # Determine what the start time for the itinerary will be.
         # If Night Owl, start itinerary at 12; otherwise, start at 9.
         if ($timeSelection == 'late') {
@@ -98,9 +95,9 @@ class PlannerController extends Controller
             $dayStart = 9;
         }
 
-        # LOOP THROUGH $ITINERARYLOCATIONS AND SCHEDULE OR DON'T.
+        # Loop through $itineraryLocations and schedule activities.
         for ($day = 1; $day <= $tripLength; $day ++) {
-            if ($itineraryLocations != null) {
+            if ($itineraryLocations != null) { # Create new day
                 $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
                 $nextDay = [
                     'arrive' => 'Day ' .$day,
@@ -158,6 +155,9 @@ class PlannerController extends Controller
             ])->withInput();
         } 
    }
+
+       /*  GET /show
+        Show the itinerary. */
 
 
     public function show(){
