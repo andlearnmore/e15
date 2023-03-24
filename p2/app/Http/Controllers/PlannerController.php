@@ -69,7 +69,6 @@ class PlannerController extends Controller
         $itineraryName = $request->input('itineraryName');
         $timeSelection = $request->input('timeSelection');
         $formPlaces = $request->input('formPlaces'); # This just gets the slug of each location
-
         # Set up variables and arrays
         $plans = [];                # Array to keep track of the plans to print to /show view
         $itineraryLocations = [];   # Array to keep track of data for each place submitted in $formPlaces
@@ -110,7 +109,6 @@ class PlannerController extends Controller
                 ];
                 array_push($plans, $nextDay);
                 $numberLocations = count($itineraryLocations);
-
                 for ($i = 0; $i < $numberLocations; $i++) {
                     $depart = $arrive + $itineraryLocations[$i]['loc_visit_length'];
                     if ($arrive < $itineraryLocations[$i]['open_time']) { # Location isn't open yet. Insert a break time into schedule.
@@ -134,6 +132,9 @@ class PlannerController extends Controller
                             array_push($plans, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
                             $arrive = $depart;
+
+                            dump('Arrive is ' .$arrive);
+                            
                         } else { # We can't go because we'd leave after it closed
                             array_push($unscheduledLocations, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
@@ -143,8 +144,12 @@ class PlannerController extends Controller
 
                 if ($day < $tripLength) {
                     $itineraryLocations = array_splice($unscheduledLocations, 0);
+                    dump('Itinerary locations is now');
+                    dump($itineraryLocations);
                 }
             }
+        }
+
 
             return redirect('planner/show')->with([
             'dayStart' => $dayStart,
@@ -152,9 +157,8 @@ class PlannerController extends Controller
             'plans' => $plans,
             'tripLength' => $tripLength,
             'unscheduledLocations' => $unscheduledLocations
-            ])->withInput();
-        } 
-   }
+            ])->withInput(); 
+    }
 
        /*  GET /show
         Show the itinerary. */
