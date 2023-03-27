@@ -2,6 +2,8 @@
 
 return [
 
+    'contact_email' => 'dwojeskisantos.ims@gmail.com',
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer

@@ -43,6 +43,7 @@
 
     <footer>
         &copy; Bookmark, Inc.
+        {{ config('mail.contact_email') }}
     </footer>
 
 </body>
