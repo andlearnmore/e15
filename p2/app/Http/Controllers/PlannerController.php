@@ -131,10 +131,7 @@ class PlannerController extends Controller
                             $itineraryLocations[$i]['depart'] = $depart;
                             array_push($plans, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
-                            $arrive = $depart;
-
-                            dump('Arrive is ' .$arrive);
-                            
+                            $arrive = $depart;                            
                         } else { # We can't go because we'd leave after it closed
                             array_push($unscheduledLocations, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
@@ -144,8 +141,6 @@ class PlannerController extends Controller
 
                 if ($day < $tripLength) {
                     $itineraryLocations = array_splice($unscheduledLocations, 0);
-                    dump('Itinerary locations is now');
-                    dump($itineraryLocations);
                 }
             }
         }
