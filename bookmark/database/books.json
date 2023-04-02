@@ -88,5 +88,31 @@
             "politics"
         ],
         "description": "In a deeply researched and transporting exploration of the legacy of slavery and its imprint on centuries of American history, How the Word Is Passed illustrates how some of our country's most essential stories are hidden in plain view-whether in places we might drive by on our way to work, holidays such as Juneteenth, or entire neighborhoods—like downtown Manhattan—on which the brutal history of the trade in enslaved men, women and children has been deeply imprinted."
+    },
+    "on-the-pulse-of-morning": {
+        "title": "On the Pulse of Morning",
+        "author": "Maya Angelou",
+        "published_year": 1993,
+        "cover_url": "/images/pulse.jpg",
+        "info_url": "https://poets.org/poem/pulse-morning",
+        "purchase_url": "https://www.amazon.com/Pulse-Morning-Maya-Angelou/dp/0679428941",
+        "tags": [
+            "poetry",
+            "women"
+        ],
+        "description": "A beautifully packaged hardcover edition of the poem that captivated the nation and quickly became a national bestseller."
+    },
+    "life-doesnt-frighten-me": {
+        "title": "Life Doesn't Frighten Me",
+        "author": "Maya Angelou",
+        "published_year": 1993,
+        "cover_url": "/images/Life-Doesnt-Frighten-Me-1993.jpeg",
+        "info_url": "https://en.wikipedia.org/wiki/Life_Doesn%27t_Frighten_Me",
+        "purchase_url": "https://www.amazon.com/Life-Doesnt-Frighten-Maya-Angelou/dp/1556702884",
+        "tags": [
+            "poetry",
+            "women"
+        ],
+        "description": "Visionary full-color artwork accompanies a stirring poem--by the famed inaugural poet and author of I Know Why the Caged Bird Sings--that celebrates courage, strength, and fearlessness. All ages."
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreign('book_id')->references('id')->on('books');
+            $table->bigInteger('book_id');
             $table->text('content');
             $table->string('first_name');
             $table->string('last_name');
