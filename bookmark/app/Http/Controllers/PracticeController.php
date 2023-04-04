@@ -9,6 +9,63 @@ use Illuminate\Support\Facades\DB;
 
 class PracticeController extends Controller
 {
+    public function practice14() {
+        // Remove any/all books with an author name that includes the string “Rowling”.
+        $books = Book::where('author', 'LIKE', '%Rowling%')->get();
+        if (!$books) {
+            dump('No books found');
+        } else {
+            foreach ($books as $book) {
+                $book->delete();
+                dump('Book deleted');
+            }
+        }
+
+    }
+
+    public function practice13() {
+        // Find any books by the author “Maya Angelou” and update the author name to be “THE Maya Angelou”
+        $books = Book::where('author', '=', 'Maya Angelou')->get();
+
+        if (!$books) {
+            dump('Did not update; book not found.');
+        } else {
+            foreach ($books as $book) {
+                $book->author = 'THE Maya Angelou';
+                $book->save();
+                dump('Update complete');
+            }
+        }
+        $new = Book::where('author', 'LIKE', '%Angelou%')->get()->toArray();
+
+        dump($new);
+
+
+    }
+
+    public function practice12() {
+        // Retrieve all the books in descending order according to published year.
+        $result = Book::orderByDesc('published_year')->get()->toArray();
+        dump($result);
+    }
+
+    public function practice11() {
+        // Retrieve all the books in alphabetical order by title.
+        $result = Book::orderBy('title')->get()->toArray();
+        dump($result);
+    }
+
+    public function practice10() {
+        // Retrieve all the books published after 1950.
+        $result = Book::where('published_year', ">", 1950)->get()->toArray();
+        dump($result);
+    }
+
+    public function practice9() {
+        // Retrieve the last 2 books that were added to the books table
+        $result = Book::orderBy('created_at')->limit(2)->get()->toArray();
+        dump($result);
+    }
 
     public function practice8() {
         # First get a book to delete
