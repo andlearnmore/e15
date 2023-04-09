@@ -1,7 +1,11 @@
 @extends('layouts/main')
 
 @section('title')
-    Welcome
+    Bookmark
+@endsection
+
+@section('head')
+    <link href='/css/welcome/.css' rel='stylesheet'>
 @endsection
 
 @section('content')
@@ -15,7 +19,7 @@
         <fieldset>
             <label for='searchTerms'>
                 Search terms:
-                <input type='text' name='searchTerms'>
+                <input type='text' name='searchTerms' value='{{ old('searchTerms') }}'>
             </label>
         </fieldset>
 
@@ -24,15 +28,45 @@
                 Search type:
             </label>
 
-            <input type='radio' name='searchType' id='title' value='title' checked>
+            <input type='radio' name='searchType' id='title' value='title'
+                {{ old('searchType') == 'title' ? 'checked' : '' }}>
             <label for='title'> Title</label>
 
-            <input type='radio' name='searchType' id='author' value='author'>
+            <input type='radio' name='searchType' id='author' value='author'
+                {{ old('searchType') == 'author' ? 'checked' : '' }}>
             <label for='author'> Author</label>
 
         </fieldset>
 
         <button type='submit' class='btn btn-primary'>Search</button>
 
+        @if (count($errors) > 0)
+            <ul class='alert alert-danger'>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </form>
+
+    @if (!is_null($searchResults))
+        @if (count($searchResults) == 0)
+            <div class='results alert alert-warning'>
+                No results found.
+            </div>
+        @else
+            <div class='results alert alert-primary'>
+
+                {{ count($searchResults) }}
+                {{ Str::plural('Result', count($searchResults)) }}:
+
+                <ul class='clean-list'>
+                    @foreach ($searchResults as $book)
+                        {{-- <li><a href='/books/{{ $book->slug }}'> {{ $book->title }}</a></li> --}}
+                        <li> {{ $book['title'] }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    @endif
 @endsection

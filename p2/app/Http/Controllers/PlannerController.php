@@ -12,21 +12,21 @@ use Symfony\Component\Mime\Header\UnstructuredHeader;
 
 class PlannerController extends Controller
 {
-
     /*  GET /planner
         Display the form */
 
-    public function index() {
+    public function index()
+    {
         # Load location data using PHP's file_get_contents
         # We specify the locations.json file path using Laravel's database_path helper
         $locationData = file_get_contents(database_path('locations.json'));
 
-        # Convert the string of JSON text loaded from locations.json into an 
+        # Convert the string of JSON text loaded from locations.json into an
         # array using PHP's built-in json_decode function
         $locations = json_decode($locationData, true);
 
         # Alphabetize the locations by slug using Laravel's Arr::sort
-        $locations = Arr::sort($locations, function($value) {
+        $locations = Arr::sort($locations, function ($value) {
             return $value['loc_name'];
         });
     
@@ -36,12 +36,11 @@ class PlannerController extends Controller
         return view('planner/index', ['locations' => $locations]);
     }
 
-
     /*  GET /create
         Create the itinerary and redirect to /show. */
     
-    public function create(Request $request) {
-
+    public function create(Request $request)
+    {
         # Validate input
         $request->validate([
             'tripLength' => [
@@ -54,6 +53,7 @@ class PlannerController extends Controller
                 Rule::in(['early', 'late'])
             ],
             'itineraryName' => 'required',
+            
             'formPlaces' => [
                 'required',
                 'array'
@@ -95,7 +95,7 @@ class PlannerController extends Controller
         }
 
         # Loop through $itineraryLocations and schedule activities.
-        for ($day = 1; $day <= $tripLength; $day ++) {
+        for ($day = 1; $day <= $tripLength; $day++) {
             if ($itineraryLocations != null) { # Create new day
                 $arrive = ($dayStart > ($itineraryLocations[0]['open_time'])) ? $dayStart : ($itineraryLocations[0]['open_time']);
                 $nextDay = [
@@ -110,6 +110,7 @@ class PlannerController extends Controller
                 array_push($plans, $nextDay);
                 $numberLocations = count($itineraryLocations);
                 for ($i = 0; $i < $numberLocations; $i++) {
+                    // 3/27/23 NOTE: I think this is where the bug is that shows two breaks if only Sherwood and mach-mit selected.
                     $depart = $arrive + $itineraryLocations[$i]['loc_visit_length'];
                     if ($arrive < $itineraryLocations[$i]['open_time']) { # Location isn't open yet. Insert a break time into schedule.
                         $break = [
@@ -123,6 +124,7 @@ class PlannerController extends Controller
                         ];
                         array_push($plans, $break);
                         $arrive = $depart;
+                        // 3/27/23 NOTE: Does $i-1 create a bug too?
                         $i = $i-1; # This lets us retry with the current location after the break.
                     } else { # We are trying to arrive after the location is open.
                         $depart = $arrive + $itineraryLocations[$i]['loc_visit_length'];
@@ -131,7 +133,7 @@ class PlannerController extends Controller
                             $itineraryLocations[$i]['depart'] = $depart;
                             array_push($plans, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
-                            $arrive = $depart;                            
+                            $arrive = $depart;
                         } else { # We can't go because we'd leave after it closed
                             array_push($unscheduledLocations, $itineraryLocations[$i]);
                             unset($itineraryLocations[$i]);
@@ -145,29 +147,27 @@ class PlannerController extends Controller
             }
         }
 
-
-            return redirect('planner/show')->with([
+        return redirect('planner/show')->with([
             'dayStart' => $dayStart,
             'itineraryName' => $itineraryName,
             'plans' => $plans,
             'tripLength' => $tripLength,
             'unscheduledLocations' => $unscheduledLocations
-            ])->withInput(); 
+        ])->withInput();
     }
 
        /*  GET /show
         Show the itinerary. */
 
-
-    public function show(){
+    public function show()
+    {
         return view('planner/show', [
             'dayStart' => session('dayStart', null),
             'itineraryName' => session('itineraryName', null),
-            'plans' => session('plans', null),            
+            'plans' => session('plans', null),
             'tripLength' => session('tripLength', null),
             'unscheduledLocations' => session('unscheduledLocations', null)
 
         ]);
     }
-
 }

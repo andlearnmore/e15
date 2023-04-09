@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class PracticeController extends Controller
 {
+
+    public function practice15() {
+        $book = Book::where('author', '=', 'Rowling')->get();
+        $book->delete();
+        dump('Book deleted.');        
+        
+    }
     public function practice14() {
         // Remove any/all books with an author name that includes the string “Rowling”.
         $books = Book::where('author', 'LIKE', '%Rowling%')->get();

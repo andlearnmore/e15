@@ -260,3 +260,14 @@ MISC
     padding: 0;
     margin: 0;
 }
+
+.flash-alert {
+    background-color: yellow;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}

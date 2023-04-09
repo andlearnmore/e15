@@ -12,6 +12,7 @@
 @section('content')
     <div>
         {{-- <?php dump($locations); ?> --}}
+        
         <div>
             <h1>Welcome to the Berlin Trip Planner.</h1>
             <p>You're going to Berlin&mdash;how exciting! Let us help you plan your trip.</p>
@@ -135,6 +136,7 @@
                         </div>
                     @endif
                 </div>
+                
                 {{-- Submit --}}
                 <div class='row'>
                     <div class='col-12'>
