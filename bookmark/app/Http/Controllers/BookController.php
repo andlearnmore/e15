@@ -168,16 +168,15 @@ class BookController extends Controller
         $searchTerms = $request->input('searchTerms', '');
         $searchResults = [];
 
-        $angelous = Book::where('author', '=', 'Maya Angelou')->get()->toArray();
+        dump($searchTerms);
+        $books = Book::orderBy('title', 'ASC')->get()->toArray();
+        // dd($books);
 
-        foreach ($angelous as $angelou) {
-            // if (strtolower($angerlou[$searchType]) == strtolower($searchTerms)) {
-                $searchResults['slug'] = $angelou;
-                // dd($searchResults);
-
-            // }
+        foreach ($books as $slug => $book) {
+            if (strtolower($book[$searchType]) == strtolower($searchTerms)) {
+                $searchResults[$slug] = $book;
+            }
         }
-        dd($searchResults);
 
         # Redirect back to the form with data/results stored in the session
         # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
