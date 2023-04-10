@@ -19,6 +19,8 @@
             <a href='{{ $book->info_url }}'>Learn more...</a>
         </p>
 
-        <a href='/books/{{ $book->slug }}/edit'>Edit this book</a>
+        <a class="btn btn-primary" href="/books/{{ $book->slug }}/edit" role="button">Edit this book</a>
+        <br>
+        <a class="btn btn-outline-secondary" href="/books/{{ $book->slug }}/delete" role="button">Delete this book</a>
     @endif
 @endsection

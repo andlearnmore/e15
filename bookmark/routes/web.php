@@ -20,22 +20,50 @@ use App\Http\Controllers\PracticeController;
 */
 
 
-Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
+Route::any('/practice/{n?}', [PracticeController::class, 'index']);
+
+# Filter route used to demonstrate working with multiple route parameters
+Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
+
+/**
+ * Books
+ */
+
+Route::get('/books', [BookController::class, 'index']);
 
 # Make sure the create route comes before the `/books/{slug}` route so it takes precedence
 Route::get('/books/create', [BookController::class, 'create']);
-Route::get('/books', [BookController::class, 'index']);
+
 Route::post('/books', [BookController::class, 'store']);
-Route::get('/search', [BookController::class, 'search']);
+
+# Show the form to edit a specific book
+Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
+
+# Process the form to edit a specific book
+Route::put('/books/{slug}', [BookController::class, 'update']);
+
+# Show a page to delete a specific book
+Route::get('/books/{slug}/delete', [BookController::class, 'delete']);
+
+# Process the deletion
+Route::delete('/books/{slug}', [BookController::class, 'destroy']);
 
 Route::get('/books/{slug}', [BookController::class, 'show']);
-Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
+
+Route::get('/search', [BookController::class, 'search']);
+
+/**
+ * Lists
+ */
 
 Route::get('/list', [ListController::class, 'show']);
 
+ /**
+  * Practice
+  */
 Route::get('/example', function() {
     $foo = [1,2,3];
     Log::info($foo);
