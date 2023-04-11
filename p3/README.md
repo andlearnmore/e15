@@ -27,7 +27,7 @@
 + There's a one-to-many relationship between `movies` and `users` - UPDATE
 
 ## Outside resources
-*Your list of outside resources go here*
++ European Countries JSON file: jim-at-jibba/euro-countries.json
 
 ## Notes for instructor
 *Any notes for me to refer to while grading; if none, omit this section*

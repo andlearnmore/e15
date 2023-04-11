@@ -1,0 +1,116 @@
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+*/ body {
+    /* Default font-size */
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+
+    /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+section#main {
+    /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+    flex: 1;
+
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+html {
+    /* http://snook.ca/archives/html_and_css/font-size-with-rem */
+    font-size: 80%;
+
+    color: #111;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-family: "Helvetica", sans-serif;
+}
+
+table {
+    text-align: left;
+}
+
+#logo {
+    width: 362px;
+}
+
+.form {
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #ceede6;
+    border-radius: 20px;
+}
+
+
+/*----------------------------------------------------
+Forms
+-----------------------------------------------------*/
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/*----------------------------------------------------
+Nav bar
+-----------------------------------------------------*/
+nav {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+nav li,
+nav button {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul li a:link {
+    text-decoration: none;
+}
+
+nav ul li a:hover,
+nav ul li button:hover {
+    color: #18bc9c;
+}
