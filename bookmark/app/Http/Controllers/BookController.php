@@ -89,10 +89,13 @@ class BookController extends Controller
      */
     public function delete(Request $request, $slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        // $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::findBySlug($slug);
 
         if (!$book) {
-            return redirect('/books)')->with(['flash-alert' => 'Book not found.']);
+            return redirect('/books')->with([
+                'flash-alert' => 'Book not found.'
+            ]);
         }
         
         return view('books/delete', ['book' => $book]);
@@ -103,10 +106,13 @@ class BookController extends Controller
      */
      public function destroy(Request $request, $slug)
      {
-        $book = Book::where('slug', '=', $slug)->first();
+        // $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::findBySlug($slug);
         $book->delete();
 
-        return redirect('/books')->with(['flash-alert' => 'Your book has been deleted.']);
+        return redirect('/books')->with([
+            'flash-alert' => $book->title . 'has been deleted.'
+        ]);
      }
 
 
@@ -163,14 +169,11 @@ class BookController extends Controller
 
         # If validation fails it will redirect back to `/`
 
-
         $searchType = $request->input('searchType', 'title');
         $searchTerms = $request->input('searchTerms', '');
-        $searchResults = [];
 
-        dump($searchTerms);
         $books = Book::orderBy('title', 'ASC')->get()->toArray();
-        // dd($books);
+        $searchResults = Book::where($searchType, 'LIKE', '%'.$searchTerms.'%')->get();
 
         foreach ($books as $slug => $book) {
             if (strtolower($book[$searchType]) == strtolower($searchTerms)) {

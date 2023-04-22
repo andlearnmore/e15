@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -14,14 +13,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-    
+
             # Create a Primary, Auto-Incrementing column named `id`
             $table->id();
-    
-            # This generates two columns: `created_at` and `updated_at` 
+
+            # This generates two columns: `created_at` and `updated_at`
             # Laravel will manage these columns automatically
             $table->timestamps();
-    
+
             $table->string('slug');
             $table->string('title');
             $table->string('author');
