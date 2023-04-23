@@ -3,12 +3,77 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
 class PracticeController extends Controller
 {
+    public function practice19()
+    {
+        # Eager load the author with the book
+        $books = Book::with('author')->get();
+
+        foreach ($books as $book) {
+            if ($book->author) {
+                dump($book->author->first_name . ' ' . $book->author->last_name . ' wrote ' . $book->title);
+            } else {
+                dump($book->title . ' has no author associated with it.');
+            }
+        }
+
+        dump($books->toArray());
+    }
+
+    public function practice18()
+    {
+        # Get an example book
+        $book = Book::whereNotNull('author_id')->first();
+
+        # Get the author from this book using the "author" dynamic property
+        # "author" corresponds to the the relationship method defined in the Book model
+        $author = $book->author;
+
+        # Output
+        dump($book->title . ' was written by ' . $author->first_name . ' ' . $author->last_name);
+        dump($book->toArray());
+    }
+    public function practice17()
+    {
+        $author = Author::where('first_name', '=', 'Michelle')->first();
+
+        $book = new Book;
+        $book->slug = 'the-light-we-carry';
+        $book->title = 'The Light We Carry';
+        $book->published_year = '2022';
+        $book->cover_url = '\images\Light.jpeg';
+        $book->info_url = 'https://en.wikipedia.org/wiki/The_Light_We_Carry:_Overcoming_in_Uncertain_Times';
+        $book->purchase_url = 'https://www.barnesandnoble.com/w/the-light-we-carry-michelle-obama/1141833260';
+        $book->author()->associate($author); #<---Associate the author with this book
+        $book->description = 'Michelle Obama offers readers a series of fresh stories and insightful reflections on change, challenge, and power, including her belief that when we light up for others, we can illuminate the richness and potential of the world around us, discovering deeper truths and new pathways for progress. Drawing from her experiences as a mother, daughter, spouse, friend, and First Lady, she shares the habits and principles she has developed to successfully adapt to change and overcome various obstacles—the earned wisdom that helps her continue to “become.” She details her most valuable practices, like “starting kind,” “going high,” and assembling a “kitchen table” of trusted friends and mentors.';
+        $book->save();
+        dump($book->toArray());
+
+    }
+    public function practice16(Request $request)
+    {
+        # Retrieve the currently authenticated user via the Auth facade
+        $user = Auth::user();
+        dump($user->toArray());
+
+        // # Retrieve the currently authenticated user via request object
+        // $user = $request->user();
+        // dump($user->toArray());
+
+        // # Check if the user is logged in
+        if (Auth::check()) {
+            dump('The user ID is '.Auth::id());
+            dump($request->user()->id);
+            dump(Auth::user()->id);
+        }
+    }
 
     public function practice15() {
         $book = Book::where('author', '=', 'Rowling')->get();
