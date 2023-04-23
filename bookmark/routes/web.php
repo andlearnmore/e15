@@ -28,6 +28,9 @@ Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 # Filter route used to demonstrate working with multiple route parameters
 Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 
+Route::group(['middleware' => 'auth'], function() {
+
+
 /**
  * Books
  */
@@ -60,6 +63,8 @@ Route::get('/search', [BookController::class, 'search']);
  */
 
 Route::get('/list', [ListController::class, 'show']);
+
+});
 
  /**
   * Practice
