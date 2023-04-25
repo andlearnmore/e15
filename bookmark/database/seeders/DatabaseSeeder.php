@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthorsTableSeeder::class);
         $this->call(BooksTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(BookUserTableSeeder::class); # Make sure to call this after the Books and Users table are seeded.
     }
 }

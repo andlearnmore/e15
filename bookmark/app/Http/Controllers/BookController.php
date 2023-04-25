@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Book;
+use App\Models\Author;
 
 
 class BookController extends Controller
@@ -33,7 +34,8 @@ class BookController extends Controller
     */
     public function create(Request $request) 
     {
-        return view('books/create');
+        $authors = Author::orderBy('last_name')->select(['id', 'first_name', 'last_name'])->get();
+        return view('books/create', ['authors' => $authors]);
     }
 
     /**
@@ -43,12 +45,16 @@ class BookController extends Controller
     public function edit(Request $request, $slug)
     {
         $book = Book::where('slug', '=', $slug)->first();
+        $authors = Author::orderBy('last_name')->select(['id', 'first_name', 'last_name'])->get();
 
         if (!$book) {
             return redirect('/books')->with(['flash-alert' => 'Book not found.']);
         }
 
-        return view('books/edit', ['book' => $book]);
+        return view('books/edit', [
+            'book' => $book, 
+            'authors' => $authors
+        ]);
     }
 
     /**
@@ -61,7 +67,7 @@ class BookController extends Controller
         $request->validate([
             'slug' => 'required|unique:books,slug,' . $book->id . '|alpha_dash',
             'title' => 'required',
-            'author' => 'required',
+            'author_id' => 'required',
             'published_year' => 'required|digits:4',
             'cover_url' => 'url',
             'info_url' => 'url',
@@ -71,7 +77,7 @@ class BookController extends Controller
 
         $book->slug = $request->slug;
         $book->title = $request->title;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->published_year = $request->published_year;
         $book->cover_url = $request->cover_url;
         $book->info_url = $request->info_url;
@@ -89,7 +95,6 @@ class BookController extends Controller
      */
     public function delete(Request $request, $slug)
     {
-        // $book = Book::where('slug', '=', $slug)->first();
         $book = Book::findBySlug($slug);
 
         if (!$book) {
@@ -108,6 +113,10 @@ class BookController extends Controller
      {
         // $book = Book::where('slug', '=', $slug)->first();
         $book = Book::findBySlug($slug);
+
+        # ⭐ NEW: First detach any relationships between this book and users
+        $book->users()->detach();
+    
         $book->delete();
 
         return redirect('/books')->with([
@@ -130,7 +139,7 @@ class BookController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:books,slug', #name of table,name of field that should be unique
-            'author' => 'required|max:255',
+            'author_id' => 'required',
             'published_year' => 'required|digits:4',
             'cover_url' => 'url',
             'info_url' => 'required|url',
@@ -141,7 +150,7 @@ class BookController extends Controller
         $book = new Book();
         $book->title = $request->title;
         $book->slug = $request->slug;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->published_year = $request->published_year;
         $book->cover_url = $request->cover_url;
         $book->info_url = $request->info_url;

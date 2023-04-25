@@ -20,53 +20,51 @@ use App\Http\Controllers\PracticeController;
 */
 
 
-
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 Route::any('/practice/{n?}', [PracticeController::class, 'index']);
-
-# Filter route used to demonstrate working with multiple route parameters
-Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
+Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']); # Filter route used to demonstrate working with multiple route parameters
 
 Route::group(['middleware' => 'auth'], function() {
+    /**
+     * Books
+     */
+
+    Route::get('/books', [BookController::class, 'index']);
+    Route::get('/books/create', [BookController::class, 'create']); # Make sure the create route comes before the `/books/{slug}` route so it takes precedence
+    Route::post('/books', [BookController::class, 'store']);
+
+    # Edit
+    Route::get('/books/{slug}/edit', [BookController::class, 'edit']); # Show the form to edit a specific book
+    Route::put('/books/{slug}', [BookController::class, 'update']); # Process the form to edit a specific book
+
+    # Delete
+    Route::get('/books/{slug}/delete', [BookController::class, 'delete']); # Show a page to delete a specific book
+    Route::delete('/books/{slug}', [BookController::class, 'destroy']); # Process the deletion
+
+    Route::get('/books/{slug}', [BookController::class, 'show']);
+    Route::get('/search', [BookController::class, 'search']);
+
+    /**
+     * Lists
+     */
+
+    Route::get('/list', [ListController::class, 'show']);
+    Route::get('/list/{slug}/add', [ListController::class, 'add']);
+    Route::post('/list/{slug}/save', [ListController::class, 'save']);
+
+    # Edit
+    Route::put('/list', [ListController::class, 'update']);
+
+    # Remove
+    Route::get('/list/{slug}/delete', [ListController::class, 'delete']); # Show a page to delete a specific book
+    Route::delete('/list/{slug}', [ListController::class, 'destroy']); # Process the deletion
 
 
-/**
- * Books
- */
-
-Route::get('/books', [BookController::class, 'index']);
-
-# Make sure the create route comes before the `/books/{slug}` route so it takes precedence
-Route::get('/books/create', [BookController::class, 'create']);
-
-Route::post('/books', [BookController::class, 'store']);
-
-# Show the form to edit a specific book
-Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
-
-# Process the form to edit a specific book
-Route::put('/books/{slug}', [BookController::class, 'update']);
-
-# Show a page to delete a specific book
-Route::get('/books/{slug}/delete', [BookController::class, 'delete']);
-
-# Process the deletion
-Route::delete('/books/{slug}', [BookController::class, 'destroy']);
-
-Route::get('/books/{slug}', [BookController::class, 'show']);
-
-Route::get('/search', [BookController::class, 'search']);
-
-/**
- * Lists
- */
-
-Route::get('/list', [ListController::class, 'show']);
 
 });
 
- /**
+/**
   * Practice
   */
 Route::get('/example', function() {

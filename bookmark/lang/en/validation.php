@@ -180,7 +180,8 @@ return [
     */
 
     'attributes' => [
-        'slug' => 'short URL'
+        'slug' => 'short URL',
+        'author_id' => 'author'
     ],
 
 ];

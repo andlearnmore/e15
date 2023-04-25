@@ -12,6 +12,9 @@
 
         <h1>{{ $book->title }}</h1>
 
+        @if ($book->author)
+            <p>By {{ $book->author->first_name . ' ' . $book->author->last_name }}</p>
+        @endif
         <a href='{{ $book->purchase_url }}'>Purchase...</a>
 
         <p class='description'>
@@ -19,8 +22,10 @@
             <a href='{{ $book->info_url }}'>Learn more...</a>
         </p>
 
-        <a class="btn btn-primary" href="/books/{{ $book->slug }}/edit" role="button">Edit this book</a>
-        <br>
-        <a class="btn btn-outline-secondary" href="/books/{{ $book->slug }}/delete" role="button">Delete this book</a>
+        <ul class="bookActions">
+            <li><a href="/list/{{ $book->slug }}/add"><i class="fa fa-plus"></i> Add to your list</a></li>
+            <li><a href="/books/{{ $book->slug }}/edit"><i class="fa fa-edit"></i> Edit this book</a></li>
+            <li><a href="/books/{{ $book->slug }}/delete"><i class="fa fa-trash"></i> Delete this book</a></li>
+        </ul>
     @endif
 @endsection
