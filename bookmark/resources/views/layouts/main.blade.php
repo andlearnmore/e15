@@ -31,7 +31,7 @@
 
                 @if (Auth::user())
                     <li><a href='/books'>All Books</a></li>
-                    <li><a href='/books/create'>Add a Book</a></li>
+                    <li><a href='/books/create' test='add-book'>Add a Book</a></li>
                     <li><a href='/list'>Your list</a></li>
                 @endif
 
@@ -43,7 +43,8 @@
                     @else
                         <form method='POST' id='logout' action='/logout'>
                             {{ csrf_field() }}
-                            <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                            <a href='#' onClick='document.getElementById("logout").submit();'
+                                test='logout'>Logout</a>
                         </form>
                     @endif
                 </li>

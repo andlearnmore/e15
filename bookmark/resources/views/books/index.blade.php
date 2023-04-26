@@ -19,7 +19,7 @@
             <h2>New books</h2>
             <ul class='clean-list'>
                 @foreach ($newBooks as $book)
-                    <li><a href='/books/{{ $book->slug }}'>{{ $book->title }}</a></li>
+                    <li><a href='/books/{{ $book->slug }}' test='new-book-link'>{{ $book->title }}</a></li>
                 @endforeach
             </ul>
         </div>

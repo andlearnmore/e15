@@ -28,7 +28,6 @@
                     {{ method_field('put') }}
                     {{ csrf_field() }}
 
-
                     <textarea class='notes'>{{ $book->pivot->notes }}</textarea>
                     <input type='submit' class='btn btn-primary' value='Update notes'>
                 </form>

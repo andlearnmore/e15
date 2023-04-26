@@ -19,14 +19,14 @@
     <p>Welcome to Bookmark, an online book journal that lets you track and share a history of books you've read.</p>
 
 
-    <form method='GET' action='/search'>
+    <form test='search-form' method='GET' action='/search'>
 
         <h2>Search for a book to add to your list</h2>
 
         <fieldset>
             <label for='searchTerms'>
                 Search terms:
-                <input type='text' name='searchTerms' value='{{ old('searchTerms') }}'>
+                <input test='searchTerms' type='text' name='searchTerms' value='{{ old('searchTerms') }}'>
             </label>
         </fieldset>
 
@@ -35,11 +35,11 @@
                 Search type:
             </label>
 
-            <input type='radio' name='searchType' id='title' value='title'
+            <input test='search-type-title' type='radio' name='searchType' id='title' value='title'
                 {{ old('searchType') == 'title' ? 'checked' : '' }}>
             <label for='title'> Title</label>
 
-            <input type='radio' name='searchType' id='author' value='author'
+            <input test='search-type-author' type='radio' name='searchType' id='author' value='author'
                 {{ old('searchType') == 'author' ? 'checked' : '' }}>
             <label for='author'> Author</label>
 
@@ -67,7 +67,7 @@
                 {{ count($searchResults) }}
                 {{ Str::plural('Result', count($searchResults)) }}:
 
-                <ul class='clean-list'>
+                <ul test='search-results-list' class='clean-list'>
                     @foreach ($searchResults as $book)
                         {{-- <li><a href='/books/{{ $book->slug }}'> {{ $book->title }}</a></li> --}}
                         <li> {{ $book['title'] }}</li>

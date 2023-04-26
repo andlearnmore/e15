@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\TestController;
+
 
 
 /*
@@ -19,10 +22,18 @@ use App\Http\Controllers\PracticeController;
 |
 */
 
+# Only enable the following development-specific routes if we’re *not* running the application in the `production` environment
+if (!App::environment('production')) {
+  Route::get('/test/login-as/{userId}', [TestController::class, 'loginAs']);
+  Route::get('/test/refresh-database', [TestController::class, 'refreshDatabase']);
+
+  # It’s a good idea to move the practice route into this if condition
+  # so that our practice routes are not available on production
+  Route::any('/practice/{n?}', [PracticeController::class, 'index']);
+}
 
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
-Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']); # Filter route used to demonstrate working with multiple route parameters
 
 Route::group(['middleware' => 'auth'], function() {
@@ -62,13 +73,4 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 
-});
-
-/**
-  * Practice
-  */
-Route::get('/example', function() {
-    $foo = [1,2,3];
-    Log::info($foo);
-    return view('abc');
 });

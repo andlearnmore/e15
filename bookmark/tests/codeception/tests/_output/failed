@@ -1,0 +1,6 @@
+tests/acceptance/BookIndexPageCest.php:showsNewBooks
+tests/acceptance/BookIndexPageCest.php:individualBookPage
+tests/acceptance/LoginPageCest.php:pageLoads
+tests/acceptance/LoginPageCest.php:userCanLogIn
+tests/acceptance/LoginPageCest.php:userCanLogOut
+tests/acceptance/SearchPageCest.php:searchForExistingBook
