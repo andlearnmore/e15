@@ -23,7 +23,6 @@
                 {{-- In the following two paragraphs, observe how `$book->pivot` is used to access 
                 details (`created_at` and `notes`) from the book to user relationship --}}
 
-                {{-- TODO: Finish the update note feature --}}
                 <form method='POST' action='/list/{{ $book->slug }}/update'>
                     {{ method_field('put') }}
                     {{ csrf_field() }}
