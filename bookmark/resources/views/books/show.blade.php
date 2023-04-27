@@ -23,9 +23,18 @@
         </p>
 
         <ul class="bookActions">
-            <li><a href="/list/{{ $book->slug }}/add"><i class="fa fa-plus"></i> Add to your list</a></li>
             <li><a href="/books/{{ $book->slug }}/edit"><i class="fa fa-edit"></i> Edit this book</a></li>
-            <li><a href="/books/{{ $book->slug }}/delete"><i class="fa fa-trash"></i> Delete this book</a></li>
+
+            @if ($onList)
+                <li>
+                    @include('includes/remove-from-list')
+                </li>
+            @else
+                <li>
+                    <a href="/list/{{ $book->slug }}/add"><i class="fa fa-plus"></i> Add to your list</a>
+
+                </li>
+            @endif
         </ul>
     @endif
 @endsection

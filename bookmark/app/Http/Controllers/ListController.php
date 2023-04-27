@@ -47,7 +47,8 @@ class ListController extends Controller
 
          # With views (as in add above) we pass data as a second argument (array).
          # With redirects, here, we want to use the with method.
-         return view('/list')->with(['flash-alert' => 'The book ' . $book->title . ' was added to your list.']);
+         return redirect('/list')->with([
+            'flash-alert' => 'The book ' . $book->title . ' was added to your list.']);
      }
 
 
@@ -59,12 +60,17 @@ class ListController extends Controller
     {
 
         // TODO: get update to work
-        // $book = Book::findBySlug($slug);
+        $book = Book::findBySlug($slug);
+        $user = $request->user();
 
-        // return redirect('/list')->with([
-        //     'book' => $book, 
-        //     'flash-alert' => 'Your changes were saved.'
-        // ]);
+        $book = $user->books()->where('books.id', $book->id)->first();
+
+        $book->pivot->notes = $request->notes;
+        $book->pivot->save();
+
+        return redirect('/list')->with([
+            'flash-alert' => 'Your changes were saved.'
+        ]);
 
     }
 
@@ -92,9 +98,8 @@ class ListController extends Controller
 
      public function destroy(Request $request, $slug)
      {
-        $user = $request->user();
 
-        $book = $user->books()->where('slug', $slug)->first();
+        $book = $request->user()->books()->where('slug', $slug)->first();
         
         $book->pivot->delete();
         // dd('Deleted ' . $book->title );

@@ -65,7 +65,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/list/{slug}/save', [ListController::class, 'save']);
 
     # Edit
-    Route::put('/list', [ListController::class, 'update']);
+    Route::put('/list/{slug}/update', [ListController::class, 'update']);
 
     # Remove
     Route::get('/list/{slug}/delete', [ListController::class, 'delete']); # Show a page to delete a specific book

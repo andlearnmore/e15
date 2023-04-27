@@ -199,8 +199,9 @@ class BookController extends Controller
 
     /**
         * GET /books/{slug}
+        * Show an individual book searching by slug
     */
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
         # This build method for the Log facade is something I added as part of HW6.
         Log::build([
@@ -213,8 +214,18 @@ class BookController extends Controller
 
         $book = Book::where('slug', '=', $slug)->first();
 
+        if (!$book) {
+            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
+        }
+
+        # Look at current book, look at users relationship, looking for the user
+        # that matches our currently logged in user and then if the count of books >=1
+        # onList will be true.
+        $onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+        
         return view('books/show', [
-            'book' => $book
+            'book' => $book,
+            'onList' => $onList
         ]);
     }
 

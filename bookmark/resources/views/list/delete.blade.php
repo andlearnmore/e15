@@ -20,6 +20,6 @@
         <button type='submit' class='btn btn-primary'>Yes, I want to remove this book</button>
         <br>
         <br>
-        <a href='/books'>No, I changed my mind.</a>
+        <a href='/books/{{ $book->slug }}'>No, I changed my mind.</a>
     </form>
 @endsection

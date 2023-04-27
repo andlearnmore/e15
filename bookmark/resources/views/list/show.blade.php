@@ -24,19 +24,20 @@
                 details (`created_at` and `notes`) from the book to user relationship --}}
 
                 {{-- TODO: Finish the update note feature --}}
-                <form method='POST' action='/list/{{ $book->slug }}'>
+                <form method='POST' action='/list/{{ $book->slug }}/update'>
                     {{ method_field('put') }}
                     {{ csrf_field() }}
 
-                    <textarea class='notes'>{{ $book->pivot->notes }}</textarea>
-                    <input type='submit' class='btn btn-primary' value='Update notes'>
+                    <textarea class='notes' name='notes' test='{{ $book->slug }}-notes-textarea'>{{ $book->pivot->notes }}</textarea>
+                    <button type='submit' class='btn btn-primary' test='{{ $book->slug }}-update-button'>Update
+                        notes</button>
                 </form>
 
                 <p class='added'>
                     Added {{ $book->pivot->created_at->diffForHumans() }}
                 </p>
 
-                <a href='/list/{{ $book->slug }}/delete'><i class='fa fa-minus-circle'></i> Remove from your list</a>
+                @include('includes/remove-from-list')
             </div>
             <p class='notes'>
                 {{ $book->pivot->notes }}
