@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Edit a City
+    Add a Country
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>Copy the form from "Add a City" (create.blade.php) and prefill it to edit.</p>
+    <p>A form to add a country. (ADMIN ONLY)</p>
 @endsection

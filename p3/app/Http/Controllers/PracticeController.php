@@ -12,7 +12,7 @@ class PracticeController extends Controller
      */
     public function practice1()
     {
-        dump('This is the first example.');
+        // dump('Added: ' . $country->);
     }
 
     /**

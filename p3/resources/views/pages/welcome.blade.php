@@ -9,5 +9,4 @@
 @endsection
 
 @section('content')
-    <p>EuroPlan</p>
 @endsection

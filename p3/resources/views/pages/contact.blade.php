@@ -8,5 +8,6 @@
 @endsection
 
 @section('content')
-    <p>Contact us here.</p>
+    <p>Contact us here:
+        {{ config('mail.contactEmail') }}</p>
 @endsection

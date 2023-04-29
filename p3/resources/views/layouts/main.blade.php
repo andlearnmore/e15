@@ -27,10 +27,13 @@
         <nav>
             <ul>
                 <li><a href='/'>Home</a></li>
-                {{-- <li><a href='/countries'>All Countries</a></li> --}}
-                <li><a href='/cities'>All Cities</a></li>
-                <li><a href='/cities/create'>Add a City</a></li>
+                <li><a href='/countries'>All Countries</a></li>
+                <li><a href='/my-trip/'>My Trip</a></li>
+                <li><a href='/places/create'>Add a Place</a></li>
                 <li><a href='/contact'>Contact</a></li>
+                <li><a href='/login'>Login</a></li>
+                {{-- TODO: add /logout --}}
+                {{-- TODO: add /register --}}
 
             </ul>
         </nav>
@@ -43,7 +46,6 @@
 
     <footer>
         &copy; EuroPlan, Inc.
-        {{ config('mail.contact_email') }}
     </footer>
 
 </body>

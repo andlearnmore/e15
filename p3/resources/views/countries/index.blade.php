@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Add a City
+    Countries
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>A form to add a city. (ADMIN ONLY)</p>
+    <p>Here I'll list cards for all of the countries (in the DB).</p>
 @endsection

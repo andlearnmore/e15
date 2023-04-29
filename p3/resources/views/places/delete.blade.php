@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Add a City
+    Delete a Place
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>A form to add a city. (ADMIN ONLY)</p>
+    <p>A form to remove a place a place. (ADMIN ONLY)</p>
 @endsection

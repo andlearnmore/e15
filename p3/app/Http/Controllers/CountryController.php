@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CityController extends Controller
+class CountryController extends Controller
 {
     /**
      * GET /
@@ -12,11 +12,11 @@ class CityController extends Controller
      */
     public function index()
     {
-        return view('/{country}/cities/index');
+        return view('countries/index');
     }
 
     public function create()
     {
-        return view('/{country}/cities/create');
+        return view('countries/create');
     }
 }

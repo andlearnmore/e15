@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Add a City
+    Places to See
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>A form to add a city. (ADMIN ONLY)</p>
+    <p>Here I'll list cards for all of the places in the countr/citiy selected.</p>
 @endsection

@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('country_code', 2); # Equivalent of Bookmark's slug
-            $table->string('country_name');
+            $table->string('city_slug'); # Equivalent to Bookmark slug
+            $table->string('city_name');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('cities');
     }
 };

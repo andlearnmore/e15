@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,7 @@ use App\Http\Controllers\CityController;
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('contact', [PageController::class, 'contact']);
 
-// I'll consider going up to the country level after I get cities working.
-// Route::get('/countries', [PageController::class, 'countries']);
+Route::get('/countries', [CountryController::class, 'index']);
 
 Route::get('/cities', [CityController::class, 'index']);
 
