@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('code', 2); # Equivalent of Bookmark's slug
-            $table->string('name');
+            $table->string('country');
         });
     }
 

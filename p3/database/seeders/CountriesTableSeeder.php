@@ -31,7 +31,7 @@ class CountriesTableSeeder extends Seeder
 
         # Decode and alphabetize the countries by name using Laravel's Arr::sort
         $countries = Arr::sort((json_decode($countryData, true)), function ($value) {
-            return $value['name'];
+            return $value['country'];
         });
         
         foreach($countries as $countryData) {
@@ -40,7 +40,7 @@ class CountriesTableSeeder extends Seeder
             $country->created_at = $this->faker->dateTimeThisMonth();
             $country->updated_at = $country->created_at;
             $country->code = $countryData['code'];
-            $country->name = $countryData['name'];
+            $country->country = $countryData['country'];
 
             $country->save();
         }

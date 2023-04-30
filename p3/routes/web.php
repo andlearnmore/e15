@@ -24,6 +24,9 @@ Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 Route::get('/countries', [CountryController::class, 'index']);
 Route::get('/countries/{code}', [CountryController::class, 'show']);
 
-Route::get('/cities', [CityController::class, 'index']);
+Route::get('/cities/{code}', [CityController::class, 'show']);
 
-Route::get('/cities/create', [CityController::class, 'create']);
+// Route::get('/{slug}/places', [PlaceController::class, 'index']);
+
+
+// Route::get('/cities/create', [CityController::class, 'create']);

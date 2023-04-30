@@ -9,5 +9,11 @@
 @endsection
 
 @section('content')
-    <p>Details about a city? Or the planner form?</p>
+    <p>List the cities in {{ $country->country }}.</p>
+    <h2>{{ $country->country }}</h2>
+    @foreach ($cities as $city)
+        {{-- <a href='/cities/{code}'> --}}
+        <h4> {{ $city->city }}</h4>
+        {{-- </a> --}}
+    @endforeach
 @endsection

@@ -1,42 +1,42 @@
 [
     {
-        "name": "Austria",
+        "country": "Austria",
         "code": "AT"
     },
     {
-        "name": "Belgium",
+        "country": "Belgium",
         "code": "BE"
     },
     {
-        "name": "Switzerland",
+        "country": "Switzerland",
         "code": "CH"
     },
     {
-        "name": "Czech Republic",
+        "country": "Czech Republic",
         "code": "CZ"
     },
     {
-        "name": "Germany",
+        "country": "Germany",
         "code": "DE"
     },
     {
-        "name": "France",
+        "country": "France",
         "code": "FR"
     },
     {
-        "name": "United Kingdom",
+        "country": "United Kingdom",
         "code": "GB"
     },
     {
-        "name": "Croatia",
+        "country": "Croatia",
         "code": "HR"
     },
     {
-        "name": "Netherlands",
+        "country": "Netherlands",
         "code": "NL"
     },
     {
-        "name": "Poland",
+        "country": "Poland",
         "code": "PL"
     }
 ]

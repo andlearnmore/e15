@@ -12,7 +12,7 @@
         <p>That country is not included in this app.</p>
         <div> <a href='/countries'>Here is the list of countries available.</a></div>
     @else
-        <h2>{{ $country->name }}</h2>
-        <p>List available cities in {{ $country->name }} (from the DB).</p>
+        <h2>{{ $country->country }}</h2>
+        <p>List available cities in {{ $country->country }} (from the DB).</p>
     @endif
 @endsection

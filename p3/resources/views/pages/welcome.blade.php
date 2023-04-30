@@ -14,4 +14,5 @@
             Hello {{ Auth::user()->name }}!
         </h2>
     @endif
+    <h4>{{ $welcomeMessage }}</h4>
 @endsection

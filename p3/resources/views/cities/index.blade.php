@@ -8,5 +8,5 @@
 @endsection
 
 @section('content')
-    <p>Here I'll list cards for all of the cities in the chosen country from the DB.</p>
+    <p>List all places</p>
 @endsection

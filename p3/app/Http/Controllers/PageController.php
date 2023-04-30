@@ -12,7 +12,10 @@ class PageController extends Controller
      */
     public function welcome()
     {
-        return view('pages/welcome');
+        $welcomeMessage = "Hello and welcome to this page.";
+        return view('pages/welcome', [
+            'welcomeMessage' => $welcomeMessage
+        ]);
     }
 
         /**

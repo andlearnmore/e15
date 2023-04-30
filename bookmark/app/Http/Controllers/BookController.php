@@ -22,10 +22,10 @@ class BookController extends Controller
         //$newBooks = Book::orderBy('id', 'DESC')->limit(3)->get();
         $newBooks = $books->sortByDesc('id')->take(3);
 
-    return view('books/index', [
-        'books' => $books, 
-        'newBooks' => $newBooks
-    ]);
+        return view('books/index', [
+            'books' => $books, 
+            'newBooks' => $newBooks
+        ]);
     }
 
     /**
@@ -50,7 +50,7 @@ class BookController extends Controller
         if (!$book) {
             return redirect('/books')->with(['flash-alert' => 'Book not found.']);
         }
-
+        dd($authors);
         return view('books/edit', [
             'book' => $book, 
             'authors' => $authors
