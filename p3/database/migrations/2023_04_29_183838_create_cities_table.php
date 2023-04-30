@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('city_slug'); # Equivalent to Bookmark slug
-            $table->string('city_name');
+            $table->string('slug'); # Equivalent to Bookmark slug
+            $table->string('city');
+            // $table->string('country');
         });
     }
 

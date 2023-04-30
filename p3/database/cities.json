@@ -1,0 +1,132 @@
+[
+    {
+        "city": "Gmunden",
+        "country": "AT",
+        "slug": "gmunden"
+    },
+    {
+        "city": "Salzburg",
+        "country": "AT",
+        "slug": "salzburg"
+    },
+    {
+        "city": "Vienna",
+        "country": "AT",
+        "slug": "vienna"
+    },
+    {
+        "city": "Brussels",
+        "country": "BE",
+        "slug": "brussels"
+    },
+    {
+        "city": "Ghent",
+        "country": "BE",
+        "slug": "ghent"
+    },
+    {
+        "city": "Antwerp",
+        "country": "BE",
+        "slug": "antwerp"
+    },
+    {
+        "city": "Prague",
+        "country": "CZ",
+        "slug": "prague"
+    },
+    {
+        "city": "Český Krumlov",
+        "country": "CZ",
+        "slug": "cesky-krumlov"
+    },
+    {
+        "city": "Karlovy Vary",
+        "country": "CZ",
+        "slug": "karlovy-vary"
+    },
+    {
+        "city": "Berlin",
+        "country": "DE",
+        "slug": "berlin"
+    },
+    {
+        "city": "Hannover",
+        "country": "DE",
+        "slug": "hannover"
+    },
+    {
+        "city": "Munich",
+        "country": "DE",
+        "slug": "munich"
+    },
+    {
+        "city": "Essen",
+        "country": "DE",
+        "slug": "essen"
+    },
+    {
+        "city": "Witten",
+        "country": "DE",
+        "slug": "witten"
+    },
+    {
+        "city": "Cologne",
+        "country": "DE",
+        "slug": "cologne"
+    },
+    {
+        "city": "Freiburg im Breisgau",
+        "country": "DE",
+        "slug": "freiburg-im-breisgau"
+    },
+    {
+        "city": "Paris",
+        "country": "FR",
+        "slug": "paris"
+    },
+    {
+        "city": "Lyon",
+        "country": "FR",
+        "slug": "lyon"
+    },
+    {
+        "city": "Strasbourg",
+        "country": "FR",
+        "slug": "strasbourg"
+    },
+    {
+        "city": "London",
+        "country": "GB",
+        "slug": "london"
+    },
+    {
+        "city": "Oxford",
+        "country": "GB",
+        "slug": "oxford"
+    },
+    {
+        "city": "Dubrovnik",
+        "country": "HR",
+        "slug": "dubrovnik"
+    },
+    {
+        "city": "Brač",
+        "country": "HR",
+        "slug": "brac"
+    },
+    {
+        "city": "Amsterdam",
+        "country": "NL",
+        "slug": "amsterdam"
+    },
+    {
+        "city": "The Hague",
+        "country": "NL",
+        "slug": "the-hague"
+    },
+    {
+        "city": "Haarlem",
+        "country": "NL",
+        "slug": "haarlem"
+    }
+]

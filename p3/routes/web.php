@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PracticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\CountryController;
 
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('contact', [PageController::class, 'contact']);
+Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/countries', [CountryController::class, 'index']);
 Route::get('/countries/{code}', [CountryController::class, 'show']);

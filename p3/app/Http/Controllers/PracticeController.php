@@ -3,16 +3,80 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Seeder;
+
+use Faker\Factory;
+use Illuminate\Support\Arr;
+
+use App\Models\City;
+use App\Models\Country;
+
 
 class PracticeController extends Controller
 {
+    private $faker;
+
+
+    public function practice2()
+    {
+        $countryData = file_get_contents(database_path('countries.json'));
+        dump($countryData);
+        $countries = json_decode($countryData, true);
+        dd($countries);
+
+
+        # Decode and alphabetize the countries by name using Laravel's Arr::sort
+        $countries = Arr::sort((json_decode($countryData, true)), function ($value) {
+            return $value['name'];
+        });
+        dd($countries);
+        
+        foreach($countries as $countryData) {
+            $country = new Country();
+            dd('hello');
+            $country->created_at = $this->faker->dateTimeThisMonth();
+            $country->updated_at = $country->created_at;
+            $country->code = $countryData['code'];
+            $country->name = $countryData['name'];
+            dd($country);
+
+            $country->save();
+            dump($country);
+        }
+    }
+
     /**
      * First practice example
      * GET /practice/1
      */
     public function practice1()
     {
-        // dump('Added: ' . $country->);
+
+        // For: CITIES SEEDER
+        // TODO: Figure out how to get countries used dynamically. (MVP+)
+        $cityData = file_get_contents(database_path('cities.json'));
+        $cities = json_decode($cityData, true);
+        dump($cityData);
+
+        foreach ($cities as $cityData) {
+            $city = new City();
+            // dump($cityData['slug']);
+            // dump($cityData['city']);
+            // dump($cityData['country']);
+            // dump($cityData['slug']);
+
+
+
+            # Find each country in the countries table
+            $country_id = Country::where('code', '=', $cityData['country'])->pluck('id')->first();
+            // dump($country_id);
+            $city->slug = $cityData['slug'];
+            $city->name = $cityData['city'];
+            $city->country = $cityData['country'];
+            $city->country_id = $country_id;
+            // $city->save();
+            dump($city);
+        }
     }
 
     /**
