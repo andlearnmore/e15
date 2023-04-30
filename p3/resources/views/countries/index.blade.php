@@ -8,5 +8,9 @@
 @endsection
 
 @section('content')
-    <p>Here I'll list cards for all of the countries (in the DB).</p>
+    @foreach ($countries as $country)
+        <a href='/countries/{{ $country->code }}'>
+            <h3> {{ $country->name }}</h3>
+        </a>
+    @endforeach
 @endsection

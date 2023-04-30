@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Austria",
+        "code": "AT"
+    },
+    {
+        "name": "Belgium",
+        "code": "BE"
+    },
+    {
+        "name": "Switzerland",
+        "code": "CH"
+    },
+    {
+        "name": "Czech Republic",
+        "code": "CZ"
+    },
+    {
+        "name": "Germany",
+        "code": "DE"
+    },
+    {
+        "name": "France",
+        "code": "FR"
+    },
+    {
+        "name": "United Kingdom",
+        "code": "GB"
+    },
+    {
+        "name": "Croatia",
+        "code": "HR"
+    },
+    {
+        "name": "Iceland",
+        "code": "IC"
+    },
+    {
+        "name": "Netherlands",
+        "code": "NL"
+    },
+    {
+        "name": "Poland",
+        "code": "PL"
+    }
+]

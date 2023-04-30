@@ -9,4 +9,9 @@
 @endsection
 
 @section('content')
+    @if (Auth::user())
+        <h2>
+            Hello {{ Auth::user()->name }}!
+        </h2>
+    @endif
 @endsection

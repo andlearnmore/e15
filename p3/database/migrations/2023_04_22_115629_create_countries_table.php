@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('country_code', 2); # Equivalent of Bookmark's slug
-            $table->string('country_name');
+            $table->string('code', 2); # Equivalent of Bookmark's slug
+            $table->string('name');
         });
     }
 

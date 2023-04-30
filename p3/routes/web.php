@@ -20,6 +20,7 @@ Route::get('/', [PageController::class, 'welcome']);
 Route::get('contact', [PageController::class, 'contact']);
 
 Route::get('/countries', [CountryController::class, 'index']);
+Route::get('/countries/{code}', [CountryController::class, 'show']);
 
 Route::get('/cities', [CityController::class, 'index']);
 
