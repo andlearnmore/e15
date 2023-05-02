@@ -29,7 +29,7 @@ class ListController extends Controller
 
         # TODO: Handle case where book isn’t found for the given slug
 
-        return view('list/add', ['book' => $book]);
+;        return view('list/add', ['book' => $book]);
     }
 
     /**

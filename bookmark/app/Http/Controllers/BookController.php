@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
+use App\Mail\BookAdded;
 use App\Models\Book;
 use App\Models\Author;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Arr;
 
 
 class BookController extends Controller
@@ -158,6 +160,8 @@ class BookController extends Controller
         $book->description = $request->description;
         $book->save();
     
+        Mail::to($request->user())->send(new BookAdded());
+
         return redirect('/books/create')->with(['flash-alert' => 'Your book has been added.']);
         #with() flashes data to the session as part of the redirect.
         # Note: If validation fails, it will automatically redirect the visitor back to the form page
