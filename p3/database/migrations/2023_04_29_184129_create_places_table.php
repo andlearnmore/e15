@@ -15,11 +15,12 @@ return new class () extends Migration {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('place_slug');
+            $table->string('slug');
             $table->string('place');
-            $table->smallInteger('open')->nullable;
+            $table->string('city');
+            $table->string('open')->nullable;
             $table->time('open_time', 2)->nullable;
-            $table->smallInteger('closed')->nullable;
+            $table->string('closed')->nullable;
             $table->time('close_time', 2)->nullable;
             $table->string('metro')->nullable; # Eventually, could have a table for this.
             $table->string('region')->nullable; # Eventually, could have a table for this.

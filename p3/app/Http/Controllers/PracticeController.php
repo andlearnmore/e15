@@ -10,12 +10,40 @@ use Illuminate\Support\Arr;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Place;
+
 
 
 class PracticeController extends Controller
 {
     private $faker;
 
+    public function practice4()
+    {
+        $placeData = file_get_contents(database_path('places.json'));
+        // dump($placeData);
+        $places = json_decode($placeData, true);
+        dump($places);
+        $city_id = City::where('city', '=', $placeData['city'])->pluck('id')->first();
+        dd($city_id);
+
+    }
+
+    public function practice3()
+    {
+        $cityData = file_get_contents(database_path('cities.json'));
+        dump($cityData);
+        $cities = json_decode($cityData, true);
+        dump($cities);
+        foreach ($cities as $slug => $cityData) {
+            $city = new City();
+
+            # Find each country in the countries table
+            $country_id = Country::where('code', '=', $cityData['country'])->pluck('id')->first();
+
+            dump($country_id);
+        }
+    }
 
     public function practice2()
     {

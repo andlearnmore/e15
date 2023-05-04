@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('cities', function(Blueprint $table) {
+        Schema::table('cities', function(Blueprint $table) 
+        {
 
-        $table->bigInteger('country_id')->unsigned();
+            $table->bigInteger('country_id')->unsigned();
 
-        # The field `country_id` is a foreign key connecting to the `id` field in the `countries` table.
-        $table->foreign('country_id')->references('id')->on('countries');
+            # The field `country_id` is a foreign key connecting to the `id` field in the `countries` table.
+            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 

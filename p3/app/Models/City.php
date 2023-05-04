@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
+
+    public function places()
+    { 
+        # City has many Places
+        return $this->hasMany('App\Models\Place');
+    }
+
 }

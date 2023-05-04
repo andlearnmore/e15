@@ -12,21 +12,8 @@ class CityController extends Controller
      * GET /
      * Display all cities
      */
-    public function index($code)
-    {
-        // $country = Country::where('code', '=', $code)->first();
-        // // if (!$country) {
-        // //     return redirect('/countries')->with(['flash-alert' => 'Country not found.']);
-        // // }
-        // $cities = City::where('country_id', '=', $country->id)->get();
 
-        // // dd($cities);
-        // return view('/cities/show', [
-        //     'country' => $country
-        // ]);
-    }
-
-    public function show(Request $request, $code)
+    public function index(Request $request, $code)
     {
         $country = Country::where('code', '=', $code)->first();
         // if (!$country) {
@@ -35,12 +22,11 @@ class CityController extends Controller
         $cities = City::where('country_id', '=', $country->id)->get();
         // dd($cities);
 
-        return view('/cities/show', [
+        return view('/cities/index', [
             'country' => $country, 
             'cities' => $cities
         ]);
     }
-
 
     public function create()
     {
