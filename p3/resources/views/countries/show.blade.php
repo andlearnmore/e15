@@ -1,8 +1,8 @@
-@extends('layouts/main')
+{{-- @extends('layouts/main')
 
 @section('title')
     Show a Country {{-- Placeholder text: will be name of city --}}
-@endsection
+{{-- @endsection
 
 @section('head')
 @endsection
@@ -15,4 +15,4 @@
         <h2>{{ $country->country }}</h2>
         <p>List available cities in {{ $country->country }} (from the DB).</p>
     @endif
-@endsection
+@endsection --}} --}}

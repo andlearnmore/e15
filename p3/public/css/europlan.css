@@ -18,6 +18,38 @@
     flex-direction: column;
 }
 
+#cities,
+#places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.city,
+.place {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+a:link.city,
+a:visited.city,
+a:active.city,
+a:hover.city {
+    padding: 10px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    border: 1px solid #eeeeee;
+    margin: 5px;
+    min-width: 25%;
+    max-width: 200px;
+    text-align: center;
+}
+
+
+
 section#main {
     /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
     flex: 1;

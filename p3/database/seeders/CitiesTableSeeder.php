@@ -13,6 +13,7 @@ class CitiesTableSeeder extends Seeder
 {
 
     private $faker;
+    
     /**
      * Run the database seeds.
      *

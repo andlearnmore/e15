@@ -9,4 +9,8 @@
 
 @section('content')
     <p>Show details of the place selected (from the DB).</p>
+    <h1>{{ $place->place }}</h1>
+    <p>{{ $place->address }}</p>
+
+    <a href='/{{ $country }}/{{ $city }}/places'>Back to {{ ucfirst($city) }}</a>
 @endsection

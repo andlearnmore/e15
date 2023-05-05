@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\PracticeController;
 
 /*
@@ -23,9 +24,11 @@ Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/countries', [CountryController::class, 'index']);
 
-Route::get('{code}/cities/', [CityController::class, 'index']);
+Route::get('{country}/cities', [CityController::class, 'index']);
 
-Route::get('/{code}/{slug}/places', [PlaceController::class, 'index']);
+Route::get('/{country}/{city}/places', [PlaceController::class, 'index']);
+
+Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
 
 
 // Route::get('/cities/create', [CityController::class, 'create']);

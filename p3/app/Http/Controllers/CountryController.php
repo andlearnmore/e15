@@ -24,15 +24,15 @@ class CountryController extends Controller
         return view('countries/create');
     }
 
-        public function show(Request $request, $code)
-        {
-            $country = Country::where('code', '=', $code)->first();
-            if (!$country) {
-                return redirect('/countries')->with(['flash-alert' => 'Country not found.']);
-            }
-            return view('countries/show', [
-                'country' => $country
-            ]);
-        }
+    // public function show(Request $request, $code)
+    // {
+    //     $country = Country::where('code', '=', $code)->first();
+    //     if (!$country) {
+    //         return redirect('/countries')->with(['flash-alert' => 'Country not found.']);
+    //     }
+    //     return view('countries/show', [
+    //         'country' => $country
+    //     ]);
+    // }
 
 }
