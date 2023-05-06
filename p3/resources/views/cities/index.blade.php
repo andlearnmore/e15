@@ -12,7 +12,7 @@
     <h2>{{ $country->country }}</h2>
     <div id="cities">
         @foreach ($cities as $city)
-            <a class="city" href='/{{ $country->code }}/{{ $city->slug }}/places'>
+            <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/places'>
                 <h4> {{ $city->city }}</h4>
             </a>
         @endforeach

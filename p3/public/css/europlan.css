@@ -19,6 +19,7 @@
 }
 
 #cities,
+#countries,
 #places {
     display: flex;
     flex-wrap: wrap;
@@ -27,16 +28,17 @@
 }
 
 .city,
+.country,
 .place {
     border: 1px solid #ccc;
     margin: 20px 0;
     padding: 20px;
 }
 
-a:link.city,
-a:visited.city,
-a:active.city,
-a:hover.city {
+a:link.location,
+a:visited.location,
+a:active.location,
+a:hover.location {
     padding: 10px;
     display: block;
     color: black;

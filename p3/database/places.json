@@ -68,8 +68,8 @@
         "description": "The Wall Museum is located in the former mill warehouse at the famous East Side Gallery and the Oberbaumbrücke border station."
     },
     {
-        "place": "The Wall Museum: House at Checkpoint Charlie",
-        "slug": "wall-museum-house",
+        "place": "House at Checkpoint Charlie",
+        "slug": "house-at-checkpoint-charlie",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -119,7 +119,7 @@
         "description": "Aquarium Berlin is one of Europe’s best-known aquariums. Behind the building’s historic façade, many mysterious, curious and monstrous creatures are waiting to be discovered – from colourful coral reef inhabitants to impressive sharks, and from gardening ants to fascinating giant snakes!"
     },
     {
-        "place": "Altes Museum (Old Museum)",
+        "place": "Altes Museum",
         "slug": "altes-museum",
         "city": "Berlin",
         "open": "10:00",
@@ -289,7 +289,7 @@
         "description": "Children and their adults can visit the »Books are Food« exhibition, find their own way on the climbing wall and get creative at our workbenches."
     },
     {
-        "place": "Kindermuseum unterm Dach (Children's Museum)",
+        "place": "Kindermuseum unterm Dach",
         "slug": "unterm-dach",
         "city": "Berlin",
         "open": "14:00",
