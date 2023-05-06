@@ -17,18 +17,16 @@ return new class () extends Migration {
             $table->timestamps();
             $table->string('place');
             $table->string('slug');
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->string('open')->nullable();
-            $table->time('open_time', 2)->nullable();
             $table->string('closed')->nullable();
-            $table->time('close_time', 2)->nullable();
             $table->string('metro')->nullable(); # Eventually, could have a table for this.
             $table->string('region')->nullable(); # Eventually, could have a table for this.
             $table->string('address')->nullable();
             $table->smallInteger('visit_length')->nullable();
             $table->boolean('reservation_reqd')->nullable();
             $table->boolean('fee')->nullable();
-            $table->string('url')->nullable();
+            $table->string('url');
             $table->text('description')->nullable();
         });
     }

@@ -30,5 +30,8 @@ Route::get('/{country}/{city}/places', [PlaceController::class, 'index']);
 
 Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
 
+Route::get('/places/create', [PlaceController::class, 'create']);
+Route::post('/places', [PlaceController::class, 'store']);
+
 
 // Route::get('/cities/create', [CityController::class, 'create']);

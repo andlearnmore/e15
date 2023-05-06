@@ -179,6 +179,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'city_id' => 'City',
+        'close_hour' => 'Close Time',
+        'close_minute' => 'Close Time',
+        'open_hour' => 'Open Time',
+        'open_minute' => 'Open Time',
+        'place' => 'Place Name',
+        'url' => 'Website'
+    ],
 
 ];

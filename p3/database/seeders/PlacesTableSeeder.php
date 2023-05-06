@@ -44,9 +44,7 @@ class PlacesTableSeeder extends Seeder
             $place->slug = $placeData['slug'];
             $place->city = $placeData['city'];
             $place->open = $placeData['open'];
-            $place->open_time = $placeData['open_time'];
             $place->closed = $placeData['closed'];
-            $place->close_time = $placeData['close_time'];
             $place->metro = $placeData['metro'];
             $place->region = $placeData['region'];
             $place->address = $placeData['address'];
@@ -83,9 +81,7 @@ class PlacesTableSeeder extends Seeder
                 $place->slug = Str::slug($place_name, '-');
                 $place->city = $city['city'];
                 $place->open = $morning.':00';
-                $place->open_time = $morning;
                 $place->closed = $evening.':00';
-                $place->close_time = $evening;
                 $place->metro = $this->faker->randomElement($metro_options);
                 $place->region = null;
                 $place->address = $this->faker->streetAddress;

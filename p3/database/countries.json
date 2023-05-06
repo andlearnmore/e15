@@ -8,10 +8,6 @@
         "code": "BE"
     },
     {
-        "country": "Switzerland",
-        "code": "CH"
-    },
-    {
         "country": "Czech Republic",
         "code": "CZ"
     },
@@ -34,9 +30,5 @@
     {
         "country": "Netherlands",
         "code": "NL"
-    },
-    {
-        "country": "Poland",
-        "code": "PL"
     }
 ]
