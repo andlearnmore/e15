@@ -14,9 +14,15 @@
     @else --}}
     <div id=countries>
         @foreach ($countries as $country)
-            <a class='location' href='/{{ $country->code }}/cities'>
-                <h3> {{ $country->country }}</h3>
-            </a>
+            @if (Auth::user())
+                <a class='location' href='/{{ $country->code }}/cities'>
+                    <h3> {{ $country->country }}</h3>
+                </a>
+            @else
+                <div class='location'>
+                    <h3> {{ $country->country }}</h3>
+                </div>
+            @endif
         @endforeach
     </div>
     {{-- @endif --}}

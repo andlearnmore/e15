@@ -27,8 +27,11 @@
             <ul>
                 <li><a href='/'>Home</a></li>
                 <li><a href='/countries'>All Countries</a></li>
-                <li><a href='/my-trip/'>My Trip</a></li>
-                <li><a href='/places/create'>Add a Place</a></li>
+
+                @if (Auth::user())
+                    <li><a href='/my-trip/'>My Trip</a></li>
+                    <li><a href='/places/create'>Add a Place</a></li>
+                @endif
                 <li><a href='/contact'>Contact</a></li>
                 <li>
                     @if (!Auth::user())
@@ -36,7 +39,9 @@
                     @else
                         <form method='POST' id='logout' action='/logout'>
                             {{ csrf_field() }}
-                            <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                            <button type='submit' class='button-link'>
+                                Logout
+                            </button>
                         </form>
                     @endif
                 </li>

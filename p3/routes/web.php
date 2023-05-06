@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CityController;
@@ -24,14 +25,16 @@ Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/countries', [CountryController::class, 'index']);
 
-Route::get('{country}/cities', [CityController::class, 'index']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('{country}/cities', [CityController::class, 'index']);
+    Route::get('/{country}/{city}/places', [PlaceController::class, 'index']);
+    Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
+    Route::get('/places/create', [PlaceController::class, 'create']);
+    Route::post('/places', [PlaceController::class, 'store']);
+});
 
-Route::get('/{country}/{city}/places', [PlaceController::class, 'index']);
 
-Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
 
-Route::get('/places/create', [PlaceController::class, 'create']);
-Route::post('/places', [PlaceController::class, 'store']);
 
 
 // Route::get('/cities/create', [CityController::class, 'create']);
