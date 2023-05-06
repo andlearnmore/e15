@@ -11,7 +11,6 @@ use Faker\Factory;
 
 class PlacesTableSeeder extends Seeder
 {
-
     private $faker;
 
     /**
@@ -23,7 +22,9 @@ class PlacesTableSeeder extends Seeder
     {
         $this->faker = Factory::create();
         // TODO: Could I put this in a separate controller and update all seeders?
-        $this->addPlacesFromplacesDotJsonFile(); 
+        $this->addPlacesFromplacesDotJsonFile();
+        $this->addRandomlyGeneratedPlacesUsingFaker();
+
     }
 
     private function addPlacesFromplacesDotJsonFile()
@@ -39,8 +40,8 @@ class PlacesTableSeeder extends Seeder
 
             $place->created_at = $this->faker->dateTimeThisMonth();
             $place->updated_at = $place->created_at;
-            $place->slug = $placeData['slug'];
             $place->place = $placeData['place'];
+            $place->slug = $placeData['slug'];
             $place->city = $placeData['city'];
             $place->open = $placeData['open'];
             $place->open_time = $placeData['open_time'];
@@ -56,6 +57,47 @@ class PlacesTableSeeder extends Seeder
             $place->description = $placeData['description'];
             $place->city_id = $city_id;
             $place->save();
+        }
+    }
+
+    private function addRandomlyGeneratedPlacesUsingFaker()
+    {
+        # Get all city_ids except Berlin, which has its own places seeder.
+        $cities = City::where('city', '!=', 'Berlin')->get()->toArray();
+        $city_ids = City::where('city', '!=', 'Berlin')->get('id')->toArray();
+
+        foreach ($cities as $city) {
+            for ($i = 0; $i < 4; $i++) {
+                $place = new Place();
+
+                $place_name = $this->faker->words(rand(2, 4), true);
+                $morning = $this->faker->numberBetween(8, 12);
+                $evening = $this->faker->numberBetween(14, 23);
+                for ($j = 0; $j < 4; $j++) {
+                    $metro_options[]= Str::title($this->faker->streetName(rand(1, 3), true));
+                }
+
+                $place->created_at = $this->faker->dateTimeThisMonth();
+                $place->updated_at = $place->created_at;
+                $place->place = Str::title($place_name);
+                $place->slug = Str::slug($place_name, '-');
+                $place->city = $city['city'];
+                $place->open = $morning.':00';
+                $place->open_time = $morning;
+                $place->closed = $evening.':00';
+                $place->close_time = $evening;
+                $place->metro = $this->faker->randomElement($metro_options);
+                $place->region = null;
+                $place->address = $this->faker->streetAddress;
+
+                $place->visit_length = $this->faker->randomNumber(1, 5);
+                $place->reservation_reqd = $this->faker->boolean();
+                $place->fee = $this->faker->boolean();
+                $place->url = 'https://hesweb.dev/e15';
+                $place->description = $this->faker->paragraph();
+                $place->city_id = $city['id'];
+                $place->save();
+            }
         }
     }
 }

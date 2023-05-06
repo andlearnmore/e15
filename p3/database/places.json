@@ -1,7 +1,7 @@
 [
     {
-        "slug": "reichstag",
         "place": "Reichstag Dome",
+        "slug": "reichstag",
         "city": "Berlin",
         "open": "18:30",
         "open_time": 18,
@@ -17,8 +17,8 @@
         "description": "The Reichstag is an internationally recognisable symbol of democracy and the current home of the German parliament. Both as an architectural wonder and a historical testimony, the Reichstag has an important role to play in Berlin."
     },
     {
-        "slug": "brandenburger-tor",
         "place": "Brandenburg Gate",
+        "slug": "brandenburger-tor",
         "city": "Berlin",
         "open": "0:00",
         "open_time": 1,
@@ -34,8 +34,8 @@
         "description": "The Brandenburg Gate is one of the most iconic sights in today’s vibrant Berlin. More than just Berlin’s only surviving historical city gate, this site came to symbolise Berlin’s Cold War division into East and West – and, since the fall of the Wall, a reunified Germany."
     },
     {
-        "slug": "holocaust-memorial",
         "place": "The Holocaust Memorial",
+        "slug": "holocaust-memorial",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -51,8 +51,8 @@
         "description": "The Memorial to the Murdered Jews of Europe in the middle of Berlin is Germany’s central Holocaust memorial, a place of remembrance and commemoration for the up to six million Jewish victims of the Holocaust."
     },
     {
-        "slug": "wall-museum-east-side",
         "place": "The Wall Museum East Side Gallery",
+        "slug": "wall-museum-east-side",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -68,8 +68,8 @@
         "description": "The Wall Museum is located in the former mill warehouse at the famous East Side Gallery and the Oberbaumbrücke border station."
     },
     {
-        "slug": "wall-museum-house",
         "place": "The Wall Museum: House at Checkpoint Charlie",
+        "slug": "wall-museum-house",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -85,8 +85,8 @@
         "description": "Located on the corner of Friedrichstraße and Zimmerstraße, Checkpoint Charlie is a reminder of the former border crossing, the Cold War and the partition of Berlin."
     },
     {
-        "slug": "zoological-garden",
         "place": "Berlin Zoological Garden",
+        "slug": "zoological-garden",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -102,8 +102,8 @@
         "description": "Zoo Berlin is in a class of its own! Not only is it the oldest and most frequently visited zoo in the country, it is also home to the largest variety of species of any zoo in the world –including the only giant pandas in Germany."
     },
     {
-        "slug": "aquarium",
         "place": "Berlin Aquarium",
+        "slug": "aquarium",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -119,8 +119,8 @@
         "description": "Aquarium Berlin is one of Europe’s best-known aquariums. Behind the building’s historic façade, many mysterious, curious and monstrous creatures are waiting to be discovered – from colourful coral reef inhabitants to impressive sharks, and from gardening ants to fascinating giant snakes!"
     },
     {
-        "slug": "altes-museum",
         "place": "Altes Museum (Old Museum)",
+        "slug": "altes-museum",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -136,8 +136,8 @@
         "description": "The Altes Museum is once again entirely dedicated to classical antiquity. Its main floor provides an impressive panorama of the art of ancient Greece from the 10th to 1st century BC."
     },
     {
-        "slug": "alte-nationalgalerie",
         "place": "Alte Nationalgalerie",
+        "slug": "alte-nationalgalerie",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -153,8 +153,8 @@
         "description": "The Alte Nationalgalerie’s holdings include Romantic and Impressionist masterpieces as well as a world-class collection of works by Adolph Menzel."
     },
     {
-        "slug": "bode-museum",
         "place": "The Bode Museum",
+        "slug": "bode-museum",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -170,8 +170,8 @@
         "description": "The magnificently designed Bode Museum is home to two collections: the Sculpture Collection and Museum of Byzantine Art and the Münzkabinett (coin museum)."
     },
     {
-        "slug": "neues-museum",
         "place": "Neues Museum",
+        "slug": "neues-museum",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -187,8 +187,8 @@
         "description": "This joint exhibition featuring exhibits of unparalleled breadth and diversity allows visitors to trace the development of prehistoric and protohistoric cultures, spanning from the Middle East to the Atlantic, from north Africa to Scandinavia."
     },
     {
-        "slug": "pergamon-museum",
         "place": "Pergamon Museum",
+        "slug": "pergamon-museum",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -204,8 +204,8 @@
         "description": "The impressive reconstructions of massive archaeological structures – the Pergamon Altar, Market Gate of Miletus, the Ishtar Gate and Processional Way from Babylon, and the Mshatta Facade – have made the Pergamonmuseum famous throughout the world."
     },
     {
-        "slug": "sherwood-forest-playground",
         "place": "Sherwood Forest Playground",
+        "slug": "sherwood-forest-playground",
         "city": "Berlin",
         "open": "8:00",
         "open_time": 8,
@@ -221,8 +221,8 @@
         "description": "Kids will love the creatively designed Sherwood Forest Playground on the Savignyplatz. The climbing castle incorporated into the forest landscape will excite young heroes with suspension bridges, tree platforms and slides. There are also several towers and battlements to explore. "
     },
     {
-        "slug": "computerspiele-museum",
         "place": "Computerspiele Museum",
+        "slug": "computerspiele-museum",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -238,8 +238,8 @@
         "description": "Containing over 300 exhibits, including rare originals, playable classics, and more, this museum will turn you into “Homo Ludens Digitalis\". Make your visit a historical journey of games and their creators with things to do and see for everyone of all ages!"
     },
     {
-        "slug": "deutsches-technikmuseum",
         "place": "Deutsches Technikmuseum",
+        "slug": "deutsches-technikmuseum",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -255,8 +255,8 @@
         "description": "Visit our fascinating exhibitions on aviation, shipping, railways, the automobile, film technology, computer history, the role of the chemical and pharmaceutical industries in our lives, and much more. Review the multi-facetted spectrum of technology – from ancient times to cutting-edge – and explore the many ways it has shaped our history and culture."
     },
     {
-        "slug": "labyrinth-childrens-museum",
         "place": "Labyrinth Children's Museum",
+        "slug": "labyrinth-childrens-museum",
         "city": "Berlin",
         "open": "13:00",
         "open_time": 13,
@@ -272,8 +272,8 @@
         "description": "The Labyrinth Children's Museum is a project of the Fabrik Osloer Straße and with more than 1.5 million visitors (children and adults) since its foundation in 1997. It is a regular and a popular inherent part of Berlin's cultural and educational landscape."
     },
     {
-        "slug": "mach-mit",
         "place": "MachMIT! Museum for Children",
+        "slug": "mach-mit",
         "city": "Berlin",
         "open": "14:00",
         "open_time": 14,
@@ -289,8 +289,8 @@
         "description": "Children and their adults can visit the »Books are Food« exhibition, find their own way on the climbing wall and get creative at our workbenches."
     },
     {
-        "slug": "unterm-dach",
         "place": "Kindermuseum unterm Dach (Children's Museum)",
+        "slug": "unterm-dach",
         "city": "Berlin",
         "open": "14:00",
         "open_time": 14,
@@ -306,8 +306,8 @@
         "description": "Our permanent exhibition is \"Eat yourself smart! From apple to cinnamon!\" Explore everything to do with eating and drinking with us - and find out what is good for you and the world. Here we go!"
     },
     {
-        "slug": "alice-museum",
         "place": "Alice Museum for Children",
+        "slug": "alice-museum",
         "city": "Berlin",
         "open": "9:30",
         "open_time": 10,
@@ -323,8 +323,8 @@
         "description": "Our museum is a little bit like Alice from \"Alice in Wonderland\". What do we mean by that? She's desperate to discover exciting new worlds--which is precisely what the Alice Museum for Children allows you to do yourself."
     },
     {
-        "slug": "little-big-city",
         "place": "Little Big City Berlin",
+        "slug": "little-big-city",
         "city": "Berlin",
         "open": "10:00",
         "open_time": 10,
@@ -340,8 +340,8 @@
         "description": "Discover 750 years of Berlin history--in miniature!"
     },
     {
-        "slug": "botanic-garden",
         "place": "Botanic Garden & Museum",
+        "slug": "botanic-garden",
         "city": "Berlin",
         "open": "9:00",
         "open_time": 9,
@@ -357,8 +357,8 @@
         "description": "The Botanic Garden is a magical place that speaks to all your senses. Plunge in this green oasis, relax at the lakeside, walk along picturesque trails – in our Garden nature always has a season."
     },
     {
-        "slug": "chocolate-museum",
         "place": "Schokoladen Museum",
+        "slug": "chocolate-museum",
         "city": "Cologne",
         "open": "10:00",
         "open_time": 10,
@@ -374,8 +374,8 @@
         "description": "Get an exciting insight into the five-thousand-year history of cocoa, covering the mystical ceremonies of Central America and the luxury drink of the European aristocracy through to instantly available treat that it has become today."
     },
     {
-        "slug": "deutsches-museum",
         "place": "Deutsches Museum",
+        "slug": "deutsches-museum",
         "city": "Munich",
         "open": "09:00",
         "open_time": 9,
