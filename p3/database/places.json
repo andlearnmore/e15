@@ -14,7 +14,8 @@
         "reservation_reqd": 1,
         "fee": 0,
         "url": "https://www.visitberlin.de/en/reichstag-in-berlin",
-        "description": "The Reichstag is an internationally recognisable symbol of democracy and the current home of the German parliament. Both as an architectural wonder and a historical testimony, the Reichstag has an important role to play in Berlin."
+        "description": "The Reichstag is an internationally recognisable symbol of democracy and the current home of the German parliament. Both as an architectural wonder and a historical testimony, the Reichstag has an important role to play in Berlin.",
+        "added_by": 0
     },
     {
         "place": "Brandenburg Gate",
@@ -31,7 +32,8 @@
         "reservation_reqd": 0,
         "fee": 0,
         "url": "https://www.visitberlin.de/en/brandenburg-gate",
-        "description": "The Brandenburg Gate is one of the most iconic sights in today’s vibrant Berlin. More than just Berlin’s only surviving historical city gate, this site came to symbolise Berlin’s Cold War division into East and West – and, since the fall of the Wall, a reunified Germany."
+        "description": "The Brandenburg Gate is one of the most iconic sights in today’s vibrant Berlin. More than just Berlin’s only surviving historical city gate, this site came to symbolise Berlin’s Cold War division into East and West – and, since the fall of the Wall, a reunified Germany.",
+        "added_by": 0
     },
     {
         "place": "The Holocaust Memorial",
@@ -48,7 +50,8 @@
         "reservation_reqd": 0,
         "fee": 0,
         "url": "https://www.stiftung-denkmal.de/en/memorials/memorial-to-the-murdered-jews-of-europe/",
-        "description": "The Memorial to the Murdered Jews of Europe in the middle of Berlin is Germany’s central Holocaust memorial, a place of remembrance and commemoration for the up to six million Jewish victims of the Holocaust."
+        "description": "The Memorial to the Murdered Jews of Europe in the middle of Berlin is Germany’s central Holocaust memorial, a place of remembrance and commemoration for the up to six million Jewish victims of the Holocaust.",
+        "added_by": 0
     },
     {
         "place": "The Wall Museum East Side Gallery",
@@ -65,7 +68,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://thewallmuseum.com/",
-        "description": "The Wall Museum is located in the former mill warehouse at the famous East Side Gallery and the Oberbaumbrücke border station."
+        "description": "The Wall Museum is located in the former mill warehouse at the famous East Side Gallery and the Oberbaumbrücke border station.",
+        "added_by": 0
     },
     {
         "place": "House at Checkpoint Charlie",
@@ -82,7 +86,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.visitberlin.de/en/checkpoint-charlie",
-        "description": "Located on the corner of Friedrichstraße and Zimmerstraße, Checkpoint Charlie is a reminder of the former border crossing, the Cold War and the partition of Berlin."
+        "description": "Located on the corner of Friedrichstraße and Zimmerstraße, Checkpoint Charlie is a reminder of the former border crossing, the Cold War and the partition of Berlin.",
+        "added_by": 0
     },
     {
         "place": "Berlin Zoological Garden",
@@ -99,7 +104,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.zoo-berlin.de/en",
-        "description": "Zoo Berlin is in a class of its own! Not only is it the oldest and most frequently visited zoo in the country, it is also home to the largest variety of species of any zoo in the world –including the only giant pandas in Germany."
+        "description": "Zoo Berlin is in a class of its own! Not only is it the oldest and most frequently visited zoo in the country, it is also home to the largest variety of species of any zoo in the world –including the only giant pandas in Germany.",
+        "added_by": 0
     },
     {
         "place": "Berlin Aquarium",
@@ -116,7 +122,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.aquarium-berlin.de/en/",
-        "description": "Aquarium Berlin is one of Europe’s best-known aquariums. Behind the building’s historic façade, many mysterious, curious and monstrous creatures are waiting to be discovered – from colourful coral reef inhabitants to impressive sharks, and from gardening ants to fascinating giant snakes!"
+        "description": "Aquarium Berlin is one of Europe’s best-known aquariums. Behind the building’s historic façade, many mysterious, curious and monstrous creatures are waiting to be discovered – from colourful coral reef inhabitants to impressive sharks, and from gardening ants to fascinating giant snakes!",
+        "added_by": 0
     },
     {
         "place": "Altes Museum",
@@ -133,7 +140,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.smb.museum/museen-einrichtungen/altes-museum/home/",
-        "description": "The Altes Museum is once again entirely dedicated to classical antiquity. Its main floor provides an impressive panorama of the art of ancient Greece from the 10th to 1st century BC."
+        "description": "The Altes Museum is once again entirely dedicated to classical antiquity. Its main floor provides an impressive panorama of the art of ancient Greece from the 10th to 1st century BC.",
+        "added_by": 0
     },
     {
         "place": "Alte Nationalgalerie",
@@ -150,7 +158,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/home/",
-        "description": "The Alte Nationalgalerie’s holdings include Romantic and Impressionist masterpieces as well as a world-class collection of works by Adolph Menzel."
+        "description": "The Alte Nationalgalerie’s holdings include Romantic and Impressionist masterpieces as well as a world-class collection of works by Adolph Menzel.",
+        "added_by": 0
     },
     {
         "place": "The Bode Museum",
@@ -167,7 +176,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.smb.museum/en/museums-institutions/bode-museum/home/",
-        "description": "The magnificently designed Bode Museum is home to two collections: the Sculpture Collection and Museum of Byzantine Art and the Münzkabinett (coin museum)."
+        "description": "The magnificently designed Bode Museum is home to two collections: the Sculpture Collection and Museum of Byzantine Art and the Münzkabinett (coin museum).",
+        "added_by": 0
     },
     {
         "place": "Neues Museum",
@@ -184,7 +194,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.smb.museum/museen-einrichtungen/neues-museum/home/",
-        "description": "This joint exhibition featuring exhibits of unparalleled breadth and diversity allows visitors to trace the development of prehistoric and protohistoric cultures, spanning from the Middle East to the Atlantic, from north Africa to Scandinavia."
+        "description": "This joint exhibition featuring exhibits of unparalleled breadth and diversity allows visitors to trace the development of prehistoric and protohistoric cultures, spanning from the Middle East to the Atlantic, from north Africa to Scandinavia.",
+        "added_by": 0
     },
     {
         "place": "Pergamon Museum",
@@ -201,7 +212,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.smb.museum/en/museums-institutions/pergamonmuseum/home/",
-        "description": "The impressive reconstructions of massive archaeological structures – the Pergamon Altar, Market Gate of Miletus, the Ishtar Gate and Processional Way from Babylon, and the Mshatta Facade – have made the Pergamonmuseum famous throughout the world."
+        "description": "The impressive reconstructions of massive archaeological structures – the Pergamon Altar, Market Gate of Miletus, the Ishtar Gate and Processional Way from Babylon, and the Mshatta Facade – have made the Pergamonmuseum famous throughout the world.",
+        "added_by": 0
     },
     {
         "place": "Sherwood Forest Playground",
@@ -218,7 +230,8 @@
         "reservation_reqd": 0,
         "fee": 0,
         "url": "https://www.visitberlin.de/en/sherwood-forest-playground",
-        "description": "Kids will love the creatively designed Sherwood Forest Playground on the Savignyplatz. The climbing castle incorporated into the forest landscape will excite young heroes with suspension bridges, tree platforms and slides. There are also several towers and battlements to explore. "
+        "description": "Kids will love the creatively designed Sherwood Forest Playground on the Savignyplatz. The climbing castle incorporated into the forest landscape will excite young heroes with suspension bridges, tree platforms and slides. There are also several towers and battlements to explore. ",
+        "added_by": 0
     },
     {
         "place": "Computerspiele Museum",
@@ -235,7 +248,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.computerspielemuseum.de/1210_Home.htm",
-        "description": "Containing over 300 exhibits, including rare originals, playable classics, and more, this museum will turn you into “Homo Ludens Digitalis\". Make your visit a historical journey of games and their creators with things to do and see for everyone of all ages!"
+        "description": "Containing over 300 exhibits, including rare originals, playable classics, and more, this museum will turn you into “Homo Ludens Digitalis\". Make your visit a historical journey of games and their creators with things to do and see for everyone of all ages!",
+        "added_by": 0
     },
     {
         "place": "Deutsches Technikmuseum",
@@ -252,7 +266,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://technikmuseum.berlin/en/",
-        "description": "Visit our fascinating exhibitions on aviation, shipping, railways, the automobile, film technology, computer history, the role of the chemical and pharmaceutical industries in our lives, and much more. Review the multi-facetted spectrum of technology – from ancient times to cutting-edge – and explore the many ways it has shaped our history and culture."
+        "description": "Visit our fascinating exhibitions on aviation, shipping, railways, the automobile, film technology, computer history, the role of the chemical and pharmaceutical industries in our lives, and much more. Review the multi-facetted spectrum of technology – from ancient times to cutting-edge – and explore the many ways it has shaped our history and culture.",
+        "added_by": 0
     },
     {
         "place": "Labyrinth Children's Museum",
@@ -269,7 +284,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.labyrinth-kindermuseum.de/en",
-        "description": "The Labyrinth Children's Museum is a project of the Fabrik Osloer Straße and with more than 1.5 million visitors (children and adults) since its foundation in 1997. It is a regular and a popular inherent part of Berlin's cultural and educational landscape."
+        "description": "The Labyrinth Children's Museum is a project of the Fabrik Osloer Straße and with more than 1.5 million visitors (children and adults) since its foundation in 1997. It is a regular and a popular inherent part of Berlin's cultural and educational landscape.",
+        "added_by": 0
     },
     {
         "place": "MachMIT! Museum for Children",
@@ -286,7 +302,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://machmitmuseum.de/",
-        "description": "Children and their adults can visit the »Books are Food« exhibition, find their own way on the climbing wall and get creative at our workbenches."
+        "description": "Children and their adults can visit the »Books are Food« exhibition, find their own way on the climbing wall and get creative at our workbenches.",
+        "added_by": 0
     },
     {
         "place": "Kindermuseum unterm Dach",
@@ -303,7 +320,8 @@
         "reservation_reqd": 0,
         "fee": 0,
         "url": "https://www.kindermuseum-unterm-dach.berlin/",
-        "description": "Our permanent exhibition is \"Eat yourself smart! From apple to cinnamon!\" Explore everything to do with eating and drinking with us - and find out what is good for you and the world. Here we go!"
+        "description": "Our permanent exhibition is \"Eat yourself smart! From apple to cinnamon!\" Explore everything to do with eating and drinking with us - and find out what is good for you and the world. Here we go!",
+        "added_by": 0
     },
     {
         "place": "Alice Museum for Children",
@@ -320,7 +338,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://alice-museum-fuer-kinder.fez-berlin.de/en/about-us/alice-museum-for-children",
-        "description": "Our museum is a little bit like Alice from \"Alice in Wonderland\". What do we mean by that? She's desperate to discover exciting new worlds--which is precisely what the Alice Museum for Children allows you to do yourself."
+        "description": "Our museum is a little bit like Alice from \"Alice in Wonderland\". What do we mean by that? She's desperate to discover exciting new worlds--which is precisely what the Alice Museum for Children allows you to do yourself.",
+        "added_by": 0
     },
     {
         "place": "Little Big City Berlin",
@@ -337,7 +356,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.officiallittlebigcity.com/berlin/en/",
-        "description": "Discover 750 years of Berlin history--in miniature!"
+        "description": "Discover 750 years of Berlin history--in miniature!",
+        "added_by": 0
     },
     {
         "place": "Botanic Garden & Museum",
@@ -354,7 +374,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://www.bgbm.org/en",
-        "description": "The Botanic Garden is a magical place that speaks to all your senses. Plunge in this green oasis, relax at the lakeside, walk along picturesque trails – in our Garden nature always has a season."
+        "description": "The Botanic Garden is a magical place that speaks to all your senses. Plunge in this green oasis, relax at the lakeside, walk along picturesque trails – in our Garden nature always has a season.",
+        "added_by": 0
     },
     {
         "place": "Schokoladen Museum",
@@ -371,7 +392,8 @@
         "reservation_reqd": 0,
         "fee": 1,
         "url": "https://schokoladenmuseum.de",
-        "description": "Get an exciting insight into the five-thousand-year history of cocoa, covering the mystical ceremonies of Central America and the luxury drink of the European aristocracy through to instantly available treat that it has become today."
+        "description": "Get an exciting insight into the five-thousand-year history of cocoa, covering the mystical ceremonies of Central America and the luxury drink of the European aristocracy through to instantly available treat that it has become today.",
+        "added_by": 0
     },
     {
         "place": "Deutsches Museum",
@@ -388,6 +410,7 @@
         "reservation_reqd": 1,
         "fee": 1,
         "url": "deutsches-museum.de",
-        "description": "Discover science live."
+        "description": "Discover science live.",
+        "added_by": 0
     }
 ]

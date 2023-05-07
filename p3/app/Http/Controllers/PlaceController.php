@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -67,6 +68,8 @@ class PlaceController extends Controller
             'closed_minutes' => [Rule::in($this->minutes)],
         ]);
 
+        // TODO: Check if already in DB
+
         # Store form data
         $place = new Place();
         $place->place = $request->place;
@@ -82,13 +85,12 @@ class PlaceController extends Controller
         $place->url = $request->url;
         $place->description = $request->description;
         $place->city_id = $request->city_id;
+        $place->added_by = Auth::user()->id;
         $place->save();
     
-        return redirect('cities/')->with([
-            'flash-alert' => 'You have added ' . $place->place . ' to the database.', 
-            // 'country' => $country,
-            // 'city' => $city,
-            // 'places' => $places
+        return view('places/new', [
+            'place' => $place
         ]);
     }
+
 }

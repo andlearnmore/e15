@@ -8,8 +8,8 @@
 @endsection
 
 @section('content')
-    <p>Show details of the place selected (from the DB).</p>
-    <h1>{{ ucFirst($city->city) }}: {{ $place->place }}</h1>
+    <p>You added something!</p>
+    <h1> {{ $place->place }}</h1>
     @if ($place->address)
         <p>{{ $place->address }}</p>
     @endif
@@ -20,6 +20,6 @@
         <p>{{ $place->open }} - {{ $place->closed }}</p>
     @endif
 
-    <div><a href='/{{ $country }}/{{ $city->slug }}'>Back to {{ ucfirst($city->city) }}</a></div>
+    {{-- <div><a href='/{{ $country }}/{{ $city->slug }}'>Back to {{ ucfirst($city->city) }}</a></div> --}}
     <div><a href='/places/create'>Add to my list</a></div>
 @endsection

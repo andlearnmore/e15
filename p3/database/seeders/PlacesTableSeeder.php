@@ -53,6 +53,7 @@ class PlacesTableSeeder extends Seeder
             $place->fee = $placeData['fee'];
             $place->url = $placeData['url'];
             $place->description = $placeData['description'];
+            $place->added_by = $placeData['added_by'];
             $place->city_id = $city_id;
             $place->save();
         }
@@ -62,7 +63,6 @@ class PlacesTableSeeder extends Seeder
     {
         # Get all city_ids except Berlin, which has its own places seeder.
         $cities = City::where('city', '!=', 'Berlin')->get()->toArray();
-        $city_ids = City::where('city', '!=', 'Berlin')->get('id')->toArray();
 
         foreach ($cities as $city) {
             for ($i = 0; $i < 4; $i++) {
@@ -91,6 +91,7 @@ class PlacesTableSeeder extends Seeder
                 $place->fee = $this->faker->boolean();
                 $place->url = 'https://hesweb.dev/e15';
                 $place->description = $this->faker->paragraph();
+                $place->added_by = 0;
                 $place->city_id = $city['id'];
                 $place->save();
             }

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Country;
 use App\Models\City;
 use App\Models\Place;
+
 
 class CityController extends Controller
 {
@@ -25,7 +28,7 @@ class CityController extends Controller
     {
         $city = City::where('slug', '=', $request->city)->first();
         $country = Country::where('code', '=', $request->country)->first();
-        $places = Place::where('city_id', '=', $city->id)->get();
+        $places = Place::where('city_id', '=', $city->id)->wherein('added_by', [0, Auth::user()->id])->get();
         // if (!$city) {
         //     return back()->withInput('flash-alert' => 'City not found.');
         // }

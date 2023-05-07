@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     # Get here from clicking on "add a place"
     Route::get('/places/create', [PlaceController::class, 'create']);
     Route::post('/places', [PlaceController::class, 'store']);
+    // Route::get('/places/new', [PlaceController::class, 'new']);
 
     /**
      * Cities and Places
