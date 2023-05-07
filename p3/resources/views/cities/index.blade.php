@@ -1,21 +1,32 @@
 @extends('layouts/main')
 
 @section('title')
-    Cities in {{ $country->country }}
+    Cities to visit
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>List the cities in {{ $country->country }}.</p>
-    <h2>{{ $country->country }}</h2>
-    <div id="cities">
-        @foreach ($cities as $city)
-            <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/places'>
-                <h4> {{ $city->city }}</h4>
-            </a>
-        @endforeach
-    </div>
-    <a href='/countries'>Back to countries list</a>
+    <p>All of the cities and countries.</p>
+    @foreach ($countries as $country)
+        <h2>{{ $country->country }}</h2>
+        <div id="cities">
+            @foreach ($cities as $city)
+                @if ($city->country_id == $country->id)
+                    @if (Auth::user())
+                        <div class="location">
+                            <a href='/{{ $country->code }}/{{ $city->slug }}'>
+                                <h4> {{ $city->city }}</h4>
+                            </a>
+                        </div>
+                    @else
+                        <div class="location">
+                            <h4> {{ $city->city }}</h4>
+                        </div>
+                    @endif
+                @endif
+            @endforeach
+        </div>
+    @endforeach
 @endsection

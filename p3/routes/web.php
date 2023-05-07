@@ -7,6 +7,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\TripController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +25,30 @@ Route::get('/', [PageController::class, 'welcome']);
 Route::get('contact', [PageController::class, 'contact']);
 Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
-Route::get('/countries', [CountryController::class, 'index']);
+# Dislay all countries with their cities.
+Route::get('/cities', [CityController::class, 'index']);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('{country}/cities', [CityController::class, 'index']);
-    Route::get('/{country}/{city}/places', [PlaceController::class, 'index']);
-    Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
+    /**
+     * Add places
+     */
+    # Get here from clicking on "add a place"
     Route::get('/places/create', [PlaceController::class, 'create']);
     Route::post('/places', [PlaceController::class, 'store']);
+
+    /**
+     * Cities and Places
+     */
+    # Get here from clicking on a city in /cities. It shows all the places in a city.
+    Route::get('/{country}/{city}', [CityController::class, 'show']);
+
+    # Shows the details of a place. Click on a place in /{country}/{city}
+    Route::get('/{country}/{city}/{place}', [PlaceController::class, 'index']);
+
+    /**
+     * Trips
+     */
+
+     Route::get('/mytrip', [TripController::class, 'show']);
+
 });
-
-
-
-
-
-// Route::get('/cities/create', [CityController::class, 'create']);

@@ -26,11 +26,11 @@
         <nav>
             <ul>
                 <li><a href='/'>Home</a></li>
-                <li><a href='/countries'>All Countries</a></li>
+                <li><a href='/cities'>All Cities</a></li>
 
                 @if (Auth::user())
-                    <li><a href='/my-trip/'>My Trip</a></li>
                     <li><a href='/places/create'>Add a Place</a></li>
+                    <li><a href='/mytrip'>My Trip</a></li>
                 @endif
                 <li><a href='/contact'>Contact</a></li>
                 <li>

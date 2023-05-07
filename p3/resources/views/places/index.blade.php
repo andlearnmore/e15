@@ -1,22 +1,19 @@
 @extends('layouts/main')
 
 @section('title')
-    Places to See in {{ $city->city }}
+    {{ $place->place }}
 @endsection
 
 @section('head')
 @endsection
 
 @section('content')
-    <p>Details about a city? Or the planner form?</p>
-    <p>Here I'll list cards for all of the places in the country/city selected.</p>
-    <h2>{{ $city->city }}, {{ $country->country }}</h2>
-    <div id=places>
-        @foreach ($places as $place)
-            <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/{{ $place->slug }}'>
-                <h4> {{ $place->place }}</h4>
-            </a>
-        @endforeach
-    </div>
-    <a href='/{{ $country->code }}/cities'>Back to {{ ucfirst($country->country) }}</a>
+    <p>Show details of the place selected (from the DB).</p>
+    <h1>{{ ucFirst($city->city) }}: {{ $place->place }}</h1>
+    <p>{{ $place->address }}</p>
+    <p><b>Metro: </b>{{ $place->metro }}</p>
+    <p>{{ $place->open }} - {{ $place->closed }}</p>
+
+    <div><a href='/{{ $country }}/{{ $city->slug }}'>Back to {{ ucfirst($city->city) }}</a></div>
+    <div><a href='/places/create'>Add to my list</a></div>
 @endsection

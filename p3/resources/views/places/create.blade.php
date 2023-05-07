@@ -14,28 +14,36 @@
 
         {{ csrf_field() }}
 
-        <label for='place'>* Place Name</label>
-        <input type='text' name='place' id='place' value='{{ old('place') }}'>
-        @include('includes.error-field', ['fieldName' => 'place'])
+        <div>
+            <label for='place'>* Place Name</label>
+            <input type='text' name='place' id='place' value='{{ old('place') }}'>
+            @include('includes.error-field', ['fieldName' => 'place'])
+        </div>
 
-        <label for='city_id'> * City</label>
-        <select name='city_id' id='city_id'>
-            <option value=''>Choose one...</option>
-            @foreach ($cities as $city)
-                <option value='{{ $city->id }}' {{ old('city_id') == $city->id ? 'selected' : '' }}>
-                    {{ $city->city }}
-                </option>
-            @endforeach
-        </select>
-        @include('includes.error-field', ['fieldName' => 'city_id'])
+        <div>
+            <label for='city_id'> * City</label>
+            <select name='city_id' id='city_id'>
+                <option value=''>Choose one...</option>
+                @foreach ($cities as $city)
+                    <option value='{{ $city->id }}' {{ old('city_id') == $city->id ? 'selected' : '' }}>
+                        {{ $city->city }}
+                    </option>
+                @endforeach
+            </select>
+            @include('includes.error-field', ['fieldName' => 'city_id'])
+        </div>
 
-        <label for='url'>* Website</label>
-        <input type='text' name='url' id='url' value='{{ old('url)') }}'>
-        @include('includes.error-field', ['fieldName' => 'url'])
+        <div>
+            <label for='url'>* Website</label>
+            <input type='text' name='url' id='url' value='{{ old('url)') }}'>
+            @include('includes.error-field', ['fieldName' => 'url'])
+        </div>
 
-        <label for='description'>Description</label>
-        <input type='text' name='description' id='description' value='{{ old('description') }}'>
-        @include('includes.error-field', ['fieldName' => 'description'])
+        <div>
+            <label for='description'>Description</label>
+            <input type='text' name='description' id='description' value='{{ old('description') }}'>
+            @include('includes.error-field', ['fieldName' => 'description'])
+        </div>
 
         <div>
             <fieldset>
@@ -81,31 +89,42 @@
             </fieldset>
         </div>
 
+        <div>
+            <label for='metro'>Metro</label>
+            <input type='text' name='metro' id='metro' value='{{ old('metro') }}'>
+            @include('includes.error-field', ['fieldName' => 'metro'])
+        </div>
 
-        <label for='metro'>Metro</label>
-        <input type='text' name='metro' id='metro' value='{{ old('metro') }}'>
-        @include('includes.error-field', ['fieldName' => 'metro'])
+        <div>
+            <label for='region'>Region</label>
+            <input type='text' name='region' id='region' value='{{ old('region') }}'>
+            @include('includes.error-field', ['fieldName' => 'region'])
+        </div>
 
-        <label for='region'>Region</label>
-        <input type='text' name='region' id='region' value='{{ old('region') }}'>
-        @include('includes.error-field', ['fieldName' => 'region'])
+        <div>
+            <label for='address'>Address</label>
+            <input type='text' name='address' id='address' value='{{ old('address') }}'>
+            @include('includes.error-field', ['fieldName' => 'address'])
+        </div>
 
-        <label for='address'>Address</label>
-        <input type='text' name='address' id='address' value='{{ old('address') }}'>
-        @include('includes.error-field', ['fieldName' => 'address'])
+        <div>
+            <label for='visit_length'>How long is the average visit length?</label>
+            <input type='text' name='visit_length' id='visit_length' value='{{ old('visit_length') }}'>
+            @include('includes.error-field', ['fieldName' => 'visit_length'])
+        </div>
 
-        <label for='visit_length'>How long is the average visit length?</label>
-        <input type='text' name='visit_length' id='visit_length' value='{{ old('visit_length') }}'>
-        @include('includes.error-field', ['fieldName' => 'visit_length'])
+        <div>
+            <label for='reservation'>Is a reservation required?</label>
+            <input type='checkbox' name='reservation' id='reservation' value='reservation'
+                {{ old('reservation') == 'reservation' ? 'checked' : '' }}>
+            @include('includes.error-field', ['fieldName' => 'reservation'])
+        </div>
 
-        <label for='reservation'>Is a reservation required?</label>
-        <input type='checkbox' name='reservation' id='reservation' value='reservation'
-            {{ old('reservation') == 'reservation' ? 'checked' : '' }}>
-        @include('includes.error-field', ['fieldName' => 'reservation'])
-
-        <label for='fee'>Is there a fee for entry?</label>
-        <input type='checkbox' name='fee' id='fee' value='fee' {{ old('fee') == 'fee' ? 'checked' : '' }}>
-        @include('includes.error-field', ['fieldName' => 'fee'])
+        <div>
+            <label for='fee'>Is there a fee for entry?</label>
+            <input type='checkbox' name='fee' id='fee' value='fee' {{ old('fee') == 'fee' ? 'checked' : '' }}>
+            @include('includes.error-field', ['fieldName' => 'fee'])
+        </div>
 
         <div>
             <button type='submit' class='btn btn-primary'>Add Place</button>

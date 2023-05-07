@@ -1,19 +1,22 @@
-{{-- @extends('layouts/main')
+@extends('layouts/main')
 
 @section('title')
-    Show a City {{-- Placeholder text --}}
-{{-- will be name of city --}}
-{{-- @endsection
+    Cities to visit in {{ $country->country }}
+@endsection
 
 @section('head')
 @endsection
 
 @section('content')
-<p>List the cities in {{ $country->country }}.</p>
-<h2>{{ $country->country }}</h2>
-@foreach ($cities as $city)
-    <a href='/{slug}/places'>
-        <h4> {{ $city->city }}</h4>
-    </a>
-@endforeach
-@endsection --}} --}}
+    <p>Show all of the places in a city.</p>
+
+    <h2>{{ $city->city }}, {{ $country->country }}</h2>
+    <div id=places>
+        @foreach ($places as $place)
+            {{-- <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/{{ $place->slug }}'> --}}
+            <h4> {{ $place->place }}</h4>
+            </a>
+        @endforeach
+    </div>
+    <a href='/cities'>Back to all cities.</a>
+@endsection

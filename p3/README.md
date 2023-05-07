@@ -30,6 +30,7 @@
 + European Countries JSON file: jim-at-jibba/euro-countries.json
 + https://laracasts.com/discuss/channels/testing/factories-localization
 + https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_legend
++ https://magecomp.com/blog/make-admin-auth-in-laravel-8/
 
 ## Notes for instructor
 *Any notes for me to refer to while grading; if none, omit this section*

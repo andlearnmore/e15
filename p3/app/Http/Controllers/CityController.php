@@ -5,31 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\City;
+use App\Models\Place;
 
 class CityController extends Controller
 {
-    /**
-     * GET /
-     * Display all cities
-     */
 
-    public function index(Request $request, $code)
+    public function index()
     {
-        $country = Country::where('code', '=', $code)->first();
-        // if (!$country) {
-        //     return redirect('/countries')->with(['flash-alert' => 'Country not found.']);
-        // }
-        $cities = City::where('country_id', '=', $country->id)->get();
-        // dd($cities);
+        $countries = Country::orderBy('country', 'ASC')->get();
+        $cities = City::orderBy('city', 'ASC')->get();
 
         return view('/cities/index', [
-            'country' => $country, 
+            'countries' => $countries, 
             'cities' => $cities
         ]);
     }
 
-    public function create()
+    public function show(Request $request) 
     {
-        return view('/{country}/cities/create');
+        $city = City::where('slug', '=', $request->city)->first();
+        $country = Country::where('code', '=', $request->country)->first();
+        $places = Place::where('city_id', '=', $city->id)->get();
+        // if (!$city) {
+        //     return back()->withInput('flash-alert' => 'City not found.');
+        // }
+
+        // # Look at current book, look at users relationship, looking for the user
+        // # that matches our currently logged in user and then if the count of books >=1
+        // # onList will be true.
+        // $onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+
+        return view('/cities/show', [
+            'city' => $city,
+            'country' => $country,
+            'places' => $places
+            // 'onList' => $onList
+        ]);
     }
 }
