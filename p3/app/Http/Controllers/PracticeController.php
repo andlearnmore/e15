@@ -9,15 +9,36 @@ use Faker\Factory;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
+
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Place;
+use App\Models\Tag;
+
 
 
 
 class PracticeController extends Controller
 {
-    private $faker;
+
+    public function practice6() {
+
+        $this->faker = Factory::create();
+
+
+    $tags = ['art', 'history', 'kids', 'outdoors', 'science'];
+
+    for ($i = count($tags) - 1; $i > 0; $i--){
+        $tag = new Tag();
+        $tag->created_at = $this->faker->dateTimeThisMonth();
+        $tag->updated_at = $tag->created_at;
+        $tag->tag = $tags[$i];
+        dump($tag);
+    }
+}
+
+    
+
 
     /**
      * Practice for places seeder

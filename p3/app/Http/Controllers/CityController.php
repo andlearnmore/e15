@@ -28,7 +28,7 @@ class CityController extends Controller
     {
         $city = City::where('slug', '=', $request->city)->first();
         $country = Country::where('code', '=', $request->country)->first();
-        $places = Place::where('city_id', '=', $city->id)->wherein('added_by', [0, Auth::user()->id])->get();
+        $places = Place::where('city_id', '=', $city->id)->where('user_id', '=', null)->orWhere('user_id', '=', Auth::user()->id)->get();
         // if (!$city) {
         //     return back()->withInput('flash-alert' => 'City not found.');
         // }

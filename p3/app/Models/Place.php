@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     use HasFactory;
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User')
+            ->withTimestamps();
+    }
 }

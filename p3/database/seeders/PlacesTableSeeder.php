@@ -22,12 +22,12 @@ class PlacesTableSeeder extends Seeder
     {
         $this->faker = Factory::create();
         // TODO: Could I put this in a separate controller and update all seeders?
-        $this->addPlacesFromplacesDotJsonFile();
+        $this->addPlacesFromPlacesDotJsonFile();
         $this->addRandomlyGeneratedPlacesUsingFaker();
 
     }
 
-    private function addPlacesFromplacesDotJsonFile()
+    private function addPlacesFromPlacesDotJsonFile()
     {
         $placeData = file_get_contents(database_path('places.json'));
         $places = json_decode($placeData, true);
@@ -53,7 +53,7 @@ class PlacesTableSeeder extends Seeder
             $place->fee = $placeData['fee'];
             $place->url = $placeData['url'];
             $place->description = $placeData['description'];
-            $place->added_by = $placeData['added_by'];
+            $place->user_id = null;
             $place->city_id = $city_id;
             $place->save();
         }
@@ -91,7 +91,7 @@ class PlacesTableSeeder extends Seeder
                 $place->fee = $this->faker->boolean();
                 $place->url = 'https://hesweb.dev/e15';
                 $place->description = $this->faker->paragraph();
-                $place->added_by = 0;
+                $place->user_id = null;
                 $place->city_id = $city['id'];
                 $place->save();
             }

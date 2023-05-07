@@ -14,7 +14,6 @@ class ListController extends Controller
         # Note how in sortByDesc we specify `pivot.created_at` to get 
         # the created_at value for the *relationship*, not the book itself
         $books = $request->user()->books->sortByDesc('pivot.created_at');
-        
         return view('list/show', ['books' => $books]);
     }
 

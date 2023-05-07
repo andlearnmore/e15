@@ -28,7 +28,7 @@ return new class () extends Migration {
             $table->boolean('fee')->nullable();
             $table->string('url');
             $table->text('description')->nullable();
-            $table->integer('added_by')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
         });
     }
 

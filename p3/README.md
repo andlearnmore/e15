@@ -31,6 +31,7 @@
 + https://laracasts.com/discuss/channels/testing/factories-localization
 + https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_legend
 + https://magecomp.com/blog/make-admin-auth-in-laravel-8/
++ https://medium.com/@kaism/3-way-pivot-table-in-laravel-d42d60462b06#:~:text=The%20relationships%20between%20the%20three,tables%20like%20color_size%20or%20size_style%20.
 
 ## Notes for instructor
 *Any notes for me to refer to while grading; if none, omit this section*
