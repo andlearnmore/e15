@@ -21,5 +21,5 @@
     @endif
 
     <div><a href='/{{ $country }}/{{ $city->slug }}'>Back to {{ ucfirst($city->city) }}</a></div>
-    <div><a href='/places/create'>Add to my list</a></div>
+    <div><a href='/mytrip/{{ $place->slug }}/add'>Add to My Trip</a></div>
 @endsection

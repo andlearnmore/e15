@@ -37,7 +37,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/places', [PlaceController::class, 'store']);
     // Route::get('/places/new', [PlaceController::class, 'new']);
 
+
     /**
+     * Trips
+     */
+
+    Route::get('/mytrip', [TripController::class, 'show']);
+    Route::get('/mytrip/{slug}/add', [TripController::class, 'add']);
+    Route::post('/mytrip/{slug}/save', [TripController::class, 'save']);
+
+        /**
      * Cities and Places
      */
     # Get here from clicking on a city in /cities. It shows all the places in a city.
@@ -45,11 +54,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     # Shows the details of a place. Click on a place in /{country}/{city}
     Route::get('/{country}/{city}/{place}', [PlaceController::class, 'index']);
-
-    /**
-     * Trips
-     */
-
-     Route::get('/mytrip', [TripController::class, 'show']);
 
 });

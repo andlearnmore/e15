@@ -39,10 +39,9 @@ class ListController extends Controller
      {
          # TODO: Possibly add validation to make sure we have notes?
          
-         $user = $request->user();
          $book = Book::findBySlug($slug);
 
-         $user->books()->save($book, ['notes' => $request->notes]);
+         $request->user()->books()->save($book, ['notes' => $request->notes]);
 
          # With views (as in add above) we pass data as a second argument (array).
          # With redirects, here, we want to use the with method.
