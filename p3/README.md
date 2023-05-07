@@ -5,10 +5,14 @@
 + Production URL: <http://e15p3.andlearn.me>
 
 ## Feature summary
-*Outline a summary of features that your application has. The following details are from a hypothetical project called "Movie Tracker". Note that it is similar to Bookmark, yet it has its own unique features. Delete this example and replace with your own feature summary*
++ Visitors can see a list of countries and cities used in the app and the contact page.
++ Visitors can register/log in.
++ Registered users can click on any of the cities and see different places that they can visit. 
++ In a City view, users can select places to learn more about; clicking on a place, the user gets details about a place and has the option to ADD the place to their My Trip list.
++ On the My Trip page, the user can see all of the places they have added, and can REMOVE these from the list.
++ On Add a Place, the user can ADD a place to the database and then ADD it to their list.
+  + Places that a user adds are visible on the corresponding City page; user-added places are not visible to other users.
 
-+ Visitors can register/log in
-+ Users can add/update/delete movies in their collection (title, release date, director, writer, summary, category) - CHANGE
 + There's a file uploader that's used to upload images for [?? Each location ?? ]
 + User's can toggle whether movies in their collection are public or private - CHANGE
 + Each user has a public profile page which presents a short bio about their movie tastes, as well as a list of public movies in their collection - CHANGE

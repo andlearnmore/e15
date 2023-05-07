@@ -43,9 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
      */
 
     Route::get('/mytrip', [TripController::class, 'show']);
-    Route::get('/mytrip/{slug}/add', [TripController::class, 'add']);
     Route::post('/mytrip/{slug}/save', [TripController::class, 'save']);
 
+    Route::get('/mytrip/{slug}/remove', [TripController::class, 'delete']);
+    Route::delete('/mytrip/{slug}', [TripController::class, 'destroy']);
         /**
      * Cities and Places
      */

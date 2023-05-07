@@ -9,7 +9,7 @@ class Place extends Model
 {
     use HasFactory;
 
-    # Place belongs to City many-to-one
+    # Places belong to City: many-to-one
     public function city()
     {
         return $this->belongsTo('App\Models\City');
@@ -26,4 +26,5 @@ class Place extends Model
     {
         return self::where('slug', '=', $slug)->first();
     }
+
 }

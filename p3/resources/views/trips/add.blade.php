@@ -9,7 +9,6 @@
     <h2>{{ $place->place }}</h2>
 
     <form method='POST' action='/mytrip/{{ $place->slug }}/save'>
-        <div class='details'>* Required fields</div>
         {{ csrf_field() }}
 
         <button class='btn btn-primary'>Add</button>

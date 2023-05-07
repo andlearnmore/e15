@@ -10,19 +10,16 @@ class TripController extends Controller
 {
     public function show(Request $request)
     {
-        $places = $request->user()->places->sortBy('place');
-        $city_ids = [];
-        $all_cities = [];
-        
+        $places = $request->user()->places->sortByDesc('pivot.created_at');
+        $city_ids = [];        
+
         foreach ($places as $place) {
             $city_ids[] = $place->city_id;
         }
-            
-        foreach ($city_ids as $city_id) {
-            $all_cities[] = City::where('id', '=', $city_id)->first();
-        }
-        $cities=array_unique($all_cities);
-        // $cities =sort($cities);
+        $unique_city_ids= array_unique($city_ids);
+        
+        $cities = City::whereIn('id', $unique_city_ids)->get();
+        
         
         return view('trips/show', [
             'cities' => $cities,
@@ -31,26 +28,46 @@ class TripController extends Controller
     }
 
     /**
-     * GET /list/{slug}/add
+     * POST /mytrip/{{ $place->slug }}/save
      */
-    public function add($slug){
+    public function save(Request $request)
+    {
+        $slug = $request->slug;
+        $newPlace = Place::findBySlug($slug);
 
-        $place = Place::findBySlug($slug);
+        // TODO: Make sure place isn't already in table.
+        $request->user()->places()->save($newPlace);
 
-        return view('trips/add', ['place' => $place]);
+        return redirect('/mytrip')->with([
+            'flash-alert' => $newPlace->place . ' was added to My Trip.',
+        ]);
     }
 
     /**
-     * POST /mytrip/{{ $place->slug }}/save
+     * GET /mytrip/{slug}/remove
      */
-    public function save(Request $request, $slug)
+    public function delete(Request $request)
     {
-        $place = Place::findBySlug($slug);
+        $slug = $request->slug;
 
-        $request->user()->places()->save($place);
+        $place = Place::findBySlug($slug);
+        if (!$place) {
+            return redirect('/mytrip')->with([
+                'flash-alert' => 'This place is not on your My Trip list..'
+            ]);
+        }
+
+        return view('trips/remove', ['place' => $place]);
+    }
+
+    public function destroy(Request $request, $slug)
+    {
+        $place = $request->user()->places()->where('slug', $slug)->first();
+
+        $place->pivot->delete();
 
         return redirect('/mytrip')->with([
-            'flash-alert' => $place->place . ' was added to My Trip.'
+            'flash-alert' => $place->place . ' was removed from My Trip.',
         ]);
     }
 }

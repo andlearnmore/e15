@@ -21,5 +21,11 @@
     @endif
 
     <div><a href='/{{ $country }}/{{ $city->slug }}'>Back to {{ ucfirst($city->city) }}</a></div>
-    <div><a href='/mytrip/{{ $place->slug }}/add'>Add to My Trip</a></div>
+    <div>
+        <form method='POST' action='/mytrip/{slug}/save'>
+            {{ csrf_field() }}
+            <input type='hidden' id='slug' name='slug' value='{{ $place->slug }}''>
+            <button class='btn btn-primary'>Add</button>
+        </form>
+    </div>
 @endsection
