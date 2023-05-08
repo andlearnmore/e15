@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <h1>My Trip</h1>
     @if ($places->count() == 0)
         <p test='no-places'>You have not added any places to visit.</p>
         <p><a href='/cities'>Explore All Cities to add to your My Trip list.</a></p>
@@ -16,15 +17,16 @@
                     @if ($place->city_id == $city->id)
                         <div class='location'>
                             <h3>{{ $place->place }} <h3>
-                                    <p class='added'>
+                                    <p>
                                         Added {{ $place->pivot->created_at->diffForHumans() }}
                                     </p>
                                     <div>
-                                        <form method='GET' action='/mytrip/{slug}/remove'>
-                                            {{ csrf_field() }}
-                                            <input type='hidden' id='slug' name='slug' value='{{ $place->slug }}''>
-                                            <button class='btn btn-primary'>Remove from My Trip</button>
-                                        </form>
+                                        <a href='/mytrip/{{ $place->slug }}/edit' class='btn btn-primary'>
+                                            Edit this place</a>
+                                    </div>
+                                    <div>
+                                        <a href='/mytrip/{{ $place->slug }}/remove' class='btn btn-primary'>
+                                            Remove from My Trip</a>
                                     </div>
                         </div>
                     @endif

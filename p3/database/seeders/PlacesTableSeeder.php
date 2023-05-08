@@ -24,7 +24,6 @@ class PlacesTableSeeder extends Seeder
         // TODO: Could I put this in a separate controller and update all seeders?
         $this->addPlacesFromPlacesDotJsonFile();
         $this->addRandomlyGeneratedPlacesUsingFaker();
-
     }
 
     private function addPlacesFromPlacesDotJsonFile()
@@ -64,6 +63,10 @@ class PlacesTableSeeder extends Seeder
         # Get all city_ids except Berlin, which has its own places seeder.
         $cities = City::where('city', '!=', 'Berlin')->get()->toArray();
 
+        for ($j = 0; $j < 4; $j++) {
+            $metro_options[]= Str::title($this->faker->streetName(rand(1, 3), true));
+        }
+
         foreach ($cities as $city) {
             for ($i = 0; $i < 4; $i++) {
                 $place = new Place();
@@ -71,10 +74,6 @@ class PlacesTableSeeder extends Seeder
                 $place_name = $this->faker->words(rand(2, 4), true);
                 $morning = $this->faker->numberBetween(8, 12);
                 $evening = $this->faker->numberBetween(14, 23);
-                for ($j = 0; $j < 4; $j++) {
-                    $metro_options[]= Str::title($this->faker->streetName(rand(1, 3), true));
-                }
-
                 $place->created_at = $this->faker->dateTimeThisMonth();
                 $place->updated_at = $place->created_at;
                 $place->place = Str::title($place_name);
@@ -85,7 +84,6 @@ class PlacesTableSeeder extends Seeder
                 $place->metro = $this->faker->randomElement($metro_options);
                 $place->region = null;
                 $place->address = $this->faker->streetAddress;
-
                 $place->visit_length = $this->faker->randomNumber(1, 5);
                 $place->reservation_reqd = $this->faker->boolean();
                 $place->fee = $this->faker->boolean();
@@ -97,4 +95,5 @@ class PlacesTableSeeder extends Seeder
             }
         }
     }
+
 }

@@ -17,6 +17,8 @@ use App\Models\Place;
 
 class PlaceController extends Controller
 {
+    # There must be a better way to show this, because it's repeated here and in TripController.
+    # Make it a class?
     public $hours = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     public $minutes = ['00', '30'];
 
@@ -72,6 +74,7 @@ class PlaceController extends Controller
         ]);
 
         // TODO: Check if already in DB
+        
 
         # Store form data
         $place = new Place();

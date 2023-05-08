@@ -52,7 +52,6 @@ class BookController extends Controller
         if (!$book) {
             return redirect('/books')->with(['flash-alert' => 'Book not found.']);
         }
-        dd($authors);
         return view('books/edit', [
             'book' => $book, 
             'authors' => $authors
@@ -126,8 +125,6 @@ class BookController extends Controller
         ]);
      }
 
-
-
     /**
     * POST /books
     * Process the form for adding a new book
@@ -168,10 +165,11 @@ class BookController extends Controller
         # and none of the code that follows will execute.
     
     }
-        /**
-        * GET /search
-        * Search books based on title or author.
-        */
+    
+    /**
+    * GET /search
+    * Search books based on title or author.
+    */
 
     public function search(Request $request)
     {

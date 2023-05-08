@@ -40,16 +40,19 @@ Route::group(['middleware' => 'auth'], function () {
      * Add places
      */
     # Get here from clicking on "add a place"
-    Route::get('/places/create', [PlaceController::class, 'create']);
-    Route::post('/places', [PlaceController::class, 'store']);
-    // Route::get('/places/new', [PlaceController::class, 'new']);
+    Route::get('/places/create', [PlaceController::class, 'create']); # Shows form for adding a place
+    Route::post('/places', [PlaceController::class, 'store']); #Submit button on /places/create sends you here to store; returns places/new route
 
     /**
      * Trips
      */
 
     Route::get('/mytrip', [TripController::class, 'show']);
-    Route::post('/mytrip/{slug}/save', [TripController::class, 'save']);
+    Route::post('/mytrip/{slug}/add', [TripController::class, 'add']);
+
+    Route::get('/mytrip/{slug}/edit', [TripController::class, 'edit']);
+    Route::put('mytrip/{slug}', [TripController::class, 'update']);
+
     Route::get('/mytrip/{slug}/remove', [TripController::class, 'delete']);
     Route::delete('/mytrip/{slug}', [TripController::class, 'destroy']);
         /**
