@@ -8,7 +8,9 @@
 @endsection
 
 @section('content')
-    <p>All of the cities and countries.</p>
+    @if (!Auth::user())
+        <p test='login-encourage'>Log in to see places to visit in each city.</p>
+    @endif
     @foreach ($countries as $country)
         <h2>{{ $country->country }}</h2>
         <div id="cities">
@@ -16,7 +18,7 @@
                 @if ($city->country_id == $country->id)
                     @if (Auth::user())
                         <div class="location">
-                            <a href='/{{ $country->code }}/{{ $city->slug }}'>
+                            <a test='city-link' href='/{{ $country->code }}/{{ $city->slug }}'>
                                 <h4> {{ $city->city }}</h4>
                             </a>
                         </div>

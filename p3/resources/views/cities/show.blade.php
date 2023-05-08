@@ -10,7 +10,7 @@
 @section('content')
     <p>Show all of the places in a city.</p>
 
-    <h2>{{ $city->city }}, {{ $country->country }}</h2>
+    <h2 test='country-page'>{{ $city->city }}, {{ $country->country }}</h2>
     @foreach ($places as $place)
         <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/{{ $place->slug }}'>
             <h4> {{ $place->place }}</h4>

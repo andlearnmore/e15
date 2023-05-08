@@ -11,26 +11,20 @@
 
         <div>
             <label for='email'>Email Address</label>
-            <input id='email' type='email' name='email' value='{{ old('email') }}' autofocus>
+            <input id='email' name='email' test='email-input' type='email' value='{{ old('email') }}' autofocus>
             @include('includes.error-field', ['fieldName' => 'email'])
         </div>
 
         <div>
 
             <label for='password'>Password</label>
-            <input id='password' type='password' name='password'>
+            <input id='password' name='password' test='password-input' type='password'>
             @include('includes.error-field', ['fieldName' => 'password'])
 
         </div>
 
-        {{-- <div>
-            <label>
-                <input type='checkbox' name='remember' {{ old('remember') ? 'checked' : '' }}> Remember Me
-            </label>
-        </div> --}}
-
         <div>
-            <button type='submit' class='btn btn-primary'>Login</button>
+            <button class='btn btn-primary' test='login-button' type='submit'>Login</button>
         </div>
 
     </form>

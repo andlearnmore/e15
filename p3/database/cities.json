@@ -30,21 +30,6 @@
         "slug": "antwerp"
     },
     {
-        "city": "Prague",
-        "country": "CZ",
-        "slug": "prague"
-    },
-    {
-        "city": "Český Krumlov",
-        "country": "CZ",
-        "slug": "cesky-krumlov"
-    },
-    {
-        "city": "Karlovy Vary",
-        "country": "CZ",
-        "slug": "karlovy-vary"
-    },
-    {
         "city": "Berlin",
         "country": "DE",
         "slug": "berlin"
@@ -93,16 +78,6 @@
         "city": "Strasbourg",
         "country": "FR",
         "slug": "strasbourg"
-    },
-    {
-        "city": "London",
-        "country": "GB",
-        "slug": "london"
-    },
-    {
-        "city": "Oxford",
-        "country": "GB",
-        "slug": "oxford"
     },
     {
         "city": "Dubrovnik",

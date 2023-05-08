@@ -26,12 +26,18 @@ class CityController extends Controller
 
     public function show(Request $request) 
     {
+        
         $city = City::where('slug', '=', $request->city)->first();
+        if (!$city) {
+            return redirect('/cities')->with(['flash-alert' => 'City not found.']);
+        }
+
         $country = Country::where('code', '=', $request->country)->first();
+        if (!$country) {
+            return redirect('/cities')->with(['flash-alert' => 'Country not found.']);
+        }
+
         $places = Place::where('city_id', '=', $city->id)->where('user_id', '=', null)->orWhere('user_id', '=', Auth::user()->id)->get();
-        // if (!$city) {
-        //     return back()->withInput('flash-alert' => 'City not found.');
-        // }
 
         // # Look at current book, look at users relationship, looking for the user
         // # that matches our currently logged in user and then if the count of books >=1

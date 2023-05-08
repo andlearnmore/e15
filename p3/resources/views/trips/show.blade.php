@@ -6,7 +6,7 @@
 
 @section('content')
     @if ($places->count() == 0)
-        <p>You have not added any places to visit.</p>
+        <p test='no-places'>You have not added any places to visit.</p>
         <p><a href='/cities'>Explore All Cities to add to your My Trip list.</a></p>
     @else
         @foreach ($cities as $city)

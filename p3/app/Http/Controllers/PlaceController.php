@@ -20,13 +20,16 @@ class PlaceController extends Controller
     public $hours = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     public $minutes = ['00', '30'];
 
-    public function index(Request $request, $country, $city, $place)
+    public function show(Request $request, $country, $city, $place)
     {
         $place = Place::where('slug', '=', $place)->first();
         $city = City::where('slug', '=', $city)->first();
-        // if (!$place) {
-        //     return back()->withInput('flash-alert' => 'City not found.');
-        // }
+
+        if (!$place) {
+            return redirect('/{$country}/{$city}')->with([
+                'flash-alert' => 'Place not found.'
+            ]);
+        }
 
         // # Look at current book, look at users relationship, looking for the user
         // # that matches our currently logged in user and then if the count of books >=1

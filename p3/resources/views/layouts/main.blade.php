@@ -35,11 +35,11 @@
                 <li><a href='/contact'>Contact</a></li>
                 <li>
                     @if (!Auth::user())
-                        <a href='/login'>Login</a>
+                        <a test='login-link' href='/login'>Login</a>
                     @else
                         <form method='POST' id='logout' action='/logout'>
                             {{ csrf_field() }}
-                            <button type='submit' class='button-link'>
+                            <button class='button-link' test='logout-button' type='submit'>
                                 Logout
                             </button>
                         </form>
