@@ -16,5 +16,5 @@
             <h4> {{ $place->place }}</h4>
         </a>
     @endforeach
-    <a href='/cities'>Back to all cities.</a>
+    <a href='/cities' class='btn btn-light' target="_blank">Back to all cities.</a>
 @endsection

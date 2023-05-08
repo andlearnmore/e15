@@ -9,8 +9,8 @@
 
 @section('content')
     <p>Add a place to the database.</p>
-    <form method='POST', action='/places'>
-        <div class='details'>* required fields</div>
+    <form method='POST' action='/places' class='form'>
+        <div>* required fields</div>
 
         {{ csrf_field() }}
 

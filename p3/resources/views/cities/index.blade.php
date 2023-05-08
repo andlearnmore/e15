@@ -12,23 +12,25 @@
         <p test='login-encourage'>Log in to see places to visit in each city.</p>
     @endif
     @foreach ($countries as $country)
-        <h2>{{ $country->country }}</h2>
-        <div id="cities">
-            @foreach ($cities as $city)
-                @if ($city->country_id == $country->id)
-                    @if (Auth::user())
-                        <div class="location">
-                            <a test='city-link' href='/{{ $country->code }}/{{ $city->slug }}'>
+        <div class='location'>
+            <h2>{{ $country->country }}</h2>
+            <div class="cities">
+                @foreach ($cities as $city)
+                    @if ($city->country_id == $country->id)
+                        @if (Auth::user())
+                            <div class="location">
+                                <a test='city-link' href='/{{ $country->code }}/{{ $city->slug }}'>
+                                    <h4> {{ $city->city }}</h4>
+                                </a>
+                            </div>
+                        @else
+                            <div class="location">
                                 <h4> {{ $city->city }}</h4>
-                            </a>
-                        </div>
-                    @else
-                        <div class="location">
-                            <h4> {{ $city->city }}</h4>
-                        </div>
+                            </div>
+                        @endif
                     @endif
-                @endif
-            @endforeach
+                @endforeach
+            </div>
         </div>
     @endforeach
 @endsection

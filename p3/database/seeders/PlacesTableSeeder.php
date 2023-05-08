@@ -89,7 +89,7 @@ class PlacesTableSeeder extends Seeder
                 $place->visit_length = $this->faker->randomNumber(1, 5);
                 $place->reservation_reqd = $this->faker->boolean();
                 $place->fee = $this->faker->boolean();
-                $place->url = 'https://hesweb.dev/e15';
+                $place->url = 'https://fakerphp.github.io/';
                 $place->description = $this->faker->paragraph();
                 $place->user_id = null;
                 $place->city_id = $city['id'];
