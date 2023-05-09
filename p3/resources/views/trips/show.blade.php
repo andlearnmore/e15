@@ -25,7 +25,8 @@
                                             Edit this place</a>
                                     </div>
                                     <div>
-                                        <a href='/mytrip/{{ $place->slug }}/remove' class='btn btn-primary'>
+                                        <a href='/mytrip/{{ $place->slug }}/remove' class='btn btn-primary'
+                                            test='remove-button'>
                                             Remove from My Trip</a>
                                     </div>
                         </div>

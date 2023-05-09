@@ -33,16 +33,13 @@ class PlaceController extends Controller
             ]);
         }
 
-        // # Look at current book, look at users relationship, looking for the user
-        // # that matches our currently logged in user and then if the count of books >=1
-        // # onList will be true.
-        // $onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+        $onList = $place->users()->where('user_id', $request->user()->id)->count() >= 1;
 
         return view('/places/index', [
             'place' => $place,
             'city' => $city,
-            'country' => $country
-            // 'onList' => $onList
+            'country' => $country,
+            'onList' => $onList
         ]);
     }
 
@@ -59,22 +56,17 @@ class PlaceController extends Controller
 
     public function store(Request $request)
     {
-        // TODO: Get greater than validation to work.
-            // TODO: 'gt:open_hour',
 
         # Validate form data
         $request->validate([
-            'place' => 'required|max:100',
+            'place' => 'required|max:100|unique:places,place',
             'city_id' => 'required',
-            'url' => 'required|url',
+            'url' => 'url|required',
             'open_hour' => [Rule::in($this->hours)],
             'open_minute' => [Rule::in($this->minutes)],
             'closed_hour' => [Rule::in($this->hours)],
             'closed_minutes' => [Rule::in($this->minutes)],
-        ]);
-
-        // TODO: Check if already in DB
-        
+        ]);        
 
         # Store form data
         $place = new Place();
@@ -83,7 +75,6 @@ class PlaceController extends Controller
         $place->open = $request->open_hour . ':' . $request->open_minute;
         $place->closed = $request->closed_hour . ':' . $request->closed_minute;
         $place->metro = $request->metro;
-        $place->region = $request->region;
         $place->address = $request->address;
         $place->visit_length = $request->visit_length;
         $place->reservation_reqd = $request->reservation == 'reservation' ? '1' : '0';

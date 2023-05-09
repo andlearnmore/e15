@@ -43,7 +43,7 @@ class LoginProcessCest
         $I->click('[test=register-button]');
 
         # Assert
-        $I->see('The email has already been taken.');
+        $I->see('This email already exists.');
     }
     
     /**

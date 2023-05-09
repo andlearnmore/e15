@@ -87,16 +87,24 @@ class TripController extends Controller
 
     public function edit(Request $request, $slug)
     {
-        $place = Place::where('slug', '=', $request->slug)->first();
-        $cities = City::orderBy('slug')->select(['id', 'city'])->get();
+        $place = Place::where('slug', '=', $slug)->first();
+        
+        if ($place->user_id == null || $place->user_id != $request->user()->id){
+            return redirect('/mytrip')->with([
+                'flash-alert' => 'You cannot edit this place.'
+            ]);
+        } else {
+            $cities = City::orderBy('slug')->select(['id', 'city'])->get();
 
-        return view('trips/edit', [
-            'place' => $place, 
-            'cities' => $cities,
-            'hours' => $this->hours,
-            'minutes' => $this->minutes
+            return view('trips/edit', [
+                'place' => $place, 
+                'cities' => $cities,
+                'hours' => $this->hours,
+                'minutes' => $this->minutes
+    
+            ]);
+        }
 
-        ]);
     }
 
     public function update(Request $request, $slug)
@@ -106,7 +114,7 @@ class TripController extends Controller
         $request->validate([
             'place' => 'required|max:100',
             'city_id' => 'required',
-            'url' => 'required|url',
+            'url' => 'url|required',
             'open_hour' => [Rule::in($this->hours)],
             'open_minute' => [Rule::in($this->minutes)],
             'closed_hour' => [Rule::in($this->hours)],
@@ -118,7 +126,6 @@ class TripController extends Controller
         $place->open = $request->open_hour . ':' . $request->open_minute;
         $place->closed = $request->closed_hour . ':' . $request->closed_minute;
         $place->metro = $request->metro;
-        $place->region = $request->region;
         $place->address = $request->address;
         $place->visit_length = $request->visit_length;
         $place->reservation_reqd = $request->reservation == 'reservation' ? '1' : '0';

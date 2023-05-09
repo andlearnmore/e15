@@ -30,7 +30,7 @@ if (!App::environment('production')) {
 
 }
 Route::get('/', [PageController::class, 'welcome']);
-Route::get('contact', [PageController::class, 'contact']);
+Route::get('/contact', [PageController::class, 'contact']);
 
 # Dislay all countries with their cities.
 Route::get('/cities', [CityController::class, 'index']);

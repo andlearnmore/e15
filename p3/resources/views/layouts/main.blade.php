@@ -29,7 +29,7 @@
                 <li><a href='/cities'>All Cities</a></li>
 
                 @if (Auth::user())
-                    <li><a href='/places/create'>New Place</a></li>
+                    <li><a href='/places/create'>Add a Place</a></li>
                     <li><a href='/mytrip'>My Trip</a></li>
                 @endif
                 <li><a href='/contact'>Contact</a></li>

@@ -9,7 +9,7 @@
 
 @section('content')
     <div>
-        <p class='flash-alert'>You added {{ $place->place }} to My Trip!</p>
+        <p class='flash-alert'>{{ $place->place }} added!</p>
     </div>
     <div>
         </h2>{{ $place->place }}</h2>

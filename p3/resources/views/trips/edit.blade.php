@@ -40,11 +40,6 @@
             <input type='text' name='url' id='url' value='{{ old('url)', $place->url) }}'>
             @include('includes.error-field', ['fieldName' => 'url'])
         </div>
-        <div>
-            <label for='description'>Description</label>
-            <input type='text' name='description' id='description' value='{{ old('description', $place->description) }}'>
-            @include('includes.error-field', ['fieldName' => 'description'])
-        </div>
 
         <div>
             <fieldset>
@@ -100,15 +95,16 @@
         </div>
 
         <div>
-            <label for='region'>Region</label>
-            <input type='text' name='region' id='region' value='{{ old('region', $place->region) }}'>
-            @include('includes.error-field', ['fieldName' => 'region'])
-        </div>
-
-        <div>
             <label for='address'>Address</label>
             <input type='text' name='address' id='address' value='{{ old('address', $place->address) }}'>
             @include('includes.error-field', ['fieldName' => 'address'])
+        </div>
+
+        <div>
+            <label for='description'>Description</label>
+            <input type='text' name='description' id='description'
+                value='{{ old('description', $place->description) }}'>
+            @include('includes.error-field', ['fieldName' => 'description'])
         </div>
 
         <div>

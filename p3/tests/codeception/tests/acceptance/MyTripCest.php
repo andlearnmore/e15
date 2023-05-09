@@ -21,6 +21,7 @@ class MyTripCest
         $I->click('Schokoladen Museum');
         $I->click('Save');
         $I->seeInCurrentUrl('/mytrip');
+        $I->seeElement('[test=remove-button]');
         $I->see('Cologne');
     }
 
@@ -39,8 +40,8 @@ class MyTripCest
         $I->amOnPage('/DE/cologne');
         $I->click('Schokoladen Museum');
         $I->see('Rheinauhafen');
-        $I->click('[test=nav-back]');
-        $I->seeElement('[test=country-page]');
+        $I->click('Back to Cologne');
+        $I->seeElement('[test=city-page]');
     
     }
 

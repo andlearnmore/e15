@@ -16,6 +16,12 @@
     @if ($place->reservation_reqd == 1)
         <p>A reservation is required.</p>
     @endif
+    @if ($place->description)
+        <p> {{ $place->description }}
+        <p>
+    @endif
+
+
     <div>
         <a href='{{ $place->url }}' class='btn btn-light' target='_blank'>Learn more</a>
     </div>
