@@ -31,20 +31,32 @@
                 @if (Auth::user())
                     <li><a href='/places/create'>Add a Place</a></li>
                     <li><a href='/mytrip'>My Trip</a></li>
+                    <li><a href='/itineraries'>Itineraries</a></li>
+                    <li><a href='/image-create'>Add an Image</a></li>
                 @endif
                 <li><a href='/contact'>Contact</a></li>
-                <li>
-                    @if (!Auth::user())
+                @if (Auth::user())
+                    <li class="nav-item dropdown">
+                        <button class="button-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            {{ Auth::user()->name }}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                            <li>
+                                <form method='POST' id='logout' action='/logout'>
+                                    {{ csrf_field() }}
+                                    <button class='dropdown-item' test='logout-button' type='submit'>
+                                        Logout
+                                    </button>
+                                    {{-- <a class="dropdown-item" href="/logout">Logout</a> --}}
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li>
                         <a test='login-link' href='/login'>Login</a>
-                    @else
-                        <form method='POST' id='logout' action='/logout'>
-                            {{ csrf_field() }}
-                            <button class='button-link' test='logout-button' type='submit'>
-                                Logout
-                            </button>
-                        </form>
-                    @endif
-                </li>
+                    </li>
+                @endif
             </ul>
         </nav>
     </header>
@@ -57,6 +69,9 @@
     <footer>
         &copy; EuroPlan, Inc.
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 
 </body>
 
