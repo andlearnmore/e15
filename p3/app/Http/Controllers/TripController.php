@@ -38,7 +38,6 @@ class TripController extends Controller
             'places' => $places
         ]);
     }
-
     /**
      * POST /mytrip/{{ $place->slug }}/save
      */
@@ -54,7 +53,6 @@ class TripController extends Controller
             'flash-alert' => $newPlace->place . ' was added to My Trip.',
         ]);
     }
-
     /**
      * GET /mytrip/{slug}/remove
      */

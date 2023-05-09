@@ -37,16 +37,21 @@ Route::get('/cities', [CityController::class, 'index']);
 
 Route::group(['middleware' => 'auth'], function () {
     /**
+     * Profile
+     */
+    Route::get('/profile', [PageController::class, 'show']);
+    Route::get('/profile/{name}/edit', [PageController::class, 'edit']);
+    Route::put('/profile/{name}', [PageController::class, 'update']);
+
+    /**
      * Add places
      */
     # Get here from clicking on "add a place"
     Route::get('/places/create', [PlaceController::class, 'create']); # Shows form for adding a place
     Route::post('/places', [PlaceController::class, 'store']); #Submit button on /places/create sends you here to store; returns places/new route
-
     /**
      * Trips
      */
-
     Route::get('/mytrip', [TripController::class, 'show']);
     Route::post('/mytrip/{slug}/add', [TripController::class, 'add']);
 

@@ -88,6 +88,8 @@ class PlaceController extends Controller
         return view('places/new', [
             'place' => $place
         ]);
+    
     }
+
 
 }

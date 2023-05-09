@@ -37,7 +37,7 @@
 
         <div>
             <label for='url'>* Website</label>
-            <input type='text' name='url' id='url' value='{{ old('url)', $place->url) }}'>
+            <input type='text' name='url' id='url' value='{{ old('url', $place->url) }}'>
             @include('includes.error-field', ['fieldName' => 'url'])
         </div>
 

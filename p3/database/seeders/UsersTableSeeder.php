@@ -23,8 +23,12 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user = User::updateOrCreate(
-            ['email' => 'jill@harvard.edu', 'name' => 'Jill Harvard'],
-            ['password' => Hash::make('asdfasdf')
+            [
+            'email' => 'jill@harvard.edu', 
+            'name' => 'Jill Harvard', 
+            'about' => 'I really like helping test this app!'
+            ],
+            ['password' => Hash::make('asdfasdf'),
         ]);
 
         $user = User::updateOrCreate(
