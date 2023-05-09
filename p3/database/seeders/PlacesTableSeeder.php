@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\City;
 use App\Models\Place;
+use App\Models\Tag;
 use Faker\Factory;
 
 class PlacesTableSeeder extends Seeder
@@ -21,7 +22,6 @@ class PlacesTableSeeder extends Seeder
     public function run()
     {
         $this->faker = Factory::create();
-        // TODO: Could I put this in a separate controller and update all seeders?
         $this->addPlacesFromPlacesDotJsonFile();
         $this->addRandomlyGeneratedPlacesUsingFaker();
     }
@@ -31,7 +31,7 @@ class PlacesTableSeeder extends Seeder
         $placeData = file_get_contents(database_path('places.json'));
         $places = json_decode($placeData, true);
 
-        foreach($places as $slug =>$placeData) {
+        foreach($places as $placeData) {
             $place = new Place();
 
             # Find each city in the countries table
@@ -50,6 +50,7 @@ class PlacesTableSeeder extends Seeder
             $place->visit_length = $placeData['visit_length'];
             $place->reservation_reqd = $placeData['reservation_reqd'];
             $place->fee = $placeData['fee'];
+            $place->tag = $placeData['tag'];
             $place->url = $placeData['url'];
             $place->description = $placeData['description'];
             $place->user_id = null;
@@ -62,7 +63,7 @@ class PlacesTableSeeder extends Seeder
     {
         # Get all city_ids except Berlin, which has its own places seeder.
         $cities = City::where('city', '!=', 'Berlin')->get()->toArray();
-
+        
         for ($j = 0; $j < 4; $j++) {
             $metro_options[]= Str::title($this->faker->streetName(rand(1, 3), true));
         }
@@ -87,6 +88,7 @@ class PlacesTableSeeder extends Seeder
                 $place->visit_length = $this->faker->randomNumber(1, 5);
                 $place->reservation_reqd = $this->faker->boolean();
                 $place->fee = $this->faker->boolean();
+                $place->tag = rand(1,5);
                 $place->url = 'https://fakerphp.github.io/';
                 $place->description = $this->faker->paragraph();
                 $place->user_id = null;

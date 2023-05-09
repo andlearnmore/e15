@@ -26,6 +26,7 @@ return new class () extends Migration {
             $table->smallInteger('visit_length')->nullable();
             $table->boolean('reservation_reqd')->nullable();
             $table->boolean('fee')->nullable();
+            $table->char('tag')->nullable();
             $table->string('url');
             $table->text('description')->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();

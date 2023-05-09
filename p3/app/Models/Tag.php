@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    public function places()
+    {
+        return $this->belongsToMany('App\Models\Place')
+        ->withTimestamps();
+    }
 }
