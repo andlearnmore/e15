@@ -64,6 +64,8 @@ class PlacesTableSeeder extends Seeder
         # Get all city_ids except Berlin, which has its own places seeder.
         $cities = City::where('city', '!=', 'Berlin')->get()->toArray();
         
+        $tags = ['art', 'history', 'kids', 'outdoors', 'science'];
+
         for ($j = 0; $j < 4; $j++) {
             $metro_options[]= Str::title($this->faker->streetName(rand(1, 3), true));
         }
@@ -88,7 +90,7 @@ class PlacesTableSeeder extends Seeder
                 $place->visit_length = $this->faker->randomNumber(1, 5);
                 $place->reservation_reqd = $this->faker->boolean();
                 $place->fee = $this->faker->boolean();
-                $place->tag = rand(1,5);
+                $place->tag = $tags[rand(0,4)];
                 $place->url = 'https://fakerphp.github.io/';
                 $place->description = $this->faker->paragraph();
                 $place->user_id = null;

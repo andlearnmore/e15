@@ -21,6 +21,26 @@ use App\Models\Tag;
 class PracticeController extends Controller
 {
 
+    public function practice8() 
+    {
+        $places = Place::select('id', 'tag')->get()->toArray();
+        // dd($places);
+        foreach ($places as $place) {
+            $tag = Tag::where('tag', '=', $place['tag'])->first();
+            dump($tag);
+        }
+    }
+    public function practice7() {
+        $placeData = file_get_contents(database_path('places.json'));
+        $places = json_decode($placeData, true);
+
+        foreach($places as $placeData) {
+            $place = new Place();
+            $place->tag = $placeData['tag'];
+        }
+
+        dd($place);
+    }
     public function practice6() {
 
         $this->faker = Factory::create();

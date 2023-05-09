@@ -11,7 +11,6 @@ use Illuminate\Database\Seeder;
 
 class PlaceTagTableSeeder extends Seeder
 {
-
     private $faker;
 
     /**
@@ -21,14 +20,11 @@ class PlaceTagTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->addRealCityTags();
-        $this->addTagsToEveryCity();
-        
-    }
-
-    public function addRealCityTags()
-    {
-        $places = Place::select('tag')->get()->toArray();
+        $sites = Place::select('id', 'tag')->get()->toArray();
+        foreach ($sites as $site) {
+            $tag = Tag::where('tag', '=', $site['tag'])->first();
+            $site->tags()->save($tag);
+        }
 
     }
 }
