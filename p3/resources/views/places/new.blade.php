@@ -11,20 +11,13 @@
     <div>
         <p class='flash-alert'>{{ $place->place }} added!</p>
     </div>
-    </h2>{{ $place->place }}</h2>
-    <div>
-        @include('layouts/details')
-    </div>
+    <h2>{{ $place->place }}</h2>
+    @include('layouts/details')
+    <br>
     <div>
         <a href='/mytrip/{{ $place->slug }}/edit' class='btn btn-primary'>
             Edit</a>
     </div>
+    <br>
     @include('layouts/backtomytrips')
-    {{-- <div>
-        <form method='POST' action='/mytrip/{slug}/save'>
-            {{ csrf_field() }}
-            <input type='hidden' id='slug' name='slug' value='{{ $place->slug }}''>
-            <button class='btn btn-primary'>Add</button>
-        </form>
-    </div> --}}
 @endsection

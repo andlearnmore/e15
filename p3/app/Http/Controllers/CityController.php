@@ -37,12 +37,7 @@ class CityController extends Controller
             return redirect('/cities')->with(['flash-alert' => 'Country not found.']);
         }
 
-        $places = Place::where('city_id', '=', $city->id)->where('user_id', '=', null)->orWhere('user_id', '=', Auth::user()->id)->get();
-
-        // # Look at current book, look at users relationship, looking for the user
-        // # that matches our currently logged in user and then if the count of books >=1
-        // # onList will be true.
-        // $onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+        $places = Place::where('city_id', '=', $city->id)->where('user_id', '=', null)->orWhere('user_id', '=', Auth::user()->id)->orderBy('place')->get();
 
         return view('/cities/show', [
             'city' => $city,

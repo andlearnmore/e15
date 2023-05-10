@@ -8,14 +8,24 @@
 @endsection
 
 @section('content')
-    <p>Show all of the places in a city.</p>
+    <h3 test='city-page'>{{ $city->city }}</h2>
+        <p>Explore places to visit in {{ $city->city }}, {{ $country->country }}.</p>
 
-    <h2 test='city-page'>{{ $city->city }}, {{ $country->country }}</h2>
-    @foreach ($places as $place)
-        <a class="location" href='/{{ $country->code }}/{{ $city->slug }}/{{ $place->slug }}'>
-            <h4> {{ $place->place }}</h4>
-            @include('/layouts/shortdetails')
-        </a>
-    @endforeach
-    <a href='/cities' class='btn btn-light' target="_blank">Back to all cities.</a>
-@endsection
+        <a href='/cities' class='btn btn-link' target="_blank">Back to all cities</a>
+
+        @foreach ($places as $place)
+            <div class="card-deck">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $place->place }}</h5>
+                        <p class="card-text">
+                            @include('/layouts/shortdetails')</p>
+                        <a class="btn btn-primary stretched-link"
+                            href='/{{ $country->code }}/{{ $city->slug }}/{{ $place->slug }}'>
+                            Learn more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @endsection

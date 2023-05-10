@@ -8,29 +8,35 @@
 @endsection
 
 @section('content')
-    @if (!Auth::user())
-        <p test='login-encourage'>Log in to see places to visit in each city.</p>
-    @endif
-    @foreach ($countries as $country)
-        <div class='location'>
+    <div class="col">
+        @if (!Auth::user())
+            <p test='login-encourage'>Log in to see places to visit in each city.</p>
+        @endif
+        @foreach ($countries as $country)
             <h2>{{ $country->country }}</h2>
-            <div class="cities">
-                @foreach ($cities as $city)
-                    @if ($city->country_id == $country->id)
-                        @if (Auth::user())
-                            <div class="location">
-                                <a test='city-link' href='/{{ $country->code }}/{{ $city->slug }}'>
-                                    <h4> {{ $city->city }}</h4>
-                                </a>
+            @foreach ($cities as $city)
+                @if ($city->country_id == $country->id)
+                    @if (Auth::user())
+                        <div class="card-deck">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title" test='card-title'> {{ $city->city }}</h4>
+                                    <a class="btn btn-sm stretched-link" test='city-link'
+                                        href='/{{ $country->code }}/{{ $city->slug }}'>
+                                    </a>
+                                </div>
                             </div>
-                        @else
-                            <div class="location">
-                                <h4> {{ $city->city }}</h4>
+                        </div>
+                    @else
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"> {{ $city->city }}</h4>
                             </div>
-                        @endif
+                        </div>
                     @endif
-                @endforeach
-            </div>
-        </div>
+                @endif
+            @endforeach
+    </div>
     @endforeach
+    </div>
 @endsection

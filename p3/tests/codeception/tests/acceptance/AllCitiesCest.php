@@ -11,18 +11,15 @@ class AllCitiesCest
     {
         $I->amOnPage('/test/login-as/2');
         $I->amOnPage('/cities');
-        $I->click('Berlin');
+        $I->click('[test=city-link]');
 
-        $I->see('Brandenburg Gate');
+        $I->see('Explore places to visit');
     }
 
     public function UserCantAddPlaceAlreadyInMyTrip(AcceptanceTester $I)
     {
         $I->amOnPage('/test/login-as/2');
-        $I->amOnPage('/cities');
-        $I->click('Berlin');
-        $I->click('Sherwood Forest Playground');
-        $I->seeInCurrentUrl('DE/berlin/sherwood-forest-playground');
+        $I->amOnPage('/DE/berlin/sherwood-forest-playground');
         $I->dontSee('[test=add-button');
 
     }
@@ -30,9 +27,7 @@ class AllCitiesCest
     public function UserCanAddPlaceNotInMyTrip(AcceptanceTester $I)
     {
         $I->amOnPage('/test/login-as/2');
-        $I->amOnPage('/cities');
-        $I->click('Berlin');
-        $I->click('Altes Museum');
+        $I->amOnPage('/DE/berlin/altes-museum');
         $I->click('Save to My Trip');
         $I->see('Altes Museum was added to My Trip.');
 

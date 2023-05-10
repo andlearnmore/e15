@@ -20,7 +20,7 @@
         </div>
     @endif
     @include('layouts/details')
-
+    <br>
     <div>
         <a href='/{{ $country }}/{{ $city->slug }}' class='btn btn-light test='nav-back'>Back to
             {{ ucfirst($city->city) }}</a>

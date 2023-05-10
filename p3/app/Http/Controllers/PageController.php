@@ -56,7 +56,7 @@ class PageController extends Controller
      */
     public function welcome()
     {
-        $welcomeMessage = "Hello and welcome to this page.";
+        $welcomeMessage = "Welcome.";
         return view('pages/welcome', [
             'welcomeMessage' => $welcomeMessage
         ]);

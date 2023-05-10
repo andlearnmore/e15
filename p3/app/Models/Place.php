@@ -22,13 +22,6 @@ class Place extends Model
             ->withTimestamps();
     }
 
-    public function tags()
-    {
-        return $this->belongsToMany('App\Models\Tag')
-        ->withTimestamps();
-    }
-
-
     public static function findBySlug($slug)
     {
         return self::where('slug', '=', $slug)->first();

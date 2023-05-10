@@ -10,6 +10,10 @@
     <div>
         <h1>Edit {{ $place->place }} </h1>
     </div>
+    <div>
+        @include('layouts/backtomytrips')
+    </div>
+
     <form method='POST' action='/mytrip/{{ $place->slug }}' class='form'>
         <div class='details'>* required fields</div>
         {{ method_field('put') }}
@@ -133,7 +137,4 @@
         </div>
 
     </form>
-    <div>
-        @include('layouts/backtomytrips')
-    </div>
 @endsection

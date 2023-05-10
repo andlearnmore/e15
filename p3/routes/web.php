@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\TestController;
@@ -29,6 +30,7 @@ if (!App::environment('production')) {
     Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 }
+
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
@@ -37,7 +39,7 @@ Route::get('/cities', [CityController::class, 'index']);
 
 Route::group(['middleware' => 'auth'], function () {
     /**
-     * Profile
+     * User
      */
     Route::get('/profile', [PageController::class, 'show']);
     Route::get('/profile/{name}/edit', [PageController::class, 'edit']);
@@ -68,5 +70,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     # Click on a place in /{country}/{city} and see the details of a place. 
     Route::get('/{country}/{city}/{place}', [PlaceController::class, 'show']);
+
 
 });

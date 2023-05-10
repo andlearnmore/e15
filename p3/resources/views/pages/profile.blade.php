@@ -14,7 +14,9 @@
             {{ $user->about }}
         @endif
     </p>
-    <a href='/profile/{{ $user->name }}/edit' class='btn btn-primary'>
-        Edit My Profile
-    </a>
+    <div>
+        <a href='/profile/{{ $user->name }}/edit' class='btn btn-primary'>
+            Edit My Profile
+        </a>
+    </div>
 @endsection

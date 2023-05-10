@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 
 
 use App\Models\City;
+use App\Models\Country;
 use App\Models\Place;
 
 
@@ -28,14 +29,13 @@ class TripController extends Controller
         foreach ($places as $place) {
             $city_ids[] = $place->city_id;
         }
-        $unique_city_ids= array_unique($city_ids);
+        $unique_city_ids = array_unique($city_ids);
         
         $cities = City::whereIn('id', $unique_city_ids)->get();
-        
-        
+
         return view('trips/show', [
             'cities' => $cities,
-            'places' => $places
+            'places' => $places,
         ]);
     }
     /**
@@ -46,7 +46,6 @@ class TripController extends Controller
         $slug = $request->slug;
         $newPlace = Place::findBySlug($slug);
 
-        // TODO: Make sure place isn't already in table.
         $request->user()->places()->save($newPlace);
 
         return redirect('/mytrip')->with([
@@ -89,7 +88,7 @@ class TripController extends Controller
         
         if ($place->user_id == null || $place->user_id != $request->user()->id){
             return redirect('/mytrip')->with([
-                'flash-alert' => 'You cannot edit this place.'
+                'flash-alert' => 'You cannot edit this place because you did not create it.'
             ]);
         } else {
             $cities = City::orderBy('slug')->select(['id', 'city'])->get();
@@ -135,6 +134,8 @@ class TripController extends Controller
         $place->save();
 
         
-        return ('UPDATE VIEW!');
+        return back()->with([
+            'flash-alert' => $place->place . ' was updated.',
+        ]);
     }
 }

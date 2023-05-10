@@ -84,6 +84,8 @@ class PlaceController extends Controller
         $place->city_id = $request->city_id;
         $place->user_id = Auth::user()->id;
         $place->save();
+
+        $request->user()->places()->save($place);
     
         return view('places/new', [
             'place' => $place

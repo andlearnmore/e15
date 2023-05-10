@@ -23,5 +23,5 @@
 
 
     <div>
-        <a href='{{ $place->url }}' class='btn btn-light' target='_blank'>Learn more</a>
+        <a href='{{ $place->url }}' class='btn btn-light' target='_blank'>Visit the website</a>
     </div>
